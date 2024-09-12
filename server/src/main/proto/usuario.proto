@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.server.grpc";
+
+service usuario{
+    rpc Login(LoginRequest) returns (LoginResponse){}
+    rpc CrearUsuario(UsuarioRequest) returns (CrudResponse){}
+    rpc ModificarUsuario(UsuarioModificarRequest) returns (CrudResponse){}
+    rpc EliminarUsuario(UsuarioId) returns (CrudResponse){}
+    rpc TraerUsuarios(FiltrosUsuario) returns (getUsuarios){}
+    rpc Detalle(UsuarioId) returns (DetalleResponse){}
+    rpc GetUsuariosNoAsignados(Empty) returns (getUsuarios){}
+}
+
+message Empty{}
+
+message UsuarioId{
+    int64 idUsuario = 1;
+}
+
+message LoginRequest{
+    string email = 1;
+    string clave = 2;
+}
+
+message UsuarioRequest{
+    string nombre = 1;
+    string email = 2;
+    string clave = 3;
+    string rol = 4;
+    bool habilitado = 5;
+}
+
+message UsuarioModificarRequest{
+    int64 idUsuario = 1;
+    string nombre = 2;
+    string email = 3;
+    string clave = 4;
+    bool habilitado = 5;
+}
+
+message FiltrosUsuario{
+    string nombre = 1;
+    string codigo = 2; 
+}
+
+message LoginResponse{
+    int64 idUsuario = 1;
+    string nombre = 2;
+    string email = 3;
+    string clave = 4;
+    string rol = 5;
+    bool habilitado = 6;
+}
+
+message UsuarioResponse{
+    int64 idUsuario = 1;
+    string nombre = 2;
+    string email = 3;
+    string rol = 4;
+    bool habilitado = 5;
+}
+
+message CrudResponse{
+    bool creado = 1;
+    string mensaje = 2;
+}
+
+message DetalleResponse{
+    int64 idUsuario = 1;
+    string nombre = 2;
+    string email = 3;
+    string rol = 4;
+    bool habilitado = 5;
+}
+
+message getUsuarios{
+    repeated UsuarioResponse usaurios = 1;
+}

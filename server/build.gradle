@@ -29,6 +29,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'javax.annotation:javax.annotation-api:1.3.2'
+	implementation 'net.devh:grpc-server-spring-boot-starter:2.13.1.RELEASE'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -38,7 +40,6 @@ dependencies {
 	runtimeOnly 'io.grpc:grpc-netty-shaded:1.43.1'
 	implementation 'io.grpc:grpc-protobuf:1.43.1'
 	implementation 'io.grpc:grpc-stub:1.43.1'
-	//implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.1'
 	implementation 'org.modelmapper:modelmapper:2.3.3'
 }
 
