@@ -1,4 +1,4 @@
-package com.server.Exceptions;
+package com.server.exceptions;
 
 import java.util.Date;
 import java.util.HashMap;
