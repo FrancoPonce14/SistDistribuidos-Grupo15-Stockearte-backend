@@ -17,11 +17,4 @@ public class ServerException extends RuntimeException {
     private String mensaje;
     private HttpStatus estado;
 
-    public ServerException(String mensaje1, String mensaje2, HttpStatus estado) {
-        super();
-        this.mensaje = mensaje1;
-        this.mensaje = mensaje2;
-        this.estado = estado;
-    }
-
 }
