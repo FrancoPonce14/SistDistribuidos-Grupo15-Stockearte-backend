@@ -56,7 +56,7 @@ public class UsuarioGrpc extends usuarioImplBase {
                 responseObserver.onCompleted();
             } catch (ServerException e) {
                 responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.UNKNOWN)
-                        .withDescription(e.getMessage())
+                        .withDescription(e.getMensaje())
                         .asRuntimeException());
             }
     }
@@ -166,7 +166,7 @@ public class UsuarioGrpc extends usuarioImplBase {
                     .setRol(u.getRol())
                     .setHabilitado(u.isHabilitado())
                     .build();
-            usuarios.addUsaurios(usuario); 
+            usuarios.addUsuarios(usuario); 
         }
 
         getUsuarios response = usuarios.build();
@@ -192,7 +192,7 @@ public class UsuarioGrpc extends usuarioImplBase {
             responseObserver.onCompleted();
         } catch (ServerException e) {
             responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.NOT_FOUND)
-                    .withDescription(e.getMessage())
+                    .withDescription(e.getMensaje())
                     .asRuntimeException());
         } 
     }
@@ -211,7 +211,7 @@ public class UsuarioGrpc extends usuarioImplBase {
                         .setRol(u.getRol())
                         .setHabilitado(u.isHabilitado())
                         .build();
-                builder.addUsaurios(usuario);
+                builder.addUsuarios(usuario);
             }
     
             getUsuarios response = builder.build();

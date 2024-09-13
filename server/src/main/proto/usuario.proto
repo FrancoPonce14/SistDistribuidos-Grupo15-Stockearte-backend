@@ -76,5 +76,5 @@ message DetalleResponse{
 }
 
 message getUsuarios{
-    repeated UsuarioResponse usaurios = 1;
+    repeated UsuarioResponse usuarios = 1;
 }
