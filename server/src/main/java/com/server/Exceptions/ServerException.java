@@ -1,7 +1,6 @@
 package com.server.exceptions;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +15,7 @@ public class ServerException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
     private String mensaje;
-    private HttpStatusCode estado;
+    private HttpStatus estado;
 
     public ServerException(String mensaje1, String mensaje2, HttpStatus estado) {
         super();
