@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.server.grpc";
+
+service tienda{
+     rpc CrearTienda(TiendaRequest) returns (CrudTiendaResponse){}
+     rpc ModificarTienda(TiendaModificarRequest) returns (CrudTiendaResponse){}
+     rpc EliminarTienda(TiendaId) returns (CrudTiendaResponse){}
+     rpc TraerTiendas(FiltrosTienda) returns (getTiendas){}
+     rpc Detalle(TiendaId) returns (DetalleTiendaResponse){}
+     rpc AsignarProducto(ManejarProducto) returns (CrudTiendaResponse){}
+     rpc DesasignarProducto(ManejarProducto) returns (CrudTiendaResponse){}
+     rpc AsignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
+     rpc DesasignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
+     rpc ModificarStock(ModificarStockRequest) returns (CrudTiendaResponse){}
+}
+
+message TiendaId{
+    int64 idTienda = 1;
+}
+
+message TiendaRequest{
+    string codigo = 1;
+    string direccion = 2;
+    string provincia = 3;
+    string ciudad = 4;
+    bool habilitado = 5;
+}
+
+message TiendaModificarRequest{
+    int64 idTienda = 1;
+    string codigo = 2;
+    string direccion = 3;
+    string provincia = 4;
+    string ciudad = 5;
+    bool habilitado = 6;
+}
+
+message FiltrosTienda{
+    string codigo = 1;
+    bool habilitado = 2;
+}
+
+message ManejarProducto{
+    int64 idTienda = 1;
+    int64 idProducto = 2;
+}
+
+message ManejarUsuario{
+    int64 idTienda = 1;
+    int64 idUsuario = 2;
+}
+
+message ModificarStockRequest{
+    int64 idTienda = 1;
+    int64 idProducto = 2;
+    int32 cantidad = 3;
+}
+
+message CrudTiendaResponse{
+    bool creado = 1;
+    string mensaje = 2;
+}
+
+message TiendaResponse{
+    string codigo = 1;
+    bool habilitado = 2;
+}
+
+message DetalleTiendaResponse{
+    int64 idTienda = 1;
+    string codigo = 2;
+    string direccion = 3;
+    string provincia = 4;
+    string ciudad = 5;
+    bool habilitado = 6;
+}
+
+message getTiendas{
+    repeated TiendaResponse tiendas = 1;
+}

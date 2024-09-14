@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.server.grpc";
+
+import "tienda.proto";
+
+service producto{
+     rpc CrearProducto(ProductoRequest) returns (CrudProductoResponse){}
+     rpc ModificarProducto(ProductoModificarRequest) returns (CrudProductoResponse){}
+     rpc EliminarProducto(ProductoId) returns (CrudProductoResponse){}
+     rpc TraerProductos(FiltrosProducto) returns (getProductos){}
+     rpc Detalle(ProductoId) returns (DetalleProductoResponse){}
+     rpc GetProductosNoAsociados(TiendaId) returns (getProductosNoAsociados){}
+}
+
+message ProductoId{
+    int64 idProducto = 1;
+}
+
+message ProductoRequest{
+    string nombre = 1;
+    string imagen = 2;
+    string talle = 3;
+    string color = 4;
+    bool habilitado = 5;
+}
+
+message ProductoModificarRequest{
+    int64 idProducto = 1;
+    string nombre = 2;
+    string imagen = 3;
+    string talle = 4;
+    string color = 5;
+    bool habilitado = 6;
+}
+
+message FiltrosProducto{
+    int64 idUsuario = 1;
+    string nombre = 2;
+    string codigo = 3;
+    string talle = 4;
+    string color = 5;
+}
+
+message ProductoResponse{
+    string nombre = 1;
+    string codigo = 2;
+    TiendaResponse tienda = 3;
+    string talle = 4;
+    string color = 5;
+}
+
+message ProductoResponse2{
+    string nombre = 1;
+    string codigo = 2;
+    string talle = 3;
+    string color = 4;
+}
+
+message CrudProductoResponse{
+    bool creado = 1;
+    string mensaje = 2;
+}
+
+message DetalleProductoResponse{
+    string nombre = 1;
+    string imagen = 2;
+    repeated StockResponse stock = 3;
+}
+
+message StockResponse{
+    TiendaResponse tienda = 1;
+    int32 cantidad = 2;
+}
+
+message getProductos{
+    repeated ProductoResponse productos = 1;
+}
+
+message getProductosNoAsociados{
+    repeated ProductoResponse2 productos = 1;
+}
