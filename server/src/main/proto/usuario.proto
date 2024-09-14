@@ -63,7 +63,7 @@ message UsuarioResponse{
 }
 
 message CrudResponse{
-    bool creado = 1;
+    bool estado = 1;
     string mensaje = 2;
 }
 

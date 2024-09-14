@@ -59,7 +59,7 @@ message ProductoResponse2{
 }
 
 message CrudProductoResponse{
-    bool creado = 1;
+    bool estado = 1;
     string mensaje = 2;
 }
 
