@@ -37,7 +37,7 @@ public class UsuarioGrpc extends usuarioImplBase {
     public void login(LoginRequest request, StreamObserver<LoginResponse> responseObserver) {
         try{
          Usuario usuario = usuarioRepository.findByEmail(request.getEmail())
-                    .orElseThrow(() -> new ServerException("Ya existe un usuario registrado con ese email", HttpStatus.NOT_FOUND));
+                    .orElseThrow(() -> new ServerException("Usuario o contraseña incorrecta", HttpStatus.NOT_FOUND));
             
             if (!usuario.getClave().equals(request.getClave())) {
                 throw new ServerException("Usuario o contraseña incorrecta", HttpStatus.BAD_REQUEST);
@@ -76,7 +76,7 @@ public class UsuarioGrpc extends usuarioImplBase {
 
                 CrudResponse response = CrudResponse.newBuilder()
                     .setMensaje("Usuario creado con exito")
-                    .setCreado(true)
+                    .setEstado(true)
                     .build();
 
                 responseObserver.onNext(response);
@@ -84,7 +84,7 @@ public class UsuarioGrpc extends usuarioImplBase {
         } catch (ServerException e) {
             CrudResponse response = CrudResponse.newBuilder()
                 .setMensaje("Usuario no fue creado")
-                .setCreado(false)
+                .setEstado(false)
                 .build();
 
             responseObserver.onNext(response);
@@ -106,15 +106,15 @@ public class UsuarioGrpc extends usuarioImplBase {
     
             CrudResponse response = CrudResponse.newBuilder()
                 .setMensaje("Usuario modificado con exito")
-                .setCreado(true)
+                .setEstado(true)
                 .build();
     
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         } catch (ServerException e) {
             CrudResponse response = CrudResponse.newBuilder()
-                .setMensaje(e.getMessage())
-                .setCreado(false)
+                .setMensaje(e.getMensaje())
+                .setEstado(false)
                 .build();
     
             responseObserver.onNext(response);
@@ -133,15 +133,15 @@ public class UsuarioGrpc extends usuarioImplBase {
     
             CrudResponse response = CrudResponse.newBuilder()
                 .setMensaje("Usuario eliminado con exito")
-                .setCreado(true)
+                .setEstado(true)
                 .build();
     
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         } catch (ServerException e) {
             CrudResponse response = CrudResponse.newBuilder()
-                .setMensaje(e.getMessage())
-                .setCreado(false)
+                .setMensaje(e.getMensaje())
+                .setEstado(false)
                 .build();
     
             responseObserver.onNext(response);
