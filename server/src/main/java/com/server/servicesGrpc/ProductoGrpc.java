@@ -230,7 +230,7 @@ public class ProductoGrpc extends productoImplBase {
             Tienda tienda = tiendaRepository.findById(request.getIdTienda())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.BAD_REQUEST));
 
-            List<Producto> productos = productoRepository.findByTienda(tienda.getId());
+            List<Producto> productos = productoRepository.findProductosNoAsociados(tienda.getId());
 
             getProductosNoAsociados.Builder productosB = getProductosNoAsociados.newBuilder();
 
