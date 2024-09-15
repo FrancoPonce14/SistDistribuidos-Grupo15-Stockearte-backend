@@ -16,6 +16,7 @@ import com.server.entities.Tienda;
 import com.server.entities.Usuario;
 import com.server.exceptions.ServerException;
 import com.server.grpc.CrudProductoResponse;
+import com.server.grpc.DetalleProductoRequest;
 import com.server.grpc.DetalleProductoResponse;
 import com.server.grpc.FiltrosProducto;
 import com.server.grpc.ProductoId;
@@ -193,9 +194,9 @@ public class ProductoGrpc extends productoImplBase {
 
     @Transactional
     @Override
-    public void detalle(ProductoId request, StreamObserver<DetalleProductoResponse> responseObserver) {
+    public void detalle(DetalleProductoRequest request, StreamObserver<DetalleProductoResponse> responseObserver) {
         try {
-            Producto producto = productoRepository.findById(request.getIdProducto())
+            Producto producto = productoRepository.findByCodigo(request.getCodigo())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.BAD_REQUEST));
 
             DetalleProductoResponse.Builder responseBuilder = DetalleProductoResponse.newBuilder()

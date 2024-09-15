@@ -10,7 +10,7 @@ service producto{
      rpc ModificarProducto(ProductoModificarRequest) returns (CrudProductoResponse){}
      rpc EliminarProducto(ProductoId) returns (CrudProductoResponse){}
      rpc TraerProductos(FiltrosProducto) returns (getProductos){}
-     rpc Detalle(ProductoId) returns (DetalleProductoResponse){}
+     rpc Detalle(DetalleProductoRequest) returns (DetalleProductoResponse){}
      rpc GetProductosNoAsociados(TiendaId) returns (getProductosNoAsociados){}
 }
 
@@ -35,6 +35,9 @@ message ProductoModificarRequest{
     bool habilitado = 6;
 }
 
+message DetalleProductoRequest{
+    string codigo = 1;
+}
 message FiltrosProducto{
     int64 idUsuario = 1;
     string nombre = 2;

@@ -8,7 +8,7 @@ service tienda{
      rpc ModificarTienda(TiendaModificarRequest) returns (CrudTiendaResponse){}
      rpc EliminarTienda(TiendaId) returns (CrudTiendaResponse){}
      rpc TraerTiendas(FiltrosTienda) returns (getTiendas){}
-     rpc Detalle(TiendaId) returns (DetalleTiendaResponse){}
+     rpc Detalle(DetalleTiendaRequest) returns (DetalleTiendaResponse){}
      rpc AsignarProducto(ManejarProducto) returns (CrudTiendaResponse){}
      rpc DesasignarProducto(ManejarProducto) returns (CrudTiendaResponse){}
      rpc AsignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
@@ -35,6 +35,10 @@ message TiendaModificarRequest{
     string provincia = 4;
     string ciudad = 5;
     bool habilitado = 6;
+}
+
+message DetalleTiendaRequest{
+    string codigo = 1;
 }
 
 message FiltrosTienda{

@@ -14,6 +14,7 @@ import com.server.entities.Tienda;
 import com.server.entities.Usuario;
 import com.server.exceptions.ServerException;
 import com.server.grpc.CrudTiendaResponse;
+import com.server.grpc.DetalleTiendaRequest;
 import com.server.grpc.DetalleTiendaResponse;
 import com.server.grpc.FiltrosTienda;
 import com.server.grpc.ManejarProducto;
@@ -165,9 +166,9 @@ public class TiendaGrpc extends tiendaImplBase {
     }
 
     @Override
-    public void detalle(TiendaId request, StreamObserver<DetalleTiendaResponse> responseObserver) {
+    public void detalle(DetalleTiendaRequest request, StreamObserver<DetalleTiendaResponse> responseObserver) {
         try {
-            Tienda tienda = tiendaRepository.findById(request.getIdTienda())
+            Tienda tienda = tiendaRepository.findByCodigo(request.getCodigo())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
 
             DetalleTiendaResponse response = DetalleTiendaResponse.newBuilder()

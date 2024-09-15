@@ -1,6 +1,7 @@
 package com.server.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +13,7 @@ import com.server.entities.Producto;
 
 public interface IProductoRepository extends JpaRepository<Producto, Long> {
 
-        
+    public Optional<Producto> findByCodigo(String codigo);    
     @Query(value = "SELECT p.* FROM Producto p JOIN Stock s ON s.producto_id = p.id WHERE s.tienda_id = :tiendaId", nativeQuery = true)
     public List<Producto> findByTienda(@Param("tiendaId") Long tiendaId);
     
