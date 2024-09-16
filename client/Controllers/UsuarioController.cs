@@ -13,7 +13,7 @@ namespace client.Controllers
 
         public UsuarioController()
         {
-             _usuarioService = new UsuarioService("https://localhost:5098");
+             _usuarioService = new UsuarioService("https://localhost:9090");
         }
 
         [HttpPost("login")]

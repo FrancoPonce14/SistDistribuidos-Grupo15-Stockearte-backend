@@ -13,7 +13,7 @@ namespace client.Controllers
 
         public ProductoController()
         {
-            _productoService = new ProductoService("https://localhost:5098");
+            _productoService = new ProductoService("https://localhost:9090");
         }
 
         [HttpPost("crear")]
