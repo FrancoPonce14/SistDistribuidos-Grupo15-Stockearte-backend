@@ -1,0 +1,6 @@
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.csproj.AssemblyReference.cache
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.AssemblyInfoInputs.cache
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.AssemblyInfo.cs
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Desktop\SistDistribuidos-Grupo15-Stockearte-backend-dev\client\obj\Debug\net8.0\grpcClient.MvcApplicationPartsAssemblyInfo.cache

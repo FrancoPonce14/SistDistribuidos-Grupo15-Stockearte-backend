@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CWSWWGcLgkx99NMaLwjEJ5QbEFT3H+O3LTmCtcxGkEs=",
+  "Source": "client",
+  "BasePath": "_content/client",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
