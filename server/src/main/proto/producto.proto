@@ -60,6 +60,7 @@ message ProductoResponse2{
     string codigo = 2;
     string talle = 3;
     string color = 4;
+    int64 idProducto = 5;
 }
 
 message CrudProductoResponse{
