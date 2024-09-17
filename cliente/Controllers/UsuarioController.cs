@@ -52,7 +52,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<getUsuarios> TraerUsuarios(FiltrosUsuario request)
         {
@@ -61,7 +61,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<DetalleResponse> Detalle(UsuarioId request)
         {
@@ -70,7 +70,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<getUsuarios> GetUsuariosNoAsignados(Empty request)
         {

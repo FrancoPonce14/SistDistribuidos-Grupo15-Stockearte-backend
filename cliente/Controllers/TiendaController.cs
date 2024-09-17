@@ -43,7 +43,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<getTiendas> TraerTiendas(FiltrosTienda request)
         {
@@ -52,7 +52,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<DetalleTiendaResponse> DetalleTiendas(DetalleTiendaRequest request)
         {

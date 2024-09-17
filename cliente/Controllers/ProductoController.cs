@@ -40,7 +40,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<getProductos> TraerProducto(FiltrosProducto request)
         {
@@ -48,7 +48,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<DetalleProductoResponse> Detalle(DetalleProductoRequest request)
         {
@@ -56,7 +56,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [Route("[action]")]
         public async Task<getProductosNoAsociados> GetProductosNoAsociados(TiendaId request)
         {
