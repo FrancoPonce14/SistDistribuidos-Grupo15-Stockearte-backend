@@ -24,6 +24,7 @@ import com.server.grpc.getUsuarios;
 import com.server.grpc.usuarioGrpc.usuarioImplBase;
 import com.server.repositories.IUsuarioRepository;
 
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -55,9 +56,7 @@ public class UsuarioGrpc extends usuarioImplBase {
                 responseObserver.onNext(response);
                 responseObserver.onCompleted();
             } catch (ServerException e) {
-                responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.UNKNOWN)
-                        .withDescription(e.getMensaje())
-                        .asRuntimeException());
+                responseObserver.onError(Status.UNKNOWN.withDescription(e.getMensaje()).asRuntimeException());
             }
     }
 

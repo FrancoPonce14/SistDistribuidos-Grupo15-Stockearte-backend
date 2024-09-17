@@ -18,5 +18,5 @@ public interface ITiendaRepository extends JpaRepository<Tienda, Long>{
         + "(:codigo IS NULL OR LOWER(t.codigo) LIKE LOWER(CONCAT('%', :codigo, '%'))) AND "
         + "(:habilitado IS NULL OR t.habilitado = :habilitado)")
         public Page<Tienda> findAll(@Param("codigo") String codigo, @Param("habilitado") Boolean habilitado, Pageable pageable);
- 
+       
 }

@@ -85,12 +85,7 @@ public class TiendaGrpc extends tiendaImplBase {
         try {
             Tienda tienda = tiendaRepository.findById(request.getIdTienda())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.BAD_REQUEST));
-
-            if (tiendaRepository.findByCodigo(request.getCodigo()) != null) {
-                throw new ServerException("Ya existe una tienda con ese código", HttpStatus.BAD_REQUEST);
-            }
-
-            tienda.setCodigo(request.getCodigo());
+                    
             tienda.setDireccion(request.getDireccion());
             tienda.setCiudad(request.getCiudad());
             tienda.setProvincia(request.getProvincia());
@@ -148,7 +143,13 @@ public class TiendaGrpc extends tiendaImplBase {
             int page = 1; int size = 9999;
             PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
 
-            Page<Tienda> tiendasPage = tiendaRepository.findAll(request.getCodigo(), request.getHabilitado(), pageable);
+            String codigo = request.getCodigo();
+        
+
+            codigo = codigo.isEmpty() ? null : codigo;
+            Boolean habilitado = request.getHabilitado() ? request.getHabilitado() : null;
+
+            Page<Tienda> tiendasPage = tiendaRepository.findAll(codigo, habilitado, pageable);
 
             getTiendas.Builder tiendas = getTiendas.newBuilder();
             for (Tienda t : tiendasPage) {

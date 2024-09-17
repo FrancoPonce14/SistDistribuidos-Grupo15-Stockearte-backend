@@ -29,11 +29,10 @@ message TiendaRequest{
 
 message TiendaModificarRequest{
     int64 idTienda = 1;
-    string codigo = 2;
-    string direccion = 3;
-    string provincia = 4;
-    string ciudad = 5;
-    bool habilitado = 6;
+    string direccion = 2;
+    string provincia = 3;
+    string ciudad = 4;
+    bool habilitado = 5;
 }
 
 message DetalleTiendaRequest{
