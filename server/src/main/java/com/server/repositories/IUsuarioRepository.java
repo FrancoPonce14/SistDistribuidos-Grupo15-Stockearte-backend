@@ -15,6 +15,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     
     public Optional<Usuario> findByEmail(String email);
     public List<Usuario> findByTiendaIsNull();
+    public List<Usuario> findByTiendaId(Long tiendaId);
 
     @Query("SELECT u FROM Usuario u WHERE "
     + "(:nombre IS NULL OR LOWER(u.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))) AND "

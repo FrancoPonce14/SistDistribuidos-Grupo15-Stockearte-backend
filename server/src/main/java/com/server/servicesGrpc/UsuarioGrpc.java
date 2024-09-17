@@ -15,6 +15,7 @@ import com.server.grpc.CrudResponse;
 import com.server.grpc.DetalleResponse;
 import com.server.grpc.Empty;
 import com.server.grpc.FiltrosUsuario;
+import com.server.grpc.IDtienda;
 import com.server.grpc.LoginRequest;
 import com.server.grpc.LoginResponse;
 import com.server.grpc.UsuarioId;
@@ -222,6 +223,31 @@ public class UsuarioGrpc extends usuarioImplBase {
             
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUsuariosAsignados(IDtienda request, StreamObserver<getUsuarios> responseObserver) {
+
+        Long tiendaId = request.getIdTienda();
+        List<Usuario> usuarios = usuarioRepository.findByTiendaId(tiendaId);
+    
+        getUsuarios.Builder usuariosB = getUsuarios.newBuilder();
+    
+        for (Usuario u : usuarios) {
+            UsuarioResponse usuario = UsuarioResponse.newBuilder()
+                    .setIdUsuario(u.getId())
+                    .setNombre(u.getNombre())
+                    .setEmail(u.getEmail())
+                    .setRol(u.getRol())
+                    .setHabilitado(u.isHabilitado())
+                    .build();
+            usuariosB.addUsuarios(usuario);
+        }
+    
+        getUsuarios response = usuariosB.build();
+    
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
 }

@@ -65,6 +65,8 @@ namespace GrpcClientAPI {
     static readonly grpc::Marshaller<global::GrpcClientAPI.DetalleResponse> __Marshaller_DetalleResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.DetalleResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcClientAPI.Empty> __Marshaller_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.IDtienda> __Marshaller_IDtienda = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.IDtienda.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcClientAPI.LoginRequest, global::GrpcClientAPI.LoginResponse> __Method_Login = new grpc::Method<global::GrpcClientAPI.LoginRequest, global::GrpcClientAPI.LoginResponse>(
@@ -120,6 +122,14 @@ namespace GrpcClientAPI {
         __ServiceName,
         "GetUsuariosNoAsignados",
         __Marshaller_Empty,
+        __Marshaller_getUsuarios);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClientAPI.IDtienda, global::GrpcClientAPI.getUsuarios> __Method_GetUsuariosAsignados = new grpc::Method<global::GrpcClientAPI.IDtienda, global::GrpcClientAPI.getUsuarios>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetUsuariosAsignados",
+        __Marshaller_IDtienda,
         __Marshaller_getUsuarios);
 
     /// <summary>Service descriptor</summary>
@@ -294,6 +304,26 @@ namespace GrpcClientAPI {
       public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getUsuarios> GetUsuariosNoAsignadosAsync(global::GrpcClientAPI.Empty request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetUsuariosNoAsignados, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getUsuarios GetUsuariosAsignados(global::GrpcClientAPI.IDtienda request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetUsuariosAsignados(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getUsuarios GetUsuariosAsignados(global::GrpcClientAPI.IDtienda request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetUsuariosAsignados, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getUsuarios> GetUsuariosAsignadosAsync(global::GrpcClientAPI.IDtienda request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetUsuariosAsignadosAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getUsuarios> GetUsuariosAsignadosAsync(global::GrpcClientAPI.IDtienda request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetUsuariosAsignados, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

@@ -65,6 +65,8 @@ namespace GrpcClientAPI {
     static readonly grpc::Marshaller<global::GrpcClientAPI.TiendaId> __Marshaller_TiendaId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.TiendaId.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcClientAPI.getProductosNoAsociados> __Marshaller_getProductosNoAsociados = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getProductosNoAsociados.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.getProductosAsociados> __Marshaller_getProductosAsociados = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getProductosAsociados.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse> __Method_CrearProducto = new grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse>(
@@ -113,6 +115,14 @@ namespace GrpcClientAPI {
         "GetProductosNoAsociados",
         __Marshaller_TiendaId,
         __Marshaller_getProductosNoAsociados);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClientAPI.TiendaId, global::GrpcClientAPI.getProductosAsociados> __Method_GetProductosAsociados = new grpc::Method<global::GrpcClientAPI.TiendaId, global::GrpcClientAPI.getProductosAsociados>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetProductosAsociados",
+        __Marshaller_TiendaId,
+        __Marshaller_getProductosAsociados);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -266,6 +276,26 @@ namespace GrpcClientAPI {
       public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getProductosNoAsociados> GetProductosNoAsociadosAsync(global::GrpcClientAPI.TiendaId request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetProductosNoAsociados, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getProductosAsociados GetProductosAsociados(global::GrpcClientAPI.TiendaId request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetProductosAsociados(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getProductosAsociados GetProductosAsociados(global::GrpcClientAPI.TiendaId request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetProductosAsociados, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getProductosAsociados> GetProductosAsociadosAsync(global::GrpcClientAPI.TiendaId request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetProductosAsociadosAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getProductosAsociados> GetProductosAsociadosAsync(global::GrpcClientAPI.TiendaId request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetProductosAsociados, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

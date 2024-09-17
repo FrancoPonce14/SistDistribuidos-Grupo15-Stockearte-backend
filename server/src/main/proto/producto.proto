@@ -12,6 +12,7 @@ service producto{
      rpc TraerProductos(FiltrosProducto) returns (getProductos){}
      rpc Detalle(DetalleProductoRequest) returns (DetalleProductoResponse){}
      rpc GetProductosNoAsociados(TiendaId) returns (getProductosNoAsociados){}
+     rpc GetProductosAsociados(TiendaId) returns (getProductosAsociados){}
 }
 
 message ProductoId{
@@ -82,5 +83,8 @@ message getProductos{
 }
 
 message getProductosNoAsociados{
+    repeated ProductoResponse2 productos = 1;
+}
+message getProductosAsociados{
     repeated ProductoResponse2 productos = 1;
 }

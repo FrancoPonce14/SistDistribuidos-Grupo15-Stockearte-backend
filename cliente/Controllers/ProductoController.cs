@@ -63,5 +63,13 @@ namespace GrpcClientAPI.Controllers
             var reply = await Client.GetProductosNoAsociadosAsync(request);
             return reply;
         }
+
+        [HttpPost()]
+        [Route("[action]")]
+        public async Task<getProductosAsociados> GetProductosAsociados(TiendaId request)
+        {
+            var reply = await Client.GetProductosAsociadosAsync(request);
+            return reply;
+        }
     }
 }

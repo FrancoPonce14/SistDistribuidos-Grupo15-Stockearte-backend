@@ -10,9 +10,14 @@ service usuario{
     rpc TraerUsuarios(FiltrosUsuario) returns (getUsuarios){}
     rpc Detalle(UsuarioId) returns (DetalleResponse){}
     rpc GetUsuariosNoAsignados(Empty) returns (getUsuarios){}
+    rpc GetUsuariosAsignados(IDtienda) returns (getUsuarios){}
 }
 
 message Empty{}
+
+message IDtienda{
+    int64 idTienda = 1;
+}
 
 message UsuarioId{
     int64 idUsuario = 1;

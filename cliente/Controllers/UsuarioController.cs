@@ -78,6 +78,15 @@ namespace GrpcClientAPI.Controllers
 
             return reply;
         }
+
+        [HttpPost()]
+        [Route("[action]")]
+        public async Task<getUsuarios> GetUsuariosAsignados(IDtienda request)
+        {
+            var reply = await Client.GetUsuariosAsignadosAsync(request);
+
+            return reply;
+        }
         
     }
 

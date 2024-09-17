@@ -29,6 +29,7 @@ import com.server.grpc.TiendaId;
 import com.server.grpc.TiendaResponse;
 import com.server.grpc.getProductos;
 import com.server.grpc.getProductosNoAsociados;
+import com.server.grpc.getProductosAsociados;
 import com.server.grpc.productoGrpc.productoImplBase;
 import com.server.repositories.IProductoRepository;
 import com.server.repositories.ITiendaRepository;
@@ -248,6 +249,32 @@ public class ProductoGrpc extends productoImplBase {
             getProductosNoAsociados response = productosB.build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getProductosAsociados(TiendaId request,
+            StreamObserver<getProductosAsociados> responseObserver) {
+                Tienda tienda = tiendaRepository.findById(request.getIdTienda())
+                .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.BAD_REQUEST));
+
+        List<Producto> productos = productoRepository.findProductosAsociados(tienda.getId());
+
+        getProductosAsociados.Builder productosB = getProductosAsociados.newBuilder();
+
+        for (Producto p : productos) {
+            ProductoResponse2 producto = ProductoResponse2.newBuilder()
+                    .setNombre(p.getNombre())
+                    .setCodigo(p.getCodigo())
+                    .setTalle(p.getTalle())
+                    .setColor(p.getColor())
+                    .build();
+
+            productosB.addProductos(producto);
+        }
+
+        getProductosAsociados response = productosB.build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
 }
