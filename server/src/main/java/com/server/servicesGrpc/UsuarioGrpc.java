@@ -1,6 +1,7 @@
 package com.server.servicesGrpc;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -199,10 +200,14 @@ public class UsuarioGrpc extends usuarioImplBase {
     @Override
     public void getUsuariosNoAsignados(Empty request, StreamObserver<getUsuarios> responseObserver) {
             List<Usuario> usuarios = usuarioRepository.findByTiendaIsNull();
+
+            List<Usuario> usuariosFiltrados = usuarios.stream()
+                .filter(u -> !"ROLE_CASA_CENTRAL".equals(u.getRol()))
+                .collect(Collectors.toList());
             
             getUsuarios.Builder builder = getUsuarios.newBuilder();
     
-            for (Usuario u : usuarios) {
+            for (Usuario u : usuariosFiltrados) {
                 UsuarioResponse usuario = UsuarioResponse.newBuilder()
                         .setIdUsuario(u.getId())
                         .setNombre(u.getNombre())
