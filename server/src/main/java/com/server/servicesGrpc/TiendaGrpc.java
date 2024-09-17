@@ -307,7 +307,7 @@ public class TiendaGrpc extends tiendaImplBase {
             Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
                     .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
 
-            if (usuario.getTienda() == null || !usuario.getTienda().equals(tienda)) {
+            if (usuario.getTienda() == null || !usuario.getTienda().getId().equals(tienda.getId())) {
                 throw new ServerException("Usuario no está asignado a esta tienda", HttpStatus.BAD_REQUEST);
             }
 
