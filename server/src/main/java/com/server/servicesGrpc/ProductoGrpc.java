@@ -268,6 +268,7 @@ public class ProductoGrpc extends productoImplBase {
                     .setCodigo(p.getCodigo())
                     .setTalle(p.getTalle())
                     .setColor(p.getColor())
+                    .setIdProducto(p.getId())
                     .build();
 
             productosB.addProductos(producto);
