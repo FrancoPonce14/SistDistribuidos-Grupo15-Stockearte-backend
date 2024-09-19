@@ -27,11 +27,15 @@ public interface IProductoRepository extends JpaRepository<Producto, Long> {
         + "(:color IS NULL OR LOWER(p.color) LIKE LOWER(CONCAT('%', :color, '%')))", nativeQuery = true)
     public Page<Producto> findByTienda(@Param("tiendaId") Long tiendaId, @Param("nombre") String nombre, @Param("codigo") String codigo, @Param("talle") String talle, @Param("color") String color, Pageable pageable);
 
-    @Query(value = "SELECT * FROM producto p WHERE "
-    + "(:nombre IS NULL OR LOWER(p.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))) AND "
-    + "(:codigo IS NULL OR LOWER(p.codigo) LIKE LOWER(CONCAT('%', :codigo, '%'))) AND "
-    + "(:talle IS NULL OR LOWER(p.talle) LIKE LOWER(CONCAT('%', :talle, '%'))) AND "
-    + "(:color IS NULL OR LOWER(p.color) LIKE LOWER(CONCAT('%', :color, '%')))", nativeQuery = true)
+    @Query(value = "SELECT p.*, t.codigo AS tienda_codigo FROM producto p " +
+    "LEFT JOIN stock s ON s.producto_id = p.id " +
+    "LEFT JOIN tienda t ON t.id = s.tienda_id " +
+    "WHERE (:nombre IS NULL OR LOWER(p.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))) AND " +
+    "(:codigo IS NULL OR LOWER(p.codigo) LIKE LOWER(CONCAT('%', :codigo, '%'))) AND " +
+    "(:talle IS NULL OR LOWER(p.talle) LIKE LOWER(CONCAT('%', :talle, '%'))) AND " +
+    "(:color IS NULL OR LOWER(p.color) LIKE LOWER(CONCAT('%', :color, '%')))", 
+    nativeQuery = true)
     public Page<Producto> findAll(@Param("nombre") String nombre, @Param("codigo") String codigo, @Param("talle") String talle, @Param("color") String color, Pageable pageable);
+
     
 }
