@@ -3,6 +3,8 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.server.grpc";
 
+import "tienda.proto";
+
 service usuario{
     rpc Login(LoginRequest) returns (LoginResponse){}
     rpc CrearUsuario(UsuarioRequest) returns (CrudResponse){}
@@ -65,6 +67,7 @@ message UsuarioResponse{
     string email = 3;
     string rol = 4;
     bool habilitado = 5;
+    TiendaResponse tienda = 6;
 }
 
 message CrudResponse{

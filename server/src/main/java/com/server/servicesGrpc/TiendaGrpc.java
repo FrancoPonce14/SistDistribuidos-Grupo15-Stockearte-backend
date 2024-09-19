@@ -144,10 +144,9 @@ public class TiendaGrpc extends tiendaImplBase {
             PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
 
             String codigo = request.getCodigo();
+            boolean habilitado = request.getHabilitado();
         
-
             codigo = codigo.isEmpty() ? null : codigo;
-            Boolean habilitado = request.getHabilitado() ? request.getHabilitado() : null;
 
             Page<Tienda> tiendasPage = tiendaRepository.findAll(codigo, habilitado, pageable);
 

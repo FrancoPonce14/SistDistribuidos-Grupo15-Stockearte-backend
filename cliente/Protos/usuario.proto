@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option csharp_namespace = "GrpcClientAPI";
 
+import "Protos/tienda.proto";
+
 service usuario{
     rpc Login(LoginRequest) returns (LoginResponse){}
     rpc CrearUsuario(UsuarioRequest) returns (CrudResponse){}
@@ -64,6 +66,7 @@ message UsuarioResponse{
     string email = 3;
     string rol = 4;
     bool habilitado = 5;
+    TiendaResponse tienda = 6;
 }
 
 message CrudResponse{

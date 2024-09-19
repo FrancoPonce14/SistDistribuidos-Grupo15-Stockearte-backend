@@ -18,6 +18,7 @@ import com.server.grpc.FiltrosUsuario;
 import com.server.grpc.IDtienda;
 import com.server.grpc.LoginRequest;
 import com.server.grpc.LoginResponse;
+import com.server.grpc.TiendaResponse;
 import com.server.grpc.UsuarioId;
 import com.server.grpc.UsuarioModificarRequest;
 import com.server.grpc.UsuarioRequest;
@@ -100,7 +101,9 @@ public class UsuarioGrpc extends usuarioImplBase {
                     .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.BAD_REQUEST));
             usuario.setNombre(request.getNombre());
             usuario.setEmail(request.getEmail());
-            usuario.setClave(request.getClave());
+            if(request.getClave() != null && !request.getClave().isEmpty()){
+                usuario.setClave(request.getClave());
+            }
             usuario.setHabilitado(request.getHabilitado());
     
             usuarioRepository.save(usuario);
@@ -160,12 +163,17 @@ public class UsuarioGrpc extends usuarioImplBase {
         getUsuarios.Builder usuarios = getUsuarios.newBuilder();
 
         for(Usuario u : usuariosPage.getContent()){
+            TiendaResponse tienda = TiendaResponse.newBuilder()
+                    .setCodigo(u.getTienda() != null ? u.getTienda().getCodigo() : "")
+                    .setHabilitado(u.getTienda() != null ? u.getTienda().isHabilitado() : false)
+                    .build();
             UsuarioResponse usuario = UsuarioResponse.newBuilder()
                     .setIdUsuario(u.getId())
                     .setNombre(u.getNombre())
                     .setEmail(u.getEmail())
                     .setRol(u.getRol())
                     .setHabilitado(u.isHabilitado())
+                    .setTienda(tienda)
                     .build();
             usuarios.addUsuarios(usuario); 
         }
