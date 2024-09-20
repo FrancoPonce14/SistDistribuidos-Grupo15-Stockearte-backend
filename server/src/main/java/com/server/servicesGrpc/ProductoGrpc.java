@@ -223,6 +223,7 @@ public class ProductoGrpc extends productoImplBase {
                     .orElseThrow(() -> new ServerException("Producto no encontrado para esa tienda", HttpStatus.BAD_REQUEST));
 
             DetalleProductoResponse.Builder responseBuilder = DetalleProductoResponse.newBuilder()
+                    .setIdProducto(producto.getId())
                     .setNombre(producto.getNombre())
                     .setImagen(producto.getImagen())
                     .setTalle(producto.getTalle())

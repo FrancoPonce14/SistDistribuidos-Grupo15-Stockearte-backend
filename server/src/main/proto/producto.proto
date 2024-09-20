@@ -71,12 +71,13 @@ message CrudProductoResponse{
 }
 
 message DetalleProductoResponse{
-    string nombre = 1;
-    string imagen = 2;
-    string talle = 3;
-    string color = 4;
-    bool habilitado = 5;
-    repeated StockResponse stock = 6;
+    int64 idProducto = 1;
+    string nombre = 2;
+    string imagen = 3;
+    string talle = 4;
+    string color = 5;
+    bool habilitado = 6;
+    repeated StockResponse stock = 7;
 }
 
 message StockResponse{
