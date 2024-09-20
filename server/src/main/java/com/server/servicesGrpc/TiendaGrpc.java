@@ -334,10 +334,10 @@ public class TiendaGrpc extends tiendaImplBase {
     @Override
     public void modificarStock(ModificarStockRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
         try {
-            Tienda tienda = tiendaRepository.findById(request.getIdTienda())
+            Tienda tienda = tiendaRepository.findByCodigo(request.getCodigoTienda())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
 
-            Producto producto = productoRepository.findById(request.getIdProducto())
+            Producto producto = productoRepository.findByCodigo(request.getCodigoProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
             Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);

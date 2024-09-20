@@ -37,8 +37,10 @@ message ProductoModificarRequest{
 }
 
 message DetalleProductoRequest{
-    string codigo = 1;
+    string codigoTienda = 1;
+    string codigoProducto = 2;
 }
+
 message FiltrosProducto{
     int64 idUsuario = 1;
     string nombre = 2;
@@ -71,7 +73,9 @@ message CrudProductoResponse{
 message DetalleProductoResponse{
     string nombre = 1;
     string imagen = 2;
-    repeated StockResponse stock = 3;
+    string talle = 3;
+    string color = 4;
+    repeated StockResponse stock = 5;
 }
 
 message StockResponse{
