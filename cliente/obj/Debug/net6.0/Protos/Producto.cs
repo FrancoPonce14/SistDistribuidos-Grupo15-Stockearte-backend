@@ -40,26 +40,27 @@ namespace GrpcClientAPI {
             "BWNvbG9yGAUgASgJImUKEVByb2R1Y3RvUmVzcG9uc2UyEg4KBm5vbWJyZRgB",
             "IAEoCRIOCgZjb2RpZ28YAiABKAkSDQoFdGFsbGUYAyABKAkSDQoFY29sb3IY",
             "BCABKAkSEgoKaWRQcm9kdWN0bxgFIAEoAyI3ChRDcnVkUHJvZHVjdG9SZXNw",
-            "b25zZRIOCgZlc3RhZG8YASABKAgSDwoHbWVuc2FqZRgCIAEoCSJ2ChdEZXRh",
-            "bGxlUHJvZHVjdG9SZXNwb25zZRIOCgZub21icmUYASABKAkSDgoGaW1hZ2Vu",
-            "GAIgASgJEg0KBXRhbGxlGAMgASgJEg0KBWNvbG9yGAQgASgJEh0KBXN0b2Nr",
-            "GAUgAygLMg4uU3RvY2tSZXNwb25zZSJCCg1TdG9ja1Jlc3BvbnNlEh8KBnRp",
-            "ZW5kYRgBIAEoCzIPLlRpZW5kYVJlc3BvbnNlEhAKCGNhbnRpZGFkGAIgASgF",
-            "IjQKDGdldFByb2R1Y3RvcxIkCglwcm9kdWN0b3MYASADKAsyES5Qcm9kdWN0",
-            "b1Jlc3BvbnNlIkAKF2dldFByb2R1Y3Rvc05vQXNvY2lhZG9zEiUKCXByb2R1",
-            "Y3RvcxgBIAMoCzISLlByb2R1Y3RvUmVzcG9uc2UyIj4KFWdldFByb2R1Y3Rv",
-            "c0Fzb2NpYWRvcxIlCglwcm9kdWN0b3MYASADKAsyEi5Qcm9kdWN0b1Jlc3Bv",
-            "bnNlMjK+AwoIcHJvZHVjdG8SOgoNQ3JlYXJQcm9kdWN0bxIQLlByb2R1Y3Rv",
-            "UmVxdWVzdBoVLkNydWRQcm9kdWN0b1Jlc3BvbnNlIgASRwoRTW9kaWZpY2Fy",
-            "UHJvZHVjdG8SGS5Qcm9kdWN0b01vZGlmaWNhclJlcXVlc3QaFS5DcnVkUHJv",
-            "ZHVjdG9SZXNwb25zZSIAEjgKEEVsaW1pbmFyUHJvZHVjdG8SCy5Qcm9kdWN0",
-            "b0lkGhUuQ3J1ZFByb2R1Y3RvUmVzcG9uc2UiABIzCg5UcmFlclByb2R1Y3Rv",
-            "cxIQLkZpbHRyb3NQcm9kdWN0bxoNLmdldFByb2R1Y3RvcyIAEj4KB0RldGFs",
-            "bGUSFy5EZXRhbGxlUHJvZHVjdG9SZXF1ZXN0GhguRGV0YWxsZVByb2R1Y3Rv",
-            "UmVzcG9uc2UiABJAChdHZXRQcm9kdWN0b3NOb0Fzb2NpYWRvcxIJLlRpZW5k",
-            "YUlkGhguZ2V0UHJvZHVjdG9zTm9Bc29jaWFkb3MiABI8ChVHZXRQcm9kdWN0",
-            "b3NBc29jaWFkb3MSCS5UaWVuZGFJZBoWLmdldFByb2R1Y3Rvc0Fzb2NpYWRv",
-            "cyIAQhCqAg1HcnBjQ2xpZW50QVBJYgZwcm90bzM="));
+            "b25zZRIOCgZlc3RhZG8YASABKAgSDwoHbWVuc2FqZRgCIAEoCSKKAQoXRGV0",
+            "YWxsZVByb2R1Y3RvUmVzcG9uc2USDgoGbm9tYnJlGAEgASgJEg4KBmltYWdl",
+            "bhgCIAEoCRINCgV0YWxsZRgDIAEoCRINCgVjb2xvchgEIAEoCRISCgpoYWJp",
+            "bGl0YWRvGAUgASgIEh0KBXN0b2NrGAYgAygLMg4uU3RvY2tSZXNwb25zZSJC",
+            "Cg1TdG9ja1Jlc3BvbnNlEh8KBnRpZW5kYRgBIAEoCzIPLlRpZW5kYVJlc3Bv",
+            "bnNlEhAKCGNhbnRpZGFkGAIgASgFIjQKDGdldFByb2R1Y3RvcxIkCglwcm9k",
+            "dWN0b3MYASADKAsyES5Qcm9kdWN0b1Jlc3BvbnNlIkAKF2dldFByb2R1Y3Rv",
+            "c05vQXNvY2lhZG9zEiUKCXByb2R1Y3RvcxgBIAMoCzISLlByb2R1Y3RvUmVz",
+            "cG9uc2UyIj4KFWdldFByb2R1Y3Rvc0Fzb2NpYWRvcxIlCglwcm9kdWN0b3MY",
+            "ASADKAsyEi5Qcm9kdWN0b1Jlc3BvbnNlMjK+AwoIcHJvZHVjdG8SOgoNQ3Jl",
+            "YXJQcm9kdWN0bxIQLlByb2R1Y3RvUmVxdWVzdBoVLkNydWRQcm9kdWN0b1Jl",
+            "c3BvbnNlIgASRwoRTW9kaWZpY2FyUHJvZHVjdG8SGS5Qcm9kdWN0b01vZGlm",
+            "aWNhclJlcXVlc3QaFS5DcnVkUHJvZHVjdG9SZXNwb25zZSIAEjgKEEVsaW1p",
+            "bmFyUHJvZHVjdG8SCy5Qcm9kdWN0b0lkGhUuQ3J1ZFByb2R1Y3RvUmVzcG9u",
+            "c2UiABIzCg5UcmFlclByb2R1Y3RvcxIQLkZpbHRyb3NQcm9kdWN0bxoNLmdl",
+            "dFByb2R1Y3RvcyIAEj4KB0RldGFsbGUSFy5EZXRhbGxlUHJvZHVjdG9SZXF1",
+            "ZXN0GhguRGV0YWxsZVByb2R1Y3RvUmVzcG9uc2UiABJAChdHZXRQcm9kdWN0",
+            "b3NOb0Fzb2NpYWRvcxIJLlRpZW5kYUlkGhguZ2V0UHJvZHVjdG9zTm9Bc29j",
+            "aWFkb3MiABI8ChVHZXRQcm9kdWN0b3NBc29jaWFkb3MSCS5UaWVuZGFJZBoW",
+            "LmdldFByb2R1Y3Rvc0Fzb2NpYWRvcyIAQhCqAg1HcnBjQ2xpZW50QVBJYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcClientAPI.TiendaReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -71,7 +72,7 @@ namespace GrpcClientAPI {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoResponse), global::GrpcClientAPI.ProductoResponse.Parser, new[]{ "Nombre", "Codigo", "Tienda", "Talle", "Color" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoResponse2), global::GrpcClientAPI.ProductoResponse2.Parser, new[]{ "Nombre", "Codigo", "Talle", "Color", "IdProducto" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.CrudProductoResponse), global::GrpcClientAPI.CrudProductoResponse.Parser, new[]{ "Estado", "Mensaje" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleProductoResponse), global::GrpcClientAPI.DetalleProductoResponse.Parser, new[]{ "Nombre", "Imagen", "Talle", "Color", "Stock" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleProductoResponse), global::GrpcClientAPI.DetalleProductoResponse.Parser, new[]{ "Nombre", "Imagen", "Talle", "Color", "Habilitado", "Stock" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.StockResponse), global::GrpcClientAPI.StockResponse.Parser, new[]{ "Tienda", "Cantidad" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getProductos), global::GrpcClientAPI.getProductos.Parser, new[]{ "Productos" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getProductosNoAsociados), global::GrpcClientAPI.getProductosNoAsociados.Parser, new[]{ "Productos" }, null, null, null, null),
@@ -2492,6 +2493,7 @@ namespace GrpcClientAPI {
       imagen_ = other.imagen_;
       talle_ = other.talle_;
       color_ = other.color_;
+      habilitado_ = other.habilitado_;
       stock_ = other.stock_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2550,10 +2552,22 @@ namespace GrpcClientAPI {
       }
     }
 
+    /// <summary>Field number for the "habilitado" field.</summary>
+    public const int HabilitadoFieldNumber = 5;
+    private bool habilitado_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Habilitado {
+      get { return habilitado_; }
+      set {
+        habilitado_ = value;
+      }
+    }
+
     /// <summary>Field number for the "stock" field.</summary>
-    public const int StockFieldNumber = 5;
+    public const int StockFieldNumber = 6;
     private static readonly pb::FieldCodec<global::GrpcClientAPI.StockResponse> _repeated_stock_codec
-        = pb::FieldCodec.ForMessage(42, global::GrpcClientAPI.StockResponse.Parser);
+        = pb::FieldCodec.ForMessage(50, global::GrpcClientAPI.StockResponse.Parser);
     private readonly pbc::RepeatedField<global::GrpcClientAPI.StockResponse> stock_ = new pbc::RepeatedField<global::GrpcClientAPI.StockResponse>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2580,6 +2594,7 @@ namespace GrpcClientAPI {
       if (Imagen != other.Imagen) return false;
       if (Talle != other.Talle) return false;
       if (Color != other.Color) return false;
+      if (Habilitado != other.Habilitado) return false;
       if(!stock_.Equals(other.stock_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2592,6 +2607,7 @@ namespace GrpcClientAPI {
       if (Imagen.Length != 0) hash ^= Imagen.GetHashCode();
       if (Talle.Length != 0) hash ^= Talle.GetHashCode();
       if (Color.Length != 0) hash ^= Color.GetHashCode();
+      if (Habilitado != false) hash ^= Habilitado.GetHashCode();
       hash ^= stock_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2627,6 +2643,10 @@ namespace GrpcClientAPI {
         output.WriteRawTag(34);
         output.WriteString(Color);
       }
+      if (Habilitado != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(Habilitado);
+      }
       stock_.WriteTo(output, _repeated_stock_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2654,6 +2674,10 @@ namespace GrpcClientAPI {
         output.WriteRawTag(34);
         output.WriteString(Color);
       }
+      if (Habilitado != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(Habilitado);
+      }
       stock_.WriteTo(ref output, _repeated_stock_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2676,6 +2700,9 @@ namespace GrpcClientAPI {
       }
       if (Color.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Color);
+      }
+      if (Habilitado != false) {
+        size += 1 + 1;
       }
       size += stock_.CalculateSize(_repeated_stock_codec);
       if (_unknownFields != null) {
@@ -2701,6 +2728,9 @@ namespace GrpcClientAPI {
       }
       if (other.Color.Length != 0) {
         Color = other.Color;
+      }
+      if (other.Habilitado != false) {
+        Habilitado = other.Habilitado;
       }
       stock_.Add(other.stock_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2734,7 +2764,11 @@ namespace GrpcClientAPI {
             Color = input.ReadString();
             break;
           }
-          case 42: {
+          case 40: {
+            Habilitado = input.ReadBool();
+            break;
+          }
+          case 50: {
             stock_.AddEntriesFrom(input, _repeated_stock_codec);
             break;
           }
@@ -2769,7 +2803,11 @@ namespace GrpcClientAPI {
             Color = input.ReadString();
             break;
           }
-          case 42: {
+          case 40: {
+            Habilitado = input.ReadBool();
+            break;
+          }
+          case 50: {
             stock_.AddEntriesFrom(ref input, _repeated_stock_codec);
             break;
           }

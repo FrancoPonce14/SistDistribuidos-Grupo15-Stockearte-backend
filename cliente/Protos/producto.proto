@@ -73,7 +73,8 @@ message DetalleProductoResponse{
     string imagen = 2;
     string talle = 3;
     string color = 4;
-    repeated StockResponse stock = 5;
+    bool habilitado = 5;
+    repeated StockResponse stock = 6;
 }
 
 message StockResponse{

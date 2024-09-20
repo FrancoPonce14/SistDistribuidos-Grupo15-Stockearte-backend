@@ -226,7 +226,8 @@ public class ProductoGrpc extends productoImplBase {
                     .setNombre(producto.getNombre())
                     .setImagen(producto.getImagen())
                     .setTalle(producto.getTalle())
-                    .setColor(producto.getColor());
+                    .setColor(producto.getColor())
+                    .setHabilitado(producto.isHabilitado());
 
             for (Stock stock : producto.getStock()) {
                 if (stock.getTienda().getCodigo().equals(request.getCodigoTienda())) {
