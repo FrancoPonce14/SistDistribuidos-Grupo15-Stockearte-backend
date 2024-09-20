@@ -1,5 +1,4 @@
-> **Grupo 15:** Trabajo grupal para la materia de sistemas distribuidos con gRPC en Java 17 con Spring y MySQL como base de datos, usando Gradle como herramienta de construcción.
-
+> **Grupo 15:** Trabajo grupal para la materia de sistemas distribuidos que implementa una arquitectura distribuida utilizando gRPC. El servidor gRPC está desarrollado en Java 17 con Spring, mientras que el cliente gRPC está implementado en C#. La base de datos utilizada es MySQL. Además, se integra un frontend desarrollado en React que se conecta al cliente  gRPC para proporcionar una interfaz de usuario.
 > 
 # Índice
 #### Configuración - server
