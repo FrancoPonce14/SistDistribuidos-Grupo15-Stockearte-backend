@@ -79,25 +79,25 @@ Para integrar gRPC en tu proyecto, seguí estos pasos:
 
 En tu archivo `build.gradle`, añade el plugin que se muestra en la siguiente imagen:
 
-<img src="image/plugin.png" alt="Plugin Protobuf" width="400">
+<img src="env/plugin.png" alt="Plugin Protobuf" width="400">
 
 4.2. **Incluir las Dependencias Necesarias**
 
 Añade las dependencias necesarias en la sección `dependencies` de tu archivo `build.gradle`, como se muestra en la imagen a continuación:
 
-<img src="image/dependencias.png" alt="Dependencias gRPC" width="400">
+<img src="env/dependencias.png" alt="Dependencias gRPC" width="400">
 
 4.3. **Configurar Protocolo Buffer (Protobuf)**
 
 Configura Protobuf en tu `build.gradle` para generar código Java a partir de archivos `.proto`. La configuración se muestra en la siguiente imagen:
 
-<img src="image/protobuf.png" alt="Configuración Protobuf" width="400">
+<img src="env/protobuf.png" alt="Configuración Protobuf" width="400">
 
 4.4. **Especificar Directorios para Archivos Generados**
 
 Define dónde se guardarán los archivos generados por Protobuf. Puedes ver esta configuración en la imagen:
 
-<img src="image/directorio.png" alt="Directorios Protobuf" width="400">
+<img src="env/directorio.png" alt="Directorios Protobuf" width="400">
 
 4.5. **Compilar y Verificar**
 
