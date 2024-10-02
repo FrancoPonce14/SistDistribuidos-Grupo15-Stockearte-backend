@@ -59,6 +59,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
     testImplementation 'org.projectlombok:lombok:1.18.30'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+    
+    implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
 }
 
 protobuf {

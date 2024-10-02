@@ -2,6 +2,7 @@ package com.server.servicesGrpc;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.protobuf.util.JsonFormat;
 import com.server.Consumer;
 import com.server.entities.Producto;
 import com.server.entities.Stock;
@@ -25,6 +28,7 @@ import com.server.grpc.Empty;
 import com.server.grpc.FiltrosProducto;
 import com.server.grpc.ProductoId;
 import com.server.grpc.ProductoModificarRequest;
+import com.server.grpc.ProductoNovedades;
 import com.server.grpc.ProductoRequest;
 import com.server.grpc.ProductoResponse;
 import com.server.grpc.ProductoResponse2;
@@ -41,6 +45,7 @@ import com.server.repositories.ITiendaRepository;
 import com.server.repositories.IUsuarioRepository;
 import com.server.util.Utility;
 
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -58,6 +63,9 @@ public class ProductoGrpc extends productoImplBase {
 
     @Autowired
     private Consumer consumer;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Override
     public void crearProducto(ProductoRequest request, StreamObserver<CrudProductoResponse> responseObserver) {
@@ -315,8 +323,25 @@ public class ProductoGrpc extends productoImplBase {
 
     @Override
     public void traerNovedades(Empty request, StreamObserver<getNovedades> responseObserver) {
-        // TODO Auto-generated method stub
-        super.traerNovedades(request, responseObserver);
+        List<String> novedadesKafka = consumer.getNovedades();
+        List<ProductoNovedades> productos = new ArrayList<>();
+    
+        for (String mensaje : novedadesKafka) {
+            try {
+                ProductoNovedades.Builder productoBuilder = ProductoNovedades.newBuilder();
+                JsonFormat.parser().ignoringUnknownFields().merge(mensaje, productoBuilder);
+                productos.add(productoBuilder.build());
+            } catch (Exception e) {
+                responseObserver.onError(Status.INTERNAL
+                    .withDescription("Error al procesar el mensaje: " + e.getMessage())
+                    .asRuntimeException());
+                return;
+            }
+        }
+    
+        getNovedades.Builder novedadesResponse = getNovedades.newBuilder().addAllNovedades(productos);
+        responseObserver.onNext(novedadesResponse.build());
+        responseObserver.onCompleted();
     }
-
+    
 }

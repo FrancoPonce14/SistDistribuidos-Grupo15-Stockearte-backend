@@ -1,3 +1,4 @@
 obj\Debug\net6.0\Protos/Producto.cs \
 obj\Debug\net6.0\Protos/ProductoGrpc.cs: Protos/tienda.proto\
+ Protos/usuario.proto\
  Protos/producto.proto

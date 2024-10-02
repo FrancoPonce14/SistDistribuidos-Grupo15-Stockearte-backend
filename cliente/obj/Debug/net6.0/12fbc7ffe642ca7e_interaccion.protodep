@@ -1,2 +1,0 @@
-obj\Debug\net6.0\Protos/Interaccion.cs \
-obj\Debug\net6.0\Protos/InteraccionGrpc.cs: Protos/interaccion.proto

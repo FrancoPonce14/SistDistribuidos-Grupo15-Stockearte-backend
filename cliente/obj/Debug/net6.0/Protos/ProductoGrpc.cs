@@ -67,6 +67,10 @@ namespace GrpcClientAPI {
     static readonly grpc::Marshaller<global::GrpcClientAPI.getProductosNoAsociados> __Marshaller_getProductosNoAsociados = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getProductosNoAsociados.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcClientAPI.getProductosAsociados> __Marshaller_getProductosAsociados = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getProductosAsociados.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.Empty> __Marshaller_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.getNovedades> __Marshaller_getNovedades = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getNovedades.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse> __Method_CrearProducto = new grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse>(
@@ -123,6 +127,14 @@ namespace GrpcClientAPI {
         "GetProductosAsociados",
         __Marshaller_TiendaId,
         __Marshaller_getProductosAsociados);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClientAPI.Empty, global::GrpcClientAPI.getNovedades> __Method_TraerNovedades = new grpc::Method<global::GrpcClientAPI.Empty, global::GrpcClientAPI.getNovedades>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TraerNovedades",
+        __Marshaller_Empty,
+        __Marshaller_getNovedades);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -296,6 +308,26 @@ namespace GrpcClientAPI {
       public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getProductosAsociados> GetProductosAsociadosAsync(global::GrpcClientAPI.TiendaId request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetProductosAsociados, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getNovedades TraerNovedades(global::GrpcClientAPI.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TraerNovedades(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.getNovedades TraerNovedades(global::GrpcClientAPI.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TraerNovedades, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getNovedades> TraerNovedadesAsync(global::GrpcClientAPI.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TraerNovedadesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getNovedades> TraerNovedadesAsync(global::GrpcClientAPI.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TraerNovedades, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
