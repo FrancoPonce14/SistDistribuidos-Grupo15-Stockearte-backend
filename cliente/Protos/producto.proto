@@ -104,8 +104,8 @@ message ProductoNovedades{
 }
 
 message Disponibilidad{
-    int64 idTalle = 1;
-    int64 idColor = 2;
+    string talle = 1;
+    string color = 2;
 }
 
 message getNovedades{

@@ -52,21 +52,21 @@ namespace GrpcClientAPI {
             "c2UyIj4KFWdldFByb2R1Y3Rvc0Fzb2NpYWRvcxIlCglwcm9kdWN0b3MYASAD",
             "KAsyEi5Qcm9kdWN0b1Jlc3BvbnNlMiJpChFQcm9kdWN0b05vdmVkYWRlcxIO",
             "CgZjb2RpZ28YASABKAkSDgoGbm9tYnJlGAIgASgJEgsKA3VybBgDIAEoCRIn",
-            "Cg5kaXNwb25pYmlsaWRhZBgEIAMoCzIPLkRpc3BvbmliaWxpZGFkIjIKDkRp",
-            "c3BvbmliaWxpZGFkEg8KB2lkVGFsbGUYASABKAMSDwoHaWRDb2xvchgCIAEo",
-            "AyI1CgxnZXROb3ZlZGFkZXMSJQoJbm92ZWRhZGVzGAEgAygLMhIuUHJvZHVj",
-            "dG9Ob3ZlZGFkZXMy6QMKCHByb2R1Y3RvEjoKDUNyZWFyUHJvZHVjdG8SEC5Q",
-            "cm9kdWN0b1JlcXVlc3QaFS5DcnVkUHJvZHVjdG9SZXNwb25zZSIAEkcKEU1v",
-            "ZGlmaWNhclByb2R1Y3RvEhkuUHJvZHVjdG9Nb2RpZmljYXJSZXF1ZXN0GhUu",
-            "Q3J1ZFByb2R1Y3RvUmVzcG9uc2UiABI4ChBFbGltaW5hclByb2R1Y3RvEgsu",
-            "UHJvZHVjdG9JZBoVLkNydWRQcm9kdWN0b1Jlc3BvbnNlIgASMwoOVHJhZXJQ",
-            "cm9kdWN0b3MSEC5GaWx0cm9zUHJvZHVjdG8aDS5nZXRQcm9kdWN0b3MiABI+",
-            "CgdEZXRhbGxlEhcuRGV0YWxsZVByb2R1Y3RvUmVxdWVzdBoYLkRldGFsbGVQ",
-            "cm9kdWN0b1Jlc3BvbnNlIgASQAoXR2V0UHJvZHVjdG9zTm9Bc29jaWFkb3MS",
-            "CS5UaWVuZGFJZBoYLmdldFByb2R1Y3Rvc05vQXNvY2lhZG9zIgASPAoVR2V0",
-            "UHJvZHVjdG9zQXNvY2lhZG9zEgkuVGllbmRhSWQaFi5nZXRQcm9kdWN0b3NB",
-            "c29jaWFkb3MiABIpCg5UcmFlck5vdmVkYWRlcxIGLkVtcHR5Gg0uZ2V0Tm92",
-            "ZWRhZGVzIgBCEKoCDUdycGNDbGllbnRBUEliBnByb3RvMw=="));
+            "Cg5kaXNwb25pYmlsaWRhZBgEIAMoCzIPLkRpc3BvbmliaWxpZGFkIi4KDkRp",
+            "c3BvbmliaWxpZGFkEg0KBXRhbGxlGAEgASgJEg0KBWNvbG9yGAIgASgJIjUK",
+            "DGdldE5vdmVkYWRlcxIlCglub3ZlZGFkZXMYASADKAsyEi5Qcm9kdWN0b05v",
+            "dmVkYWRlczLpAwoIcHJvZHVjdG8SOgoNQ3JlYXJQcm9kdWN0bxIQLlByb2R1",
+            "Y3RvUmVxdWVzdBoVLkNydWRQcm9kdWN0b1Jlc3BvbnNlIgASRwoRTW9kaWZp",
+            "Y2FyUHJvZHVjdG8SGS5Qcm9kdWN0b01vZGlmaWNhclJlcXVlc3QaFS5DcnVk",
+            "UHJvZHVjdG9SZXNwb25zZSIAEjgKEEVsaW1pbmFyUHJvZHVjdG8SCy5Qcm9k",
+            "dWN0b0lkGhUuQ3J1ZFByb2R1Y3RvUmVzcG9uc2UiABIzCg5UcmFlclByb2R1",
+            "Y3RvcxIQLkZpbHRyb3NQcm9kdWN0bxoNLmdldFByb2R1Y3RvcyIAEj4KB0Rl",
+            "dGFsbGUSFy5EZXRhbGxlUHJvZHVjdG9SZXF1ZXN0GhguRGV0YWxsZVByb2R1",
+            "Y3RvUmVzcG9uc2UiABJAChdHZXRQcm9kdWN0b3NOb0Fzb2NpYWRvcxIJLlRp",
+            "ZW5kYUlkGhguZ2V0UHJvZHVjdG9zTm9Bc29jaWFkb3MiABI8ChVHZXRQcm9k",
+            "dWN0b3NBc29jaWFkb3MSCS5UaWVuZGFJZBoWLmdldFByb2R1Y3Rvc0Fzb2Np",
+            "YWRvcyIAEikKDlRyYWVyTm92ZWRhZGVzEgYuRW1wdHkaDS5nZXROb3ZlZGFk",
+            "ZXMiAEIQqgINR3JwY0NsaWVudEFQSWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcClientAPI.TiendaReflection.Descriptor, global::GrpcClientAPI.UsuarioReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -84,7 +84,7 @@ namespace GrpcClientAPI {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getProductosNoAsociados), global::GrpcClientAPI.getProductosNoAsociados.Parser, new[]{ "Productos" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getProductosAsociados), global::GrpcClientAPI.getProductosAsociados.Parser, new[]{ "Productos" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoNovedades), global::GrpcClientAPI.ProductoNovedades.Parser, new[]{ "Codigo", "Nombre", "Url", "Disponibilidad" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.Disponibilidad), global::GrpcClientAPI.Disponibilidad.Parser, new[]{ "IdTalle", "IdColor" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.Disponibilidad), global::GrpcClientAPI.Disponibilidad.Parser, new[]{ "Talle", "Color" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getNovedades), global::GrpcClientAPI.getNovedades.Parser, new[]{ "Novedades" }, null, null, null, null)
           }));
     }
@@ -3956,8 +3956,8 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Disponibilidad(Disponibilidad other) : this() {
-      idTalle_ = other.idTalle_;
-      idColor_ = other.idColor_;
+      talle_ = other.talle_;
+      color_ = other.color_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3967,27 +3967,27 @@ namespace GrpcClientAPI {
       return new Disponibilidad(this);
     }
 
-    /// <summary>Field number for the "idTalle" field.</summary>
-    public const int IdTalleFieldNumber = 1;
-    private long idTalle_;
+    /// <summary>Field number for the "talle" field.</summary>
+    public const int TalleFieldNumber = 1;
+    private string talle_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long IdTalle {
-      get { return idTalle_; }
+    public string Talle {
+      get { return talle_; }
       set {
-        idTalle_ = value;
+        talle_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "idColor" field.</summary>
-    public const int IdColorFieldNumber = 2;
-    private long idColor_;
+    /// <summary>Field number for the "color" field.</summary>
+    public const int ColorFieldNumber = 2;
+    private string color_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long IdColor {
-      get { return idColor_; }
+    public string Color {
+      get { return color_; }
       set {
-        idColor_ = value;
+        color_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -4006,8 +4006,8 @@ namespace GrpcClientAPI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IdTalle != other.IdTalle) return false;
-      if (IdColor != other.IdColor) return false;
+      if (Talle != other.Talle) return false;
+      if (Color != other.Color) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4015,8 +4015,8 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IdTalle != 0L) hash ^= IdTalle.GetHashCode();
-      if (IdColor != 0L) hash ^= IdColor.GetHashCode();
+      if (Talle.Length != 0) hash ^= Talle.GetHashCode();
+      if (Color.Length != 0) hash ^= Color.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4035,13 +4035,13 @@ namespace GrpcClientAPI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (IdTalle != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdTalle);
+      if (Talle.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Talle);
       }
-      if (IdColor != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdColor);
+      if (Color.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Color);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4053,13 +4053,13 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (IdTalle != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdTalle);
+      if (Talle.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Talle);
       }
-      if (IdColor != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdColor);
+      if (Color.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Color);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4071,11 +4071,11 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IdTalle != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdTalle);
+      if (Talle.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Talle);
       }
-      if (IdColor != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdColor);
+      if (Color.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Color);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4089,11 +4089,11 @@ namespace GrpcClientAPI {
       if (other == null) {
         return;
       }
-      if (other.IdTalle != 0L) {
-        IdTalle = other.IdTalle;
+      if (other.Talle.Length != 0) {
+        Talle = other.Talle;
       }
-      if (other.IdColor != 0L) {
-        IdColor = other.IdColor;
+      if (other.Color.Length != 0) {
+        Color = other.Color;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4110,12 +4110,12 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            IdTalle = input.ReadInt64();
+          case 10: {
+            Talle = input.ReadString();
             break;
           }
-          case 16: {
-            IdColor = input.ReadInt64();
+          case 18: {
+            Color = input.ReadString();
             break;
           }
         }
@@ -4133,12 +4133,12 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            IdTalle = input.ReadInt64();
+          case 10: {
+            Talle = input.ReadString();
             break;
           }
-          case 16: {
-            IdColor = input.ReadInt64();
+          case 18: {
+            Color = input.ReadString();
             break;
           }
         }

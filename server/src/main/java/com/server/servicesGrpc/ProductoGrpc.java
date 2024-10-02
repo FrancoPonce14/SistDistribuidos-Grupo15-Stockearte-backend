@@ -329,7 +329,7 @@ public class ProductoGrpc extends productoImplBase {
         for (String mensaje : novedadesKafka) {
             try {
                 ProductoNovedades.Builder productoBuilder = ProductoNovedades.newBuilder();
-                JsonFormat.parser().ignoringUnknownFields().merge(mensaje, productoBuilder);
+                JsonFormat.parser().ignoringUnknownFields().merge(mensaje.toLowerCase(), productoBuilder);
                 productos.add(productoBuilder.build());
             } catch (Exception e) {
                 responseObserver.onError(Status.INTERNAL
