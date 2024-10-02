@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
+import com.server.Consumer;
 import com.server.entities.Producto;
 import com.server.entities.Stock;
 import com.server.entities.Tienda;
@@ -20,6 +21,7 @@ import com.server.exceptions.ServerException;
 import com.server.grpc.CrudProductoResponse;
 import com.server.grpc.DetalleProductoRequest;
 import com.server.grpc.DetalleProductoResponse;
+import com.server.grpc.Empty;
 import com.server.grpc.FiltrosProducto;
 import com.server.grpc.ProductoId;
 import com.server.grpc.ProductoModificarRequest;
@@ -29,9 +31,10 @@ import com.server.grpc.ProductoResponse2;
 import com.server.grpc.StockResponse;
 import com.server.grpc.TiendaId;
 import com.server.grpc.TiendaResponse;
+import com.server.grpc.getNovedades;
 import com.server.grpc.getProductos;
-import com.server.grpc.getProductosNoAsociados;
 import com.server.grpc.getProductosAsociados;
+import com.server.grpc.getProductosNoAsociados;
 import com.server.grpc.productoGrpc.productoImplBase;
 import com.server.repositories.IProductoRepository;
 import com.server.repositories.ITiendaRepository;
@@ -52,6 +55,9 @@ public class ProductoGrpc extends productoImplBase {
 
     @Autowired
     private ITiendaRepository tiendaRepository;
+
+    @Autowired
+    private Consumer consumer;
 
     @Override
     public void crearProducto(ProductoRequest request, StreamObserver<CrudProductoResponse> responseObserver) {
@@ -305,6 +311,12 @@ public class ProductoGrpc extends productoImplBase {
         getProductosAsociados response = productosB.build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void traerNovedades(Empty request, StreamObserver<getNovedades> responseObserver) {
+        // TODO Auto-generated method stub
+        super.traerNovedades(request, responseObserver);
     }
 
 }

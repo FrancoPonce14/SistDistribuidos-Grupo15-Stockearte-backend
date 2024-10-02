@@ -4,6 +4,7 @@ option java_multiple_files = true;
 option java_package = "com.server.grpc";
 
 import "tienda.proto";
+import "usuario.proto";
 
 service producto{
      rpc CrearProducto(ProductoRequest) returns (CrudProductoResponse){}
@@ -13,6 +14,7 @@ service producto{
      rpc Detalle(DetalleProductoRequest) returns (DetalleProductoResponse){}
      rpc GetProductosNoAsociados(TiendaId) returns (getProductosNoAsociados){}
      rpc GetProductosAsociados(TiendaId) returns (getProductosAsociados){}
+     rpc TraerNovedades(Empty) returns (getNovedades){}
 }
 
 message ProductoId{
@@ -94,4 +96,20 @@ message getProductosNoAsociados{
 }
 message getProductosAsociados{
     repeated ProductoResponse2 productos = 1;
+}
+
+message ProductoNovedades{
+    string codigo = 1;
+    string nombre = 2;
+    string url = 3;
+    repeated Disponibilidad disponibilidad = 4;
+}
+
+message Disponibilidad{
+    int64 idTalle = 1;
+    int64 idColor = 2;
+}
+
+message getNovedades{
+    repeated ProductoNovedades novedades = 1;
 }
