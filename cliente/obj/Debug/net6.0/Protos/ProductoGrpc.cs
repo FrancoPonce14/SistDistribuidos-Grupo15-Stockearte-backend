@@ -71,6 +71,8 @@ namespace GrpcClientAPI {
     static readonly grpc::Marshaller<global::GrpcClientAPI.Empty> __Marshaller_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcClientAPI.getNovedades> __Marshaller_getNovedades = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.getNovedades.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.CrearProductosRequest> __Marshaller_CrearProductosRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.CrearProductosRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse> __Method_CrearProducto = new grpc::Method<global::GrpcClientAPI.ProductoRequest, global::GrpcClientAPI.CrudProductoResponse>(
@@ -135,6 +137,14 @@ namespace GrpcClientAPI {
         "TraerNovedades",
         __Marshaller_Empty,
         __Marshaller_getNovedades);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClientAPI.CrearProductosRequest, global::GrpcClientAPI.CrudProductoResponse> __Method_CrearProductos = new grpc::Method<global::GrpcClientAPI.CrearProductosRequest, global::GrpcClientAPI.CrudProductoResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CrearProductos",
+        __Marshaller_CrearProductosRequest,
+        __Marshaller_CrudProductoResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -328,6 +338,26 @@ namespace GrpcClientAPI {
       public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.getNovedades> TraerNovedadesAsync(global::GrpcClientAPI.Empty request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_TraerNovedades, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.CrudProductoResponse CrearProductos(global::GrpcClientAPI.CrearProductosRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CrearProductos(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.CrudProductoResponse CrearProductos(global::GrpcClientAPI.CrearProductosRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CrearProductos, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.CrudProductoResponse> CrearProductosAsync(global::GrpcClientAPI.CrearProductosRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CrearProductosAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.CrudProductoResponse> CrearProductosAsync(global::GrpcClientAPI.CrearProductosRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CrearProductos, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

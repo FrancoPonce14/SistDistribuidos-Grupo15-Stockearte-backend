@@ -13,7 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.util.JsonFormat;
 import com.server.Consumer;
 import com.server.entities.Producto;
@@ -21,7 +20,9 @@ import com.server.entities.Stock;
 import com.server.entities.Tienda;
 import com.server.entities.Usuario;
 import com.server.exceptions.ServerException;
+import com.server.grpc.CrearProductosRequest;
 import com.server.grpc.CrudProductoResponse;
+import com.server.grpc.DatosProducto;
 import com.server.grpc.DetalleProductoRequest;
 import com.server.grpc.DetalleProductoResponse;
 import com.server.grpc.Empty;
@@ -35,6 +36,7 @@ import com.server.grpc.ProductoResponse2;
 import com.server.grpc.StockResponse;
 import com.server.grpc.TiendaId;
 import com.server.grpc.TiendaResponse;
+import com.server.grpc.Variante;
 import com.server.grpc.getNovedades;
 import com.server.grpc.getProductos;
 import com.server.grpc.getProductosAsociados;
@@ -63,9 +65,6 @@ public class ProductoGrpc extends productoImplBase {
 
     @Autowired
     private Consumer consumer;
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Override
     public void crearProducto(ProductoRequest request, StreamObserver<CrudProductoResponse> responseObserver) {
@@ -341,6 +340,40 @@ public class ProductoGrpc extends productoImplBase {
     
         getNovedades.Builder novedadesResponse = getNovedades.newBuilder().addAllNovedades(productos);
         responseObserver.onNext(novedadesResponse.build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void crearProductos(CrearProductosRequest request, StreamObserver<CrudProductoResponse> responseObserver) {
+        DatosProducto datosProducto = request.getDatosProducto();
+        boolean operacionExitosa = true;
+        String mensaje;
+
+        try {
+            for (Variante variante : datosProducto.getTallesColoresList()) {
+                Producto producto = Producto.builder()
+                    .codigo(datosProducto.getCodigo())
+                    .nombre(datosProducto.getNombre())
+                    .imagen(datosProducto.getUrl())
+                    .habilitado(datosProducto.getHabilitado())
+                    .talle(variante.getTalle())
+                    .color(variante.getColor())
+                    .build();
+
+                productoRepository.save(producto);
+            }
+            mensaje = "Productos creados exitosamente";
+        } catch (Exception e) {
+            operacionExitosa = false;
+            mensaje = "Error al crear productos: " + e.getMessage();
+        }
+
+        CrudProductoResponse response = CrudProductoResponse.newBuilder()
+            .setEstado(operacionExitosa)
+            .setMensaje(mensaje)
+            .build();
+
+        responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
     

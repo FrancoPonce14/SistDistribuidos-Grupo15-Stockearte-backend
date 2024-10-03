@@ -1,13 +1,15 @@
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace GrpcClientAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ProductoController  : ControllerBase
+    public class ProductoController : ControllerBase
     {
         public producto.productoClient Client { get; set; }
 
@@ -16,7 +18,7 @@ namespace GrpcClientAPI.Controllers
             Client = new producto.productoClient(GrpcChannel.ForAddress("http://localhost:9090"));
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<CrudProductoResponse> CrearProducto(ProductoRequest request)
         {
@@ -24,7 +26,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPut()]
+        [HttpPut]
         [Route("[action]")]
         public async Task<CrudProductoResponse> ModificarProducto(ProductoModificarRequest request)
         {
@@ -32,7 +34,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpDelete()]
+        [HttpDelete]
         [Route("[action]")]
         public async Task<CrudProductoResponse> EliminarProducto(ProductoId request)
         {
@@ -40,7 +42,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<getProductos> TraerProducto(FiltrosProducto request)
         {
@@ -48,7 +50,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<DetalleProductoResponse> Detalle(DetalleProductoRequest request)
         {
@@ -56,7 +58,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<getProductosNoAsociados> GetProductosNoAsociados(TiendaId request)
         {
@@ -64,7 +66,7 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<getProductosAsociados> GetProductosAsociados(TiendaId request)
         {
@@ -72,12 +74,50 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        [HttpPost()]
+        [HttpPost]
         [Route("[action]")]
         public async Task<getNovedades> GetNovedadesProducto(Empty request)
         {
             var reply = await Client.TraerNovedadesAsync(request);
             return reply;
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<CrudProductoResponse> CrearProductos([FromBody] CrearProductoRequestDto request)
+        {
+            var grpcRequest = new CrearProductosRequest
+            {
+                DatosProducto = new DatosProducto{Codigo = request.DatosProducto.Codigo, Nombre = request.DatosProducto.Nombre, Url = request.DatosProducto.Url, Habilitado = request.DatosProducto.Habilitado}
+            };
+
+            foreach (var tc in request.DatosProducto.TallesColores)
+            {
+                grpcRequest.DatosProducto.TallesColores.Add(new Variante{Talle = tc.Talle, Color = tc.Color});
+            }
+
+            var reply = await Client.CrearProductosAsync(grpcRequest);
+            return reply;
+        }
+
+        public class CrearProductoRequestDto
+        {
+            public DatosProductoDto DatosProducto { get; set; }
+        }
+
+        public class DatosProductoDto
+        {
+            public string Codigo { get; set; }
+            public string Nombre { get; set; }
+            public string Url { get; set; }
+            public bool Habilitado { get; set; }
+            public List<VarianteDto> TallesColores { get; set; }
+        }
+
+        public class VarianteDto
+        {
+            public string Talle { get; set; }
+            public string Color { get; set; }
         }
     }
 }

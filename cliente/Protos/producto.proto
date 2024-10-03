@@ -14,6 +14,7 @@ service producto{
      rpc GetProductosNoAsociados(TiendaId) returns (getProductosNoAsociados){}
      rpc GetProductosAsociados(TiendaId) returns (getProductosAsociados){}
      rpc TraerNovedades(Empty) returns (getNovedades){}
+     rpc CrearProductos(CrearProductosRequest) returns (CrudProductoResponse);
 }
 
 message ProductoId{
@@ -110,4 +111,21 @@ message Disponibilidad{
 
 message getNovedades{
     repeated ProductoNovedades novedades = 1;
+}
+
+message Variante {
+    string talle = 1;
+    string color = 2;
+}
+
+message DatosProducto {
+    string codigo = 1;
+    string nombre = 2;
+    string url = 3;
+    bool habilitado = 4;
+    repeated Variante tallesColores = 5;
+}
+
+message CrearProductosRequest {
+    DatosProducto datosProducto = 1;
 }
