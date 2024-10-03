@@ -13,6 +13,7 @@ service tienda{
     rpc AsignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
     rpc DesasignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
     rpc ModificarStock(ModificarStockRequest) returns (CrudTiendaResponse){}
+    rpc CrearOrdenCompra(OrdenCompraRequest) returns (CrudTiendaResponse){}
 }
 
 message TiendaId{
@@ -81,4 +82,14 @@ message DetalleTiendaResponse{
 
 message getTiendas{
     repeated TiendaResponse tiendas = 1;
+}
+
+message OrdenCompraRequest{
+    string codigoTienda = 1;
+    repeated ItemResponse items = 2;
+}
+
+message ItemResponse{
+    string codigoProducto = 1;
+    int32 cantidad = 2;
 }

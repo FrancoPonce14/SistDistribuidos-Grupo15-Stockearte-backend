@@ -7,7 +7,7 @@ namespace GrpcClientAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TiendaController  : ControllerBase
+    public class TiendaController : ControllerBase
     {
         public tienda.tiendaClient Client { get; set; }
 
@@ -104,6 +104,37 @@ namespace GrpcClientAPI.Controllers
             var reply = await Client.ModificarStockAsync(request);
 
             return reply;
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<CrudTiendaResponse> CrearOrdenCompra([FromBody] CrearOrdenCompraRequestDto request)
+        {
+            var grpcRequest = new OrdenCompraRequest
+            {
+                CodigoTienda = request.CodigoTienda
+            };
+
+            foreach (var item in request.Items)
+            {
+                grpcRequest.Items.Add(new ItemResponse{CodigoProducto = item.CodigoProducto, Cantidad = item.Cantidad});
+            }
+
+            var reply = await Client.CrearOrdenCompraAsync(grpcRequest);
+            return reply;
+        }
+
+        // DTO para la Orden de Compra
+        public class CrearOrdenCompraRequestDto
+        {
+            public string CodigoTienda { get; set; }
+            public List<ItemRequestDto> Items { get; set; }
+        }
+
+        // DTO para los ítems de la Orden de Compra
+        public class ItemRequestDto
+        {
+            public string CodigoProducto { get; set; }
+            public int Cantidad { get; set; }
         }
     }
 

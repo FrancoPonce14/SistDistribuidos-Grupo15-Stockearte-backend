@@ -67,6 +67,8 @@ namespace GrpcClientAPI {
     static readonly grpc::Marshaller<global::GrpcClientAPI.ManejarUsuario> __Marshaller_ManejarUsuario = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.ManejarUsuario.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcClientAPI.ModificarStockRequest> __Marshaller_ModificarStockRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.ModificarStockRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClientAPI.OrdenCompraRequest> __Marshaller_OrdenCompraRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClientAPI.OrdenCompraRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcClientAPI.TiendaRequest, global::GrpcClientAPI.CrudTiendaResponse> __Method_CrearTienda = new grpc::Method<global::GrpcClientAPI.TiendaRequest, global::GrpcClientAPI.CrudTiendaResponse>(
@@ -146,6 +148,14 @@ namespace GrpcClientAPI {
         __ServiceName,
         "ModificarStock",
         __Marshaller_ModificarStockRequest,
+        __Marshaller_CrudTiendaResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClientAPI.OrdenCompraRequest, global::GrpcClientAPI.CrudTiendaResponse> __Method_CrearOrdenCompra = new grpc::Method<global::GrpcClientAPI.OrdenCompraRequest, global::GrpcClientAPI.CrudTiendaResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CrearOrdenCompra",
+        __Marshaller_OrdenCompraRequest,
         __Marshaller_CrudTiendaResponse);
 
     /// <summary>Service descriptor</summary>
@@ -380,6 +390,26 @@ namespace GrpcClientAPI {
       public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.CrudTiendaResponse> ModificarStockAsync(global::GrpcClientAPI.ModificarStockRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ModificarStock, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.CrudTiendaResponse CrearOrdenCompra(global::GrpcClientAPI.OrdenCompraRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CrearOrdenCompra(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClientAPI.CrudTiendaResponse CrearOrdenCompra(global::GrpcClientAPI.OrdenCompraRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CrearOrdenCompra, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.CrudTiendaResponse> CrearOrdenCompraAsync(global::GrpcClientAPI.OrdenCompraRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CrearOrdenCompraAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClientAPI.CrudTiendaResponse> CrearOrdenCompraAsync(global::GrpcClientAPI.OrdenCompraRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CrearOrdenCompra, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

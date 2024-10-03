@@ -1,5 +1,7 @@
 package com.server.servicesGrpc;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
+import com.server.entities.Item;
+import com.server.entities.OrdenCompra;
 import com.server.entities.Producto;
 import com.server.entities.Stock;
 import com.server.entities.Tienda;
@@ -17,9 +21,11 @@ import com.server.grpc.CrudTiendaResponse;
 import com.server.grpc.DetalleTiendaRequest;
 import com.server.grpc.DetalleTiendaResponse;
 import com.server.grpc.FiltrosTienda;
+import com.server.grpc.ItemResponse;
 import com.server.grpc.ManejarProducto;
 import com.server.grpc.ManejarUsuario;
 import com.server.grpc.ModificarStockRequest;
+import com.server.grpc.OrdenCompraRequest;
 import com.server.grpc.TiendaId;
 import com.server.grpc.TiendaModificarRequest;
 import com.server.grpc.TiendaRequest;
@@ -30,6 +36,8 @@ import com.server.repositories.IProductoRepository;
 import com.server.repositories.IStockRepository;
 import com.server.repositories.ITiendaRepository;
 import com.server.repositories.IUsuarioRepository;
+import com.server.repositories.IItemRepository;
+import com.server.repositories.IOrdenCompraRepository;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -48,6 +56,12 @@ public class TiendaGrpc extends tiendaImplBase {
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
+
+    @Autowired
+    private IOrdenCompraRepository ordenCompraRepository;
+
+    @Autowired
+    private IItemRepository itemRepository;
 
     @Override
     public void crearTienda(TiendaRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
@@ -358,6 +372,51 @@ public class TiendaGrpc extends tiendaImplBase {
         } catch (ServerException e) {
             CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
                     .setMensaje(e.getMensaje())
+                    .setEstado(false)
+                    .build();
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
+
+    @Transactional
+    @Override
+    public void crearOrdenCompra(OrdenCompraRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
+        try {
+            Tienda tienda = tiendaRepository.findByCodigo(request.getCodigoTienda())
+                    .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
+            OrdenCompra ordenCompra = OrdenCompra.builder()
+                    .estado("SOLICITADA")
+                    .fechaSolicitud(new Date())
+                    .tienda(tienda)
+                    .build();
+
+            ordenCompraRepository.save(ordenCompra);
+
+            for(ItemResponse item : request.getItemsList()){
+                Producto producto = productoRepository.findByCodigo(item.getCodigoProducto())
+                    .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
+
+                Item itemOrdenCompra = Item.builder()
+                 .producto(producto)
+                 .cantidad(item.getCantidad())
+                 .ordenCompra(ordenCompra)
+                 .build();
+
+                 itemRepository.save(itemOrdenCompra);
+            }
+
+            CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
+                    .setMensaje("Orden de compra creada con éxito")
+                    .setEstado(true)
+                    .build();
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
+                    .setMensaje("Error al crear la orden de compra")
                     .setEstado(false)
                     .build();
 
