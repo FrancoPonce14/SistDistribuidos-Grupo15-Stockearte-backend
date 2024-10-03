@@ -38,4 +38,7 @@ public class Tienda {
 
     @OneToMany(mappedBy = "tienda", cascade = CascadeType.ALL)
     private List<Stock> stock;
+
+    @OneToMany(mappedBy = "tienda", cascade = CascadeType.ALL)
+    private List<OrdenCompra> ordenesCompra;
 }
