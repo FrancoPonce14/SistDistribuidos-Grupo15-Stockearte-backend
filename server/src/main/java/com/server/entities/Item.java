@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 
 @Entity
@@ -21,5 +23,10 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "producto_id")
-    private Producto producto;   
+    private Producto producto;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "orden_compra_id")
+    private OrdenCompra ordenCompra;
 }
