@@ -14,10 +14,16 @@ service tienda{
     rpc DesasignarUsuario(ManejarUsuario) returns (CrudTiendaResponse){}
     rpc ModificarStock(ModificarStockRequest) returns (CrudTiendaResponse){}
     rpc CrearOrdenCompra(OrdenCompraRequest) returns (CrudTiendaResponse){}
+    rpc TraerOrdenCompra(UsuuarioId) returns (OrdenCompraResponse){}
+    rpc DetalleOrdenCompra(IdOrdenCompra) returns (DetalleOrdenCompraResponse){}
 }
 
 message TiendaId{
     int64 idTienda = 1;
+}
+
+message UsuuarioId{
+    int64 idUsuario = 1;
 }
 
 message TiendaRequest{
@@ -92,4 +98,30 @@ message OrdenCompraRequest{
 message ItemResponse{
     string codigoProducto = 1;
     int32 cantidad = 2;
+}
+
+message IdOrdenCompra{
+    int64 idOrdenCompra = 1;
+}
+
+message DetalleItem{
+    string nombre = 1;
+    string talle = 2;
+    string color = 3;
+    string cantidad = 4;
+}
+
+message DetalleOrdenCompraResponse{
+    repeated DetalleItem items = 1;
+}
+
+message OrdenCompras{
+    string fechaSolicitud = 1;
+    string estado = 2;
+    string observaciones = 3;
+    string fechaRecepcion = 4;
+}
+
+message OrdenCompraResponse{
+    repeated OrdenCompras ordenes = 1;
 }

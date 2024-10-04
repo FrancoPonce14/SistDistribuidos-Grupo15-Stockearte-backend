@@ -123,6 +123,24 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
+        [HttpPost()]
+        [Route("[action]")]
+        public async Task<OrdenCompraResponse> TraerOrdenCompra(UsuuarioId request)
+        {
+            var reply = await Client.TraerOrdenCompraAsync(request);
+
+            return reply;
+        }
+
+        [HttpPost()]
+        [Route("[action]")]
+        public async Task<DetalleOrdenCompraResponse> DetalleOrdenCompra(IdOrdenCompra request)
+        {
+            var reply = await Client.DetalleOrdenCompraAsync(request);
+
+            return reply;
+        }
+
         public class CrearOrdenCompraRequestDto
         {
             public long IdUsuario  { get; set; }
