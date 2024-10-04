@@ -1,5 +1,6 @@
 package com.server.servicesGrpc;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,20 +21,27 @@ import com.server.entities.Tienda;
 import com.server.entities.Usuario;
 import com.server.exceptions.ServerException;
 import com.server.grpc.CrudTiendaResponse;
+import com.server.grpc.DetalleOrdenCompraResponse;
 import com.server.grpc.DetalleTiendaRequest;
 import com.server.grpc.DetalleTiendaResponse;
 import com.server.grpc.FiltrosTienda;
+import com.server.grpc.IdOrdenCompra;
 import com.server.grpc.ItemResponse;
 import com.server.grpc.ManejarProducto;
 import com.server.grpc.ManejarUsuario;
 import com.server.grpc.ModificarStockRequest;
 import com.server.grpc.OrdenCompraRequest;
+import com.server.grpc.OrdenCompraResponse;
+import com.server.grpc.OrdenCompras;
 import com.server.grpc.TiendaId;
 import com.server.grpc.TiendaModificarRequest;
 import com.server.grpc.TiendaRequest;
 import com.server.grpc.TiendaResponse;
+import com.server.grpc.UsuuarioId;
+import com.server.grpc.DetalleItem;
 import com.server.grpc.getTiendas;
 import com.server.grpc.tiendaGrpc.tiendaImplBase;
+import com.server.repositories.IItemRepository;
 import com.server.repositories.IOrdenCompraRepository;
 import com.server.repositories.IProductoRepository;
 import com.server.repositories.IStockRepository;
@@ -61,6 +69,9 @@ public class TiendaGrpc extends tiendaImplBase {
     @Autowired
     private IOrdenCompraRepository ordenCompraRepository;
 
+    @Autowired
+    private IItemRepository itemRepository;
+    
     @Override
     public void crearTienda(TiendaRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
         try {
@@ -427,5 +438,66 @@ public class TiendaGrpc extends tiendaImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
+    }
+
+    @Override
+    public void detalleOrdenCompra(IdOrdenCompra request, StreamObserver<DetalleOrdenCompraResponse> responseObserver) {
+        try {
+            OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
+                    .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
+    
+            List<Item> items = itemRepository.findByOrdenCompraId(ordenCompra.getId());
+    
+            DetalleOrdenCompraResponse.Builder responseBuilder = DetalleOrdenCompraResponse.newBuilder();
+    
+            for (Item item : items) {
+                Producto producto = item.getProducto();
+                DetalleItem detalleItem = DetalleItem.newBuilder()
+                        .setNombre(producto.getNombre())
+                        .setTalle(producto.getTalle())
+                        .setColor(producto.getColor())
+                        .setCantidad(String.valueOf(item.getCantidad()))
+                        .build();
+                responseBuilder.addItems(detalleItem);
+            }
+    
+            DetalleOrdenCompraResponse response = responseBuilder.build();
+            
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (ServerException e) {
+            responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.NOT_FOUND)
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
+    }
+
+    @Transactional
+    @Override
+    public void traerOrdenCompra(UsuuarioId request, StreamObserver<OrdenCompraResponse> responseObserver) {
+        Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
+            .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
+    
+        if (usuario.getTienda() == null) {
+            throw new ServerException("Usuario sin tienda asignada", HttpStatus.BAD_REQUEST);
+        }
+    
+        List<OrdenCompra> ordenes = ordenCompraRepository.findByTiendaId(usuario.getTienda().getId());
+
+        OrdenCompraResponse.Builder responseBuilder = OrdenCompraResponse.newBuilder();
+        SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
+
+        for(OrdenCompra orden : ordenes){
+            OrdenCompras ordenCompras = OrdenCompras.newBuilder()
+            .setFechaSolicitud(orden.getFechaSolicitud() != null ? fecha.format(orden.getFechaSolicitud()) : "")
+            .setEstado(orden.getEstado() != null ? orden.getEstado() : "")
+            .setObservaciones(orden.getObservaciones() != null ? orden.getObservaciones() : "")
+            .setFechaRecepcion(orden.getFechaRecepcion() != null ? fecha.format(orden.getFechaRecepcion()) : "")
+            .build();
+            responseBuilder.addOrdenes(ordenCompras);
+        }
+        OrdenCompraResponse response = responseBuilder.build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted(); 
     }
 }
