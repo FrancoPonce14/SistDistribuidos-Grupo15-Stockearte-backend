@@ -1,6 +1,8 @@
 package com.server.servicesGrpc;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -392,7 +394,7 @@ public class TiendaGrpc extends tiendaImplBase {
                     .tienda(tienda)
                     .build();
 
-            ordenCompraRepository.save(ordenCompra);
+            List<Item> items = new ArrayList<>();
 
             for(ItemResponse item : request.getItemsList()){
                 Producto producto = productoRepository.findByCodigo(item.getCodigoProducto())
@@ -404,8 +406,11 @@ public class TiendaGrpc extends tiendaImplBase {
                  .ordenCompra(ordenCompra)
                  .build();
 
-                 itemRepository.save(itemOrdenCompra);
+                 items.add(itemOrdenCompra);
             }
+            
+            ordenCompra.setItems(items);
+            ordenCompraRepository.save(ordenCompra);
 
             CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
                     .setMensaje("Orden de compra creada con éxito")
