@@ -85,7 +85,7 @@ message getTiendas{
 }
 
 message OrdenCompraRequest{
-    string codigoTienda = 1;
+    int64 idUsuario = 1;
     repeated ItemResponse items = 2;
 }
 

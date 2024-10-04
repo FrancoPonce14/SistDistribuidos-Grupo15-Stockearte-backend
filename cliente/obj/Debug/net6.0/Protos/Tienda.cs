@@ -43,25 +43,25 @@ namespace GrpcClientAPI {
             "ASgDEg4KBmNvZGlnbxgCIAEoCRIRCglkaXJlY2Npb24YAyABKAkSEQoJcHJv",
             "dmluY2lhGAQgASgJEg4KBmNpdWRhZBgFIAEoCRISCgpoYWJpbGl0YWRvGAYg",
             "ASgIIi4KCmdldFRpZW5kYXMSIAoHdGllbmRhcxgBIAMoCzIPLlRpZW5kYVJl",
-            "c3BvbnNlIkgKEk9yZGVuQ29tcHJhUmVxdWVzdBIUCgxjb2RpZ29UaWVuZGEY",
-            "ASABKAkSHAoFaXRlbXMYAiADKAsyDS5JdGVtUmVzcG9uc2UiOAoMSXRlbVJl",
-            "c3BvbnNlEhYKDmNvZGlnb1Byb2R1Y3RvGAEgASgJEhAKCGNhbnRpZGFkGAIg",
-            "ASgFMpMFCgZ0aWVuZGESNAoLQ3JlYXJUaWVuZGESDi5UaWVuZGFSZXF1ZXN0",
-            "GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASQQoPTW9kaWZpY2FyVGllbmRhEhcu",
-            "VGllbmRhTW9kaWZpY2FyUmVxdWVzdBoTLkNydWRUaWVuZGFSZXNwb25zZSIA",
-            "EjIKDkVsaW1pbmFyVGllbmRhEgkuVGllbmRhSWQaEy5DcnVkVGllbmRhUmVz",
-            "cG9uc2UiABItCgxUcmFlclRpZW5kYXMSDi5GaWx0cm9zVGllbmRhGgsuZ2V0",
-            "VGllbmRhcyIAEjoKB0RldGFsbGUSFS5EZXRhbGxlVGllbmRhUmVxdWVzdBoW",
-            "LkRldGFsbGVUaWVuZGFSZXNwb25zZSIAEjoKD0FzaWduYXJQcm9kdWN0bxIQ",
-            "Lk1hbmVqYXJQcm9kdWN0bxoTLkNydWRUaWVuZGFSZXNwb25zZSIAEj0KEkRl",
-            "c2FzaWduYXJQcm9kdWN0bxIQLk1hbmVqYXJQcm9kdWN0bxoTLkNydWRUaWVu",
-            "ZGFSZXNwb25zZSIAEjgKDkFzaWduYXJVc3VhcmlvEg8uTWFuZWphclVzdWFy",
-            "aW8aEy5DcnVkVGllbmRhUmVzcG9uc2UiABI7ChFEZXNhc2lnbmFyVXN1YXJp",
-            "bxIPLk1hbmVqYXJVc3VhcmlvGhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASPwoO",
-            "TW9kaWZpY2FyU3RvY2sSFi5Nb2RpZmljYXJTdG9ja1JlcXVlc3QaEy5DcnVk",
-            "VGllbmRhUmVzcG9uc2UiABI+ChBDcmVhck9yZGVuQ29tcHJhEhMuT3JkZW5D",
-            "b21wcmFSZXF1ZXN0GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgBCEKoCDUdycGND",
-            "bGllbnRBUEliBnByb3RvMw=="));
+            "c3BvbnNlIkUKEk9yZGVuQ29tcHJhUmVxdWVzdBIRCglpZFVzdWFyaW8YASAB",
+            "KAMSHAoFaXRlbXMYAiADKAsyDS5JdGVtUmVzcG9uc2UiOAoMSXRlbVJlc3Bv",
+            "bnNlEhYKDmNvZGlnb1Byb2R1Y3RvGAEgASgJEhAKCGNhbnRpZGFkGAIgASgF",
+            "MpMFCgZ0aWVuZGESNAoLQ3JlYXJUaWVuZGESDi5UaWVuZGFSZXF1ZXN0GhMu",
+            "Q3J1ZFRpZW5kYVJlc3BvbnNlIgASQQoPTW9kaWZpY2FyVGllbmRhEhcuVGll",
+            "bmRhTW9kaWZpY2FyUmVxdWVzdBoTLkNydWRUaWVuZGFSZXNwb25zZSIAEjIK",
+            "DkVsaW1pbmFyVGllbmRhEgkuVGllbmRhSWQaEy5DcnVkVGllbmRhUmVzcG9u",
+            "c2UiABItCgxUcmFlclRpZW5kYXMSDi5GaWx0cm9zVGllbmRhGgsuZ2V0VGll",
+            "bmRhcyIAEjoKB0RldGFsbGUSFS5EZXRhbGxlVGllbmRhUmVxdWVzdBoWLkRl",
+            "dGFsbGVUaWVuZGFSZXNwb25zZSIAEjoKD0FzaWduYXJQcm9kdWN0bxIQLk1h",
+            "bmVqYXJQcm9kdWN0bxoTLkNydWRUaWVuZGFSZXNwb25zZSIAEj0KEkRlc2Fz",
+            "aWduYXJQcm9kdWN0bxIQLk1hbmVqYXJQcm9kdWN0bxoTLkNydWRUaWVuZGFS",
+            "ZXNwb25zZSIAEjgKDkFzaWduYXJVc3VhcmlvEg8uTWFuZWphclVzdWFyaW8a",
+            "Ey5DcnVkVGllbmRhUmVzcG9uc2UiABI7ChFEZXNhc2lnbmFyVXN1YXJpbxIP",
+            "Lk1hbmVqYXJVc3VhcmlvGhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASPwoOTW9k",
+            "aWZpY2FyU3RvY2sSFi5Nb2RpZmljYXJTdG9ja1JlcXVlc3QaEy5DcnVkVGll",
+            "bmRhUmVzcG9uc2UiABI+ChBDcmVhck9yZGVuQ29tcHJhEhMuT3JkZW5Db21w",
+            "cmFSZXF1ZXN0GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgBCEKoCDUdycGNDbGll",
+            "bnRBUEliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -77,7 +77,7 @@ namespace GrpcClientAPI {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.TiendaResponse), global::GrpcClientAPI.TiendaResponse.Parser, new[]{ "Codigo", "Habilitado" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleTiendaResponse), global::GrpcClientAPI.DetalleTiendaResponse.Parser, new[]{ "IdTienda", "Codigo", "Direccion", "Provincia", "Ciudad", "Habilitado" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.getTiendas), global::GrpcClientAPI.getTiendas.Parser, new[]{ "Tiendas" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompraRequest), global::GrpcClientAPI.OrdenCompraRequest.Parser, new[]{ "CodigoTienda", "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompraRequest), global::GrpcClientAPI.OrdenCompraRequest.Parser, new[]{ "IdUsuario", "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ItemResponse), global::GrpcClientAPI.ItemResponse.Parser, new[]{ "CodigoProducto", "Cantidad" }, null, null, null, null)
           }));
     }
@@ -3116,7 +3116,7 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public OrdenCompraRequest(OrdenCompraRequest other) : this() {
-      codigoTienda_ = other.codigoTienda_;
+      idUsuario_ = other.idUsuario_;
       items_ = other.items_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3127,15 +3127,15 @@ namespace GrpcClientAPI {
       return new OrdenCompraRequest(this);
     }
 
-    /// <summary>Field number for the "codigoTienda" field.</summary>
-    public const int CodigoTiendaFieldNumber = 1;
-    private string codigoTienda_ = "";
+    /// <summary>Field number for the "idUsuario" field.</summary>
+    public const int IdUsuarioFieldNumber = 1;
+    private long idUsuario_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string CodigoTienda {
-      get { return codigoTienda_; }
+    public long IdUsuario {
+      get { return idUsuario_; }
       set {
-        codigoTienda_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        idUsuario_ = value;
       }
     }
 
@@ -3165,7 +3165,7 @@ namespace GrpcClientAPI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (CodigoTienda != other.CodigoTienda) return false;
+      if (IdUsuario != other.IdUsuario) return false;
       if(!items_.Equals(other.items_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3174,7 +3174,7 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (CodigoTienda.Length != 0) hash ^= CodigoTienda.GetHashCode();
+      if (IdUsuario != 0L) hash ^= IdUsuario.GetHashCode();
       hash ^= items_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3194,9 +3194,9 @@ namespace GrpcClientAPI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (CodigoTienda.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(CodigoTienda);
+      if (IdUsuario != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdUsuario);
       }
       items_.WriteTo(output, _repeated_items_codec);
       if (_unknownFields != null) {
@@ -3209,9 +3209,9 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (CodigoTienda.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(CodigoTienda);
+      if (IdUsuario != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdUsuario);
       }
       items_.WriteTo(ref output, _repeated_items_codec);
       if (_unknownFields != null) {
@@ -3224,8 +3224,8 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (CodigoTienda.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CodigoTienda);
+      if (IdUsuario != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdUsuario);
       }
       size += items_.CalculateSize(_repeated_items_codec);
       if (_unknownFields != null) {
@@ -3240,8 +3240,8 @@ namespace GrpcClientAPI {
       if (other == null) {
         return;
       }
-      if (other.CodigoTienda.Length != 0) {
-        CodigoTienda = other.CodigoTienda;
+      if (other.IdUsuario != 0L) {
+        IdUsuario = other.IdUsuario;
       }
       items_.Add(other.items_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3259,8 +3259,8 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            CodigoTienda = input.ReadString();
+          case 8: {
+            IdUsuario = input.ReadInt64();
             break;
           }
           case 18: {
@@ -3282,8 +3282,8 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            CodigoTienda = input.ReadString();
+          case 8: {
+            IdUsuario = input.ReadInt64();
             break;
           }
           case 18: {

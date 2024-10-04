@@ -34,12 +34,11 @@ import com.server.grpc.TiendaRequest;
 import com.server.grpc.TiendaResponse;
 import com.server.grpc.getTiendas;
 import com.server.grpc.tiendaGrpc.tiendaImplBase;
+import com.server.repositories.IOrdenCompraRepository;
 import com.server.repositories.IProductoRepository;
 import com.server.repositories.IStockRepository;
 import com.server.repositories.ITiendaRepository;
 import com.server.repositories.IUsuarioRepository;
-import com.server.repositories.IItemRepository;
-import com.server.repositories.IOrdenCompraRepository;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -61,9 +60,6 @@ public class TiendaGrpc extends tiendaImplBase {
 
     @Autowired
     private IOrdenCompraRepository ordenCompraRepository;
-
-    @Autowired
-    private IItemRepository itemRepository;
 
     @Override
     public void crearTienda(TiendaRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
@@ -386,12 +382,15 @@ public class TiendaGrpc extends tiendaImplBase {
     @Override
     public void crearOrdenCompra(OrdenCompraRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
         try {
-            Tienda tienda = tiendaRepository.findByCodigo(request.getCodigoTienda())
-                    .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
+            Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
+                    .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
+                    if(usuario.getTienda() == null){
+                        throw new ServerException("Usuario sin tienda asignada", HttpStatus.BAD_REQUEST);
+                    }
             OrdenCompra ordenCompra = OrdenCompra.builder()
                     .estado("SOLICITADA")
                     .fechaSolicitud(new Date())
-                    .tienda(tienda)
+                    .tienda(usuario.getTienda())
                     .build();
 
             List<Item> items = new ArrayList<>();

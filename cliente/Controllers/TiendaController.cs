@@ -111,7 +111,7 @@ namespace GrpcClientAPI.Controllers
         {
             var grpcRequest = new OrdenCompraRequest
             {
-                CodigoTienda = request.CodigoTienda
+                IdUsuario = request.IdUsuario
             };
 
             foreach (var item in request.Items)
@@ -123,14 +123,12 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
-        // DTO para la Orden de Compra
         public class CrearOrdenCompraRequestDto
         {
-            public string CodigoTienda { get; set; }
+            public long IdUsuario  { get; set; }
             public List<ItemRequestDto> Items { get; set; }
         }
 
-        // DTO para los ítems de la Orden de Compra
         public class ItemRequestDto
         {
             public string CodigoProducto { get; set; }
