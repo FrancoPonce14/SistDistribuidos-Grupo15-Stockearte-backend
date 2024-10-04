@@ -3,7 +3,9 @@ package com.server.servicesGrpc;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -12,7 +14,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.kafka.core.KafkaTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.server.entities.Item;
 import com.server.entities.OrdenCompra;
 import com.server.entities.Producto;
@@ -51,6 +56,9 @@ import com.server.repositories.IUsuarioRepository;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @GrpcService
 public class TiendaGrpc extends tiendaImplBase {
 
@@ -71,6 +79,12 @@ public class TiendaGrpc extends tiendaImplBase {
 
     @Autowired
     private IItemRepository itemRepository;
+    
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
     
     @Override
     public void crearTienda(TiendaRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
@@ -395,9 +409,9 @@ public class TiendaGrpc extends tiendaImplBase {
         try {
             Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
                     .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
-                    if(usuario.getTienda() == null){
-                        throw new ServerException("Usuario sin tienda asignada", HttpStatus.BAD_REQUEST);
-                    }
+            if (usuario.getTienda() == null) {
+                throw new ServerException("Usuario sin tienda asignada", HttpStatus.BAD_REQUEST);
+            }
             OrdenCompra ordenCompra = OrdenCompra.builder()
                     .estado("SOLICITADA")
                     .fechaSolicitud(new Date())
@@ -406,21 +420,45 @@ public class TiendaGrpc extends tiendaImplBase {
 
             List<Item> items = new ArrayList<>();
 
-            for(ItemResponse item : request.getItemsList()){
+            for (ItemResponse item : request.getItemsList()) {
                 Producto producto = productoRepository.findByCodigo(item.getCodigoProducto())
-                    .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
+                        .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
                 Item itemOrdenCompra = Item.builder()
-                 .producto(producto)
-                 .cantidad(item.getCantidad())
-                 .ordenCompra(ordenCompra)
-                 .build();
+                        .producto(producto)
+                        .cantidad(item.getCantidad())
+                        .ordenCompra(ordenCompra)
+                        .build();
 
-                 items.add(itemOrdenCompra);
+                items.add(itemOrdenCompra);
             }
-            
+
             ordenCompra.setItems(items);
             ordenCompraRepository.save(ordenCompra);
+
+            Map<String, Object> ordenCompraNovedades = new HashMap<>();
+            ordenCompraNovedades.put("codigoTienda", usuario.getTienda().getCodigo());
+            ordenCompraNovedades.put("idOrden", ordenCompra.getId());
+            ordenCompraNovedades.put("fechaSolicitud", ordenCompra.getFechaSolicitud());
+
+            List<Map<String, Object>> itemsList = new ArrayList<>();
+            for (Item item : ordenCompra.getItems()) {
+                Map<String, Object> itemData = new HashMap<>();
+                itemData.put("codigoProducto", item.getProducto().getCodigo());
+                itemData.put("cantidad", item.getCantidad());
+                itemsList.add(itemData);
+            }
+            ordenCompraNovedades.put("items", itemsList);
+
+            String mensaje;
+            try {
+                mensaje = objectMapper.writeValueAsString(ordenCompraNovedades);
+            } catch (JsonProcessingException e) {
+                throw new ServerException("Error al procesar la orden de compra", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+            kafkaTemplate.send("orden-de-compra", mensaje);
+            log.info("Mensaje de orden de compra enviado a Kafka: {}", mensaje);
 
             CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
                     .setMensaje("Orden de compra creada con éxito")
