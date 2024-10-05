@@ -26,6 +26,7 @@ import com.server.entities.Tienda;
 import com.server.entities.Usuario;
 import com.server.exceptions.ServerException;
 import com.server.grpc.CrudTiendaResponse;
+import com.server.grpc.DetalleItem;
 import com.server.grpc.DetalleOrdenCompraResponse;
 import com.server.grpc.DetalleTiendaRequest;
 import com.server.grpc.DetalleTiendaResponse;
@@ -43,7 +44,6 @@ import com.server.grpc.TiendaModificarRequest;
 import com.server.grpc.TiendaRequest;
 import com.server.grpc.TiendaResponse;
 import com.server.grpc.UsuuarioId;
-import com.server.grpc.DetalleItem;
 import com.server.grpc.getTiendas;
 import com.server.grpc.tiendaGrpc.tiendaImplBase;
 import com.server.repositories.IItemRepository;
@@ -54,9 +54,8 @@ import com.server.repositories.ITiendaRepository;
 import com.server.repositories.IUsuarioRepository;
 
 import io.grpc.stub.StreamObserver;
-import net.devh.boot.grpc.server.service.GrpcService;
-
 import lombok.extern.slf4j.Slf4j;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 @Slf4j
 @GrpcService
@@ -439,12 +438,18 @@ public class TiendaGrpc extends tiendaImplBase {
             Map<String, Object> ordenCompraNovedades = new HashMap<>();
             ordenCompraNovedades.put("codigoTienda", usuario.getTienda().getCodigo());
             ordenCompraNovedades.put("idOrden", ordenCompra.getId());
-            ordenCompraNovedades.put("fechaSolicitud", ordenCompra.getFechaSolicitud());
+            Date soloFecha = ordenCompra.getFechaSolicitud();
+            SimpleDateFormat formateo = new SimpleDateFormat("yyyy-MM-dd");
+            ordenCompraNovedades.put("fechaSolicitud", formateo.format(soloFecha));
 
             List<Map<String, Object>> itemsList = new ArrayList<>();
             for (Item item : ordenCompra.getItems()) {
                 Map<String, Object> itemData = new HashMap<>();
+                Producto producto = productoRepository.findByCodigo(item.getProducto().getCodigo())
+                        .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
                 itemData.put("codigoProducto", item.getProducto().getCodigo());
+                itemData.put("color", producto.getColor());
+                itemData.put("talle", producto.getTalle());
                 itemData.put("cantidad", item.getCantidad());
                 itemsList.add(itemData);
             }
@@ -467,7 +472,7 @@ public class TiendaGrpc extends tiendaImplBase {
 
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-        } catch (Exception e) {
+        } catch (ServerException e) {
             CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
                     .setMensaje("Error al crear la orden de compra")
                     .setEstado(false)
