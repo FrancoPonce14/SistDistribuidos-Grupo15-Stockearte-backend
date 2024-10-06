@@ -14,8 +14,8 @@ import com.server.entities.Producto;
 public interface IProductoRepository extends JpaRepository<Producto, Long> {
 
     public Optional<Producto> findByCodigo(String codigo);  
-    @Query(value = "SELECT p.* FROM tienda t INNER JOIN stock s ON t.id = s.tienda_id INNER JOIN producto p ON s.producto_id = p.id WHERE t.codigo = :codigoTienda AND p.codigo = :codigoProducto", nativeQuery = true)
-    public Optional<Producto> findByCodigos(@Param("codigoTienda") String codigoTienda, @Param("codigoProducto") String codigoProducto);  
+    @Query(value = "SELECT p.* FROM tienda t INNER JOIN stock s ON t.id = s.tienda_id INNER JOIN producto p ON s.producto_id = p.id WHERE t.codigo = :codigoTienda AND p.id = :idProducto", nativeQuery = true)
+    public Optional<Producto> findByCodigos(@Param("codigoTienda") String codigoTienda, @Param("idProducto") Long idProducto);  
     @Query(value = "SELECT p.* FROM Producto p WHERE p.id NOT IN (SELECT s.producto_id FROM Stock s WHERE s.tienda_id = :tiendaId)", nativeQuery = true)
     public List<Producto> findProductosNoAsociados(@Param("tiendaId") Long tiendaId);
     @Query(value = "SELECT p.* FROM Producto p JOIN Stock s ON p.id = s.producto_id WHERE s.tienda_id = :tiendaId", nativeQuery = true)

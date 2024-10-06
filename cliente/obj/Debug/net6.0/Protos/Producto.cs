@@ -31,58 +31,58 @@ namespace GrpcClientAPI {
             "CRISCgpoYWJpbGl0YWRvGAUgASgIIoABChhQcm9kdWN0b01vZGlmaWNhclJl",
             "cXVlc3QSEgoKaWRQcm9kdWN0bxgBIAEoAxIOCgZub21icmUYAiABKAkSDgoG",
             "aW1hZ2VuGAMgASgJEg0KBXRhbGxlGAQgASgJEg0KBWNvbG9yGAUgASgJEhIK",
-            "CmhhYmlsaXRhZG8YBiABKAgiRgoWRGV0YWxsZVByb2R1Y3RvUmVxdWVzdBIU",
-            "Cgxjb2RpZ29UaWVuZGEYASABKAkSFgoOY29kaWdvUHJvZHVjdG8YAiABKAki",
-            "YgoPRmlsdHJvc1Byb2R1Y3RvEhEKCWlkVXN1YXJpbxgBIAEoAxIOCgZub21i",
-            "cmUYAiABKAkSDgoGY29kaWdvGAMgASgJEg0KBXRhbGxlGAQgASgJEg0KBWNv",
-            "bG9yGAUgASgJInEKEFByb2R1Y3RvUmVzcG9uc2USDgoGbm9tYnJlGAEgASgJ",
-            "Eg4KBmNvZGlnbxgCIAEoCRIfCgZ0aWVuZGEYAyABKAsyDy5UaWVuZGFSZXNw",
-            "b25zZRINCgV0YWxsZRgEIAEoCRINCgVjb2xvchgFIAEoCSJlChFQcm9kdWN0",
-            "b1Jlc3BvbnNlMhIOCgZub21icmUYASABKAkSDgoGY29kaWdvGAIgASgJEg0K",
-            "BXRhbGxlGAMgASgJEg0KBWNvbG9yGAQgASgJEhIKCmlkUHJvZHVjdG8YBSAB",
-            "KAMiNwoUQ3J1ZFByb2R1Y3RvUmVzcG9uc2USDgoGZXN0YWRvGAEgASgIEg8K",
-            "B21lbnNhamUYAiABKAkingEKF0RldGFsbGVQcm9kdWN0b1Jlc3BvbnNlEhIK",
-            "CmlkUHJvZHVjdG8YASABKAMSDgoGbm9tYnJlGAIgASgJEg4KBmltYWdlbhgD",
-            "IAEoCRINCgV0YWxsZRgEIAEoCRINCgVjb2xvchgFIAEoCRISCgpoYWJpbGl0",
-            "YWRvGAYgASgIEh0KBXN0b2NrGAcgAygLMg4uU3RvY2tSZXNwb25zZSJCCg1T",
-            "dG9ja1Jlc3BvbnNlEh8KBnRpZW5kYRgBIAEoCzIPLlRpZW5kYVJlc3BvbnNl",
-            "EhAKCGNhbnRpZGFkGAIgASgFIjQKDGdldFByb2R1Y3RvcxIkCglwcm9kdWN0",
-            "b3MYASADKAsyES5Qcm9kdWN0b1Jlc3BvbnNlIkAKF2dldFByb2R1Y3Rvc05v",
-            "QXNvY2lhZG9zEiUKCXByb2R1Y3RvcxgBIAMoCzISLlByb2R1Y3RvUmVzcG9u",
-            "c2UyIj4KFWdldFByb2R1Y3Rvc0Fzb2NpYWRvcxIlCglwcm9kdWN0b3MYASAD",
-            "KAsyEi5Qcm9kdWN0b1Jlc3BvbnNlMiJpChFQcm9kdWN0b05vdmVkYWRlcxIO",
-            "CgZjb2RpZ28YASABKAkSDgoGbm9tYnJlGAIgASgJEgsKA3VybBgDIAEoCRIn",
-            "Cg5kaXNwb25pYmlsaWRhZBgEIAMoCzIPLkRpc3BvbmliaWxpZGFkIi4KDkRp",
-            "c3BvbmliaWxpZGFkEg0KBXRhbGxlGAEgASgJEg0KBWNvbG9yGAIgASgJIjUK",
-            "DGdldE5vdmVkYWRlcxIlCglub3ZlZGFkZXMYASADKAsyEi5Qcm9kdWN0b05v",
-            "dmVkYWRlcyIoCghWYXJpYW50ZRINCgV0YWxsZRgBIAEoCRINCgVjb2xvchgC",
-            "IAEoCSJyCg1EYXRvc1Byb2R1Y3RvEg4KBmNvZGlnbxgBIAEoCRIOCgZub21i",
-            "cmUYAiABKAkSCwoDdXJsGAMgASgJEhIKCmhhYmlsaXRhZG8YBCABKAgSIAoN",
-            "dGFsbGVzQ29sb3JlcxgFIAMoCzIJLlZhcmlhbnRlIj4KFUNyZWFyUHJvZHVj",
-            "dG9zUmVxdWVzdBIlCg1kYXRvc1Byb2R1Y3RvGAEgASgLMg4uRGF0b3NQcm9k",
-            "dWN0bzKqBAoIcHJvZHVjdG8SOgoNQ3JlYXJQcm9kdWN0bxIQLlByb2R1Y3Rv",
-            "UmVxdWVzdBoVLkNydWRQcm9kdWN0b1Jlc3BvbnNlIgASRwoRTW9kaWZpY2Fy",
-            "UHJvZHVjdG8SGS5Qcm9kdWN0b01vZGlmaWNhclJlcXVlc3QaFS5DcnVkUHJv",
-            "ZHVjdG9SZXNwb25zZSIAEjgKEEVsaW1pbmFyUHJvZHVjdG8SCy5Qcm9kdWN0",
-            "b0lkGhUuQ3J1ZFByb2R1Y3RvUmVzcG9uc2UiABIzCg5UcmFlclByb2R1Y3Rv",
-            "cxIQLkZpbHRyb3NQcm9kdWN0bxoNLmdldFByb2R1Y3RvcyIAEj4KB0RldGFs",
-            "bGUSFy5EZXRhbGxlUHJvZHVjdG9SZXF1ZXN0GhguRGV0YWxsZVByb2R1Y3Rv",
-            "UmVzcG9uc2UiABJAChdHZXRQcm9kdWN0b3NOb0Fzb2NpYWRvcxIJLlRpZW5k",
-            "YUlkGhguZ2V0UHJvZHVjdG9zTm9Bc29jaWFkb3MiABI8ChVHZXRQcm9kdWN0",
-            "b3NBc29jaWFkb3MSCS5UaWVuZGFJZBoWLmdldFByb2R1Y3Rvc0Fzb2NpYWRv",
-            "cyIAEikKDlRyYWVyTm92ZWRhZGVzEgYuRW1wdHkaDS5nZXROb3ZlZGFkZXMi",
-            "ABI/Cg5DcmVhclByb2R1Y3RvcxIWLkNyZWFyUHJvZHVjdG9zUmVxdWVzdBoV",
-            "LkNydWRQcm9kdWN0b1Jlc3BvbnNlQhCqAg1HcnBjQ2xpZW50QVBJYgZwcm90",
-            "bzM="));
+            "CmhhYmlsaXRhZG8YBiABKAgiQgoWRGV0YWxsZVByb2R1Y3RvUmVxdWVzdBIU",
+            "Cgxjb2RpZ29UaWVuZGEYASABKAkSEgoKaWRQcm9kdWN0bxgCIAEoAyJiCg9G",
+            "aWx0cm9zUHJvZHVjdG8SEQoJaWRVc3VhcmlvGAEgASgDEg4KBm5vbWJyZRgC",
+            "IAEoCRIOCgZjb2RpZ28YAyABKAkSDQoFdGFsbGUYBCABKAkSDQoFY29sb3IY",
+            "BSABKAkihQEKEFByb2R1Y3RvUmVzcG9uc2USEgoKaWRQcm9kdWN0bxgBIAEo",
+            "AxIOCgZub21icmUYAiABKAkSDgoGY29kaWdvGAMgASgJEh8KBnRpZW5kYRgE",
+            "IAEoCzIPLlRpZW5kYVJlc3BvbnNlEg0KBXRhbGxlGAUgASgJEg0KBWNvbG9y",
+            "GAYgASgJImUKEVByb2R1Y3RvUmVzcG9uc2UyEg4KBm5vbWJyZRgBIAEoCRIO",
+            "CgZjb2RpZ28YAiABKAkSDQoFdGFsbGUYAyABKAkSDQoFY29sb3IYBCABKAkS",
+            "EgoKaWRQcm9kdWN0bxgFIAEoAyI3ChRDcnVkUHJvZHVjdG9SZXNwb25zZRIO",
+            "CgZlc3RhZG8YASABKAgSDwoHbWVuc2FqZRgCIAEoCSKeAQoXRGV0YWxsZVBy",
+            "b2R1Y3RvUmVzcG9uc2USEgoKaWRQcm9kdWN0bxgBIAEoAxIOCgZub21icmUY",
+            "AiABKAkSDgoGaW1hZ2VuGAMgASgJEg0KBXRhbGxlGAQgASgJEg0KBWNvbG9y",
+            "GAUgASgJEhIKCmhhYmlsaXRhZG8YBiABKAgSHQoFc3RvY2sYByADKAsyDi5T",
+            "dG9ja1Jlc3BvbnNlIkIKDVN0b2NrUmVzcG9uc2USHwoGdGllbmRhGAEgASgL",
+            "Mg8uVGllbmRhUmVzcG9uc2USEAoIY2FudGlkYWQYAiABKAUiNAoMZ2V0UHJv",
+            "ZHVjdG9zEiQKCXByb2R1Y3RvcxgBIAMoCzIRLlByb2R1Y3RvUmVzcG9uc2Ui",
+            "QAoXZ2V0UHJvZHVjdG9zTm9Bc29jaWFkb3MSJQoJcHJvZHVjdG9zGAEgAygL",
+            "MhIuUHJvZHVjdG9SZXNwb25zZTIiPgoVZ2V0UHJvZHVjdG9zQXNvY2lhZG9z",
+            "EiUKCXByb2R1Y3RvcxgBIAMoCzISLlByb2R1Y3RvUmVzcG9uc2UyImkKEVBy",
+            "b2R1Y3RvTm92ZWRhZGVzEg4KBmNvZGlnbxgBIAEoCRIOCgZub21icmUYAiAB",
+            "KAkSCwoDdXJsGAMgASgJEicKDmRpc3BvbmliaWxpZGFkGAQgAygLMg8uRGlz",
+            "cG9uaWJpbGlkYWQiLgoORGlzcG9uaWJpbGlkYWQSDQoFdGFsbGUYASABKAkS",
+            "DQoFY29sb3IYAiABKAkiNQoMZ2V0Tm92ZWRhZGVzEiUKCW5vdmVkYWRlcxgB",
+            "IAMoCzISLlByb2R1Y3RvTm92ZWRhZGVzIigKCFZhcmlhbnRlEg0KBXRhbGxl",
+            "GAEgASgJEg0KBWNvbG9yGAIgASgJInIKDURhdG9zUHJvZHVjdG8SDgoGY29k",
+            "aWdvGAEgASgJEg4KBm5vbWJyZRgCIAEoCRILCgN1cmwYAyABKAkSEgoKaGFi",
+            "aWxpdGFkbxgEIAEoCBIgCg10YWxsZXNDb2xvcmVzGAUgAygLMgkuVmFyaWFu",
+            "dGUiPgoVQ3JlYXJQcm9kdWN0b3NSZXF1ZXN0EiUKDWRhdG9zUHJvZHVjdG8Y",
+            "ASABKAsyDi5EYXRvc1Byb2R1Y3RvMqoECghwcm9kdWN0bxI6Cg1DcmVhclBy",
+            "b2R1Y3RvEhAuUHJvZHVjdG9SZXF1ZXN0GhUuQ3J1ZFByb2R1Y3RvUmVzcG9u",
+            "c2UiABJHChFNb2RpZmljYXJQcm9kdWN0bxIZLlByb2R1Y3RvTW9kaWZpY2Fy",
+            "UmVxdWVzdBoVLkNydWRQcm9kdWN0b1Jlc3BvbnNlIgASOAoQRWxpbWluYXJQ",
+            "cm9kdWN0bxILLlByb2R1Y3RvSWQaFS5DcnVkUHJvZHVjdG9SZXNwb25zZSIA",
+            "EjMKDlRyYWVyUHJvZHVjdG9zEhAuRmlsdHJvc1Byb2R1Y3RvGg0uZ2V0UHJv",
+            "ZHVjdG9zIgASPgoHRGV0YWxsZRIXLkRldGFsbGVQcm9kdWN0b1JlcXVlc3Qa",
+            "GC5EZXRhbGxlUHJvZHVjdG9SZXNwb25zZSIAEkAKF0dldFByb2R1Y3Rvc05v",
+            "QXNvY2lhZG9zEgkuVGllbmRhSWQaGC5nZXRQcm9kdWN0b3NOb0Fzb2NpYWRv",
+            "cyIAEjwKFUdldFByb2R1Y3Rvc0Fzb2NpYWRvcxIJLlRpZW5kYUlkGhYuZ2V0",
+            "UHJvZHVjdG9zQXNvY2lhZG9zIgASKQoOVHJhZXJOb3ZlZGFkZXMSBi5FbXB0",
+            "eRoNLmdldE5vdmVkYWRlcyIAEj8KDkNyZWFyUHJvZHVjdG9zEhYuQ3JlYXJQ",
+            "cm9kdWN0b3NSZXF1ZXN0GhUuQ3J1ZFByb2R1Y3RvUmVzcG9uc2VCEKoCDUdy",
+            "cGNDbGllbnRBUEliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcClientAPI.TiendaReflection.Descriptor, global::GrpcClientAPI.UsuarioReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoId), global::GrpcClientAPI.ProductoId.Parser, new[]{ "IdProducto" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoRequest), global::GrpcClientAPI.ProductoRequest.Parser, new[]{ "Nombre", "Imagen", "Talle", "Color", "Habilitado" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoModificarRequest), global::GrpcClientAPI.ProductoModificarRequest.Parser, new[]{ "IdProducto", "Nombre", "Imagen", "Talle", "Color", "Habilitado" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleProductoRequest), global::GrpcClientAPI.DetalleProductoRequest.Parser, new[]{ "CodigoTienda", "CodigoProducto" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleProductoRequest), global::GrpcClientAPI.DetalleProductoRequest.Parser, new[]{ "CodigoTienda", "IdProducto" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.FiltrosProducto), global::GrpcClientAPI.FiltrosProducto.Parser, new[]{ "IdUsuario", "Nombre", "Codigo", "Talle", "Color" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoResponse), global::GrpcClientAPI.ProductoResponse.Parser, new[]{ "Nombre", "Codigo", "Tienda", "Talle", "Color" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoResponse), global::GrpcClientAPI.ProductoResponse.Parser, new[]{ "IdProducto", "Nombre", "Codigo", "Tienda", "Talle", "Color" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.ProductoResponse2), global::GrpcClientAPI.ProductoResponse2.Parser, new[]{ "Nombre", "Codigo", "Talle", "Color", "IdProducto" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.CrudProductoResponse), global::GrpcClientAPI.CrudProductoResponse.Parser, new[]{ "Estado", "Mensaje" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleProductoResponse), global::GrpcClientAPI.DetalleProductoResponse.Parser, new[]{ "IdProducto", "Nombre", "Imagen", "Talle", "Color", "Habilitado", "Stock" }, null, null, null, null),
@@ -1037,7 +1037,7 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DetalleProductoRequest(DetalleProductoRequest other) : this() {
       codigoTienda_ = other.codigoTienda_;
-      codigoProducto_ = other.codigoProducto_;
+      idProducto_ = other.idProducto_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1059,15 +1059,15 @@ namespace GrpcClientAPI {
       }
     }
 
-    /// <summary>Field number for the "codigoProducto" field.</summary>
-    public const int CodigoProductoFieldNumber = 2;
-    private string codigoProducto_ = "";
+    /// <summary>Field number for the "idProducto" field.</summary>
+    public const int IdProductoFieldNumber = 2;
+    private long idProducto_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string CodigoProducto {
-      get { return codigoProducto_; }
+    public long IdProducto {
+      get { return idProducto_; }
       set {
-        codigoProducto_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        idProducto_ = value;
       }
     }
 
@@ -1087,7 +1087,7 @@ namespace GrpcClientAPI {
         return true;
       }
       if (CodigoTienda != other.CodigoTienda) return false;
-      if (CodigoProducto != other.CodigoProducto) return false;
+      if (IdProducto != other.IdProducto) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1096,7 +1096,7 @@ namespace GrpcClientAPI {
     public override int GetHashCode() {
       int hash = 1;
       if (CodigoTienda.Length != 0) hash ^= CodigoTienda.GetHashCode();
-      if (CodigoProducto.Length != 0) hash ^= CodigoProducto.GetHashCode();
+      if (IdProducto != 0L) hash ^= IdProducto.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1119,9 +1119,9 @@ namespace GrpcClientAPI {
         output.WriteRawTag(10);
         output.WriteString(CodigoTienda);
       }
-      if (CodigoProducto.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(CodigoProducto);
+      if (IdProducto != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdProducto);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1137,9 +1137,9 @@ namespace GrpcClientAPI {
         output.WriteRawTag(10);
         output.WriteString(CodigoTienda);
       }
-      if (CodigoProducto.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(CodigoProducto);
+      if (IdProducto != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdProducto);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1154,8 +1154,8 @@ namespace GrpcClientAPI {
       if (CodigoTienda.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CodigoTienda);
       }
-      if (CodigoProducto.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CodigoProducto);
+      if (IdProducto != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdProducto);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1172,8 +1172,8 @@ namespace GrpcClientAPI {
       if (other.CodigoTienda.Length != 0) {
         CodigoTienda = other.CodigoTienda;
       }
-      if (other.CodigoProducto.Length != 0) {
-        CodigoProducto = other.CodigoProducto;
+      if (other.IdProducto != 0L) {
+        IdProducto = other.IdProducto;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1194,8 +1194,8 @@ namespace GrpcClientAPI {
             CodigoTienda = input.ReadString();
             break;
           }
-          case 18: {
-            CodigoProducto = input.ReadString();
+          case 16: {
+            IdProducto = input.ReadInt64();
             break;
           }
         }
@@ -1217,8 +1217,8 @@ namespace GrpcClientAPI {
             CodigoTienda = input.ReadString();
             break;
           }
-          case 18: {
-            CodigoProducto = input.ReadString();
+          case 16: {
+            IdProducto = input.ReadInt64();
             break;
           }
         }
@@ -1599,6 +1599,7 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProductoResponse(ProductoResponse other) : this() {
+      idProducto_ = other.idProducto_;
       nombre_ = other.nombre_;
       codigo_ = other.codigo_;
       tienda_ = other.tienda_ != null ? other.tienda_.Clone() : null;
@@ -1613,8 +1614,20 @@ namespace GrpcClientAPI {
       return new ProductoResponse(this);
     }
 
+    /// <summary>Field number for the "idProducto" field.</summary>
+    public const int IdProductoFieldNumber = 1;
+    private long idProducto_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long IdProducto {
+      get { return idProducto_; }
+      set {
+        idProducto_ = value;
+      }
+    }
+
     /// <summary>Field number for the "nombre" field.</summary>
-    public const int NombreFieldNumber = 1;
+    public const int NombreFieldNumber = 2;
     private string nombre_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1626,7 +1639,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "codigo" field.</summary>
-    public const int CodigoFieldNumber = 2;
+    public const int CodigoFieldNumber = 3;
     private string codigo_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1638,7 +1651,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "tienda" field.</summary>
-    public const int TiendaFieldNumber = 3;
+    public const int TiendaFieldNumber = 4;
     private global::GrpcClientAPI.TiendaResponse tienda_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1650,7 +1663,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "talle" field.</summary>
-    public const int TalleFieldNumber = 4;
+    public const int TalleFieldNumber = 5;
     private string talle_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1662,7 +1675,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "color" field.</summary>
-    public const int ColorFieldNumber = 5;
+    public const int ColorFieldNumber = 6;
     private string color_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1688,6 +1701,7 @@ namespace GrpcClientAPI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (IdProducto != other.IdProducto) return false;
       if (Nombre != other.Nombre) return false;
       if (Codigo != other.Codigo) return false;
       if (!object.Equals(Tienda, other.Tienda)) return false;
@@ -1700,6 +1714,7 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (IdProducto != 0L) hash ^= IdProducto.GetHashCode();
       if (Nombre.Length != 0) hash ^= Nombre.GetHashCode();
       if (Codigo.Length != 0) hash ^= Codigo.GetHashCode();
       if (tienda_ != null) hash ^= Tienda.GetHashCode();
@@ -1723,24 +1738,28 @@ namespace GrpcClientAPI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (IdProducto != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdProducto);
+      }
       if (Nombre.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(Nombre);
       }
       if (Codigo.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Codigo);
       }
       if (tienda_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Tienda);
       }
       if (Talle.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Talle);
       }
       if (Color.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(Color);
       }
       if (_unknownFields != null) {
@@ -1753,24 +1772,28 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IdProducto != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdProducto);
+      }
       if (Nombre.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(Nombre);
       }
       if (Codigo.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Codigo);
       }
       if (tienda_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Tienda);
       }
       if (Talle.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Talle);
       }
       if (Color.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(Color);
       }
       if (_unknownFields != null) {
@@ -1783,6 +1806,9 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (IdProducto != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdProducto);
+      }
       if (Nombre.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nombre);
       }
@@ -1809,6 +1835,9 @@ namespace GrpcClientAPI {
     public void MergeFrom(ProductoResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.IdProducto != 0L) {
+        IdProducto = other.IdProducto;
       }
       if (other.Nombre.Length != 0) {
         Nombre = other.Nombre;
@@ -1843,26 +1872,30 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Nombre = input.ReadString();
+          case 8: {
+            IdProducto = input.ReadInt64();
             break;
           }
           case 18: {
-            Codigo = input.ReadString();
+            Nombre = input.ReadString();
             break;
           }
           case 26: {
+            Codigo = input.ReadString();
+            break;
+          }
+          case 34: {
             if (tienda_ == null) {
               Tienda = new global::GrpcClientAPI.TiendaResponse();
             }
             input.ReadMessage(Tienda);
             break;
           }
-          case 34: {
+          case 42: {
             Talle = input.ReadString();
             break;
           }
-          case 42: {
+          case 50: {
             Color = input.ReadString();
             break;
           }
@@ -1881,26 +1914,30 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Nombre = input.ReadString();
+          case 8: {
+            IdProducto = input.ReadInt64();
             break;
           }
           case 18: {
-            Codigo = input.ReadString();
+            Nombre = input.ReadString();
             break;
           }
           case 26: {
+            Codigo = input.ReadString();
+            break;
+          }
+          case 34: {
             if (tienda_ == null) {
               Tienda = new global::GrpcClientAPI.TiendaResponse();
             }
             input.ReadMessage(Tienda);
             break;
           }
-          case 34: {
+          case 42: {
             Talle = input.ReadString();
             break;
           }
-          case 42: {
+          case 50: {
             Color = input.ReadString();
             break;
           }

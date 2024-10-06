@@ -41,7 +41,7 @@ message ProductoModificarRequest{
 
 message DetalleProductoRequest{
     string codigoTienda = 1;
-    string codigoProducto = 2;
+    int64 idProducto = 2;
 }
 
 message FiltrosProducto{
@@ -53,11 +53,12 @@ message FiltrosProducto{
 }
 
 message ProductoResponse{
-    string nombre = 1;
-    string codigo = 2;
-    TiendaResponse tienda = 3;
-    string talle = 4;
-    string color = 5;
+    int64 idProducto = 1;
+    string nombre = 2;
+    string codigo = 3;
+    TiendaResponse tienda = 4;
+    string talle = 5;
+    string color = 6;
 }
 
 message ProductoResponse2{

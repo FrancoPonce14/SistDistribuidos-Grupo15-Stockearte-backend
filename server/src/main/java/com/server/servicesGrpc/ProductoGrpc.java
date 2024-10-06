@@ -1,8 +1,8 @@
 package com.server.servicesGrpc;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -156,83 +156,85 @@ public class ProductoGrpc extends productoImplBase {
     }
 
     @Transactional
-    @Override
-    public void traerProductos(FiltrosProducto request, StreamObserver<getProductos> responseObserver) {
-        try {
-            Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
-                    .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.BAD_REQUEST));
+@Override
+public void traerProductos(FiltrosProducto request, StreamObserver<getProductos> responseObserver) {
+    try {
+        Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
+                .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.BAD_REQUEST));
 
-            int page = 1; int size = 9999;
-            PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
-            Page<Producto> productosPage;
+        int page = 1; int size = 9999;
+        PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
+        Page<Producto> productosPage;
 
-            if (usuario.getRol().equalsIgnoreCase("ROLE_CASA_CENTRAL")) {
-                productosPage = productoRepository.findAll(request.getNombre(), request.getCodigo(), request.getTalle(), request.getColor(), pageable);
-            } else if (usuario.getRol().equalsIgnoreCase("ROLE_TIENDA")) {
-                if (usuario.getTienda() == null) {
-                    throw new ServerException("EL usuario no esta asignado a una tienda", HttpStatus.BAD_REQUEST);
-                }
-                productosPage = productoRepository.findByTienda(usuario.getTienda().getId(), request.getNombre(), request.getCodigo(), request.getTalle(), request.getColor(), pageable);
-            } else {
-                throw new ServerException("Rol de usuario no permitido", HttpStatus.FORBIDDEN);
+        if (usuario.getRol().equalsIgnoreCase("ROLE_CASA_CENTRAL")) {
+            productosPage = productoRepository.findAll(request.getNombre(), request.getCodigo(), request.getTalle(), request.getColor(), pageable);
+        } else if (usuario.getRol().equalsIgnoreCase("ROLE_TIENDA")) {
+            if (usuario.getTienda() == null) {
+                throw new ServerException("El usuario no está asignado a una tienda", HttpStatus.BAD_REQUEST);
             }
-
-            getProductos.Builder productos = getProductos.newBuilder();
-            Set<String> productosAgregados = new HashSet<>();
-
-            for (Producto p : productosPage.getContent()) {
-                if (!p.getStock().isEmpty()) {
-                    for (Stock stock : p.getStock()) {
-                        String codigoUnico = p.getCodigo() + "_" + stock.getTienda().getCodigo();
-                        if (productosAgregados.contains(codigoUnico)) {
-                            continue;  //SI EL PRODUCTO FUE AGREGADO EN ESTA TIENDA, SE SALTEA
-                        }
-                        ProductoResponse.Builder producto = ProductoResponse.newBuilder()
-                                .setNombre(p.getNombre())
-                                .setCodigo(p.getCodigo())
-                                .setTalle(p.getTalle())
-                                .setColor(p.getColor());
-
-                        TiendaResponse tienda = TiendaResponse.newBuilder()
-                                .setCodigo(stock.getTienda().getCodigo())
-                                .setHabilitado(stock.getTienda().isHabilitado())
-                                .build();
-
-                        producto.setTienda(tienda);
-                        productos.addProductos(producto.build());
-                        productosAgregados.add(codigoUnico);
-                    }
-                } else {
-                    String codigoUnicoProducto = p.getCodigo();
-                    if (!productosAgregados.contains(codigoUnicoProducto)) {
-                        ProductoResponse.Builder producto = ProductoResponse.newBuilder()
-                                .setNombre(p.getNombre())
-                                .setCodigo(p.getCodigo())
-                                .setTalle(p.getTalle())
-                                .setColor(p.getColor());
-
-                        productos.addProductos(producto.build());
-                        productosAgregados.add(codigoUnicoProducto);
-                    }
-                }
-
-            }
-
-            getProductos response = productos.build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        } catch (ServerException e) {
-            responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.UNKNOWN)
-                    .withDescription(e.getMensaje())
-                    .asRuntimeException());
+            productosPage = productoRepository.findByTienda(usuario.getTienda().getId(), request.getNombre(), request.getCodigo(), request.getTalle(), request.getColor(), pageable);
+        } else {
+            throw new ServerException("Rol de usuario no permitido", HttpStatus.FORBIDDEN);
         }
+
+        getProductos.Builder productos = getProductos.newBuilder();
+        Set<String> productosAgregados = new HashSet<>();
+
+        for (Producto p : productosPage.getContent()) {
+            if (!p.getStock().isEmpty()) {
+                for (Stock stock : p.getStock()) {
+                    String codigoUnico = p.getCodigo() + "_" + p.getTalle() + "_" + p.getColor() + "_" + stock.getTienda().getCodigo();
+                    if (productosAgregados.contains(codigoUnico)) {
+                        continue;
+                    }
+
+                    ProductoResponse.Builder producto = ProductoResponse.newBuilder()
+                            .setIdProducto(p.getId())
+                            .setNombre(p.getNombre())
+                            .setCodigo(p.getCodigo())
+                            .setTalle(p.getTalle())
+                            .setColor(p.getColor());
+
+                    TiendaResponse tienda = TiendaResponse.newBuilder()
+                            .setCodigo(stock.getTienda().getCodigo())
+                            .setHabilitado(stock.getTienda().isHabilitado())
+                            .build();
+
+                    producto.setTienda(tienda);
+                    productos.addProductos(producto.build());
+                    productosAgregados.add(codigoUnico);
+                }
+            } else {
+                String codigoUnicoProducto = p.getCodigo() + "_" + p.getTalle() + "_" + p.getColor();
+                if (!productosAgregados.contains(codigoUnicoProducto)) {
+                    ProductoResponse.Builder producto = ProductoResponse.newBuilder()
+                            .setIdProducto(p.getId())
+                            .setNombre(p.getNombre())
+                            .setCodigo(p.getCodigo())
+                            .setTalle(p.getTalle())
+                            .setColor(p.getColor());
+
+                    productos.addProductos(producto.build());
+                    productosAgregados.add(codigoUnicoProducto);
+                }
+            }
+        }
+
+        getProductos response = productos.build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    } catch (ServerException e) {
+        responseObserver.onError(io.grpc.Status.fromCode(io.grpc.Status.Code.UNKNOWN)
+                .withDescription(e.getMensaje())
+                .asRuntimeException());
     }
+}
 
     @Transactional
     @Override
     public void detalle(DetalleProductoRequest request, StreamObserver<DetalleProductoResponse> responseObserver) {
         try {
-            Producto producto = productoRepository.findByCodigos(request.getCodigoTienda(), request.getCodigoProducto())
+            Producto producto = productoRepository.findByCodigos(request.getCodigoTienda(), request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado para esa tienda", HttpStatus.BAD_REQUEST));
 
             DetalleProductoResponse.Builder responseBuilder = DetalleProductoResponse.newBuilder()
