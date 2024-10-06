@@ -16,11 +16,6 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     public Optional<Usuario> findByEmail(String email);
     public List<Usuario> findByTiendaIsNull();
     public List<Usuario> findByTiendaId(Long tiendaId);
-
-    @Query(value = "SELECT u FROM Usuario u " +
-    "LEFT JOIN u.tienda t " +
-    "WHERE (:nombre IS NULL OR :nombre = '' OR LOWER(u.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))) " +
-    "AND (:codigo IS NULL OR (:codigo = '' OR LOWER(t.codigo) LIKE LOWER(CONCAT('%', :codigo, '%')))) " +
-    "AND u.rol = 'ROLE_TIENDA'")
+    @Query(value = "SELECT u FROM Usuario u LEFT JOIN u.tienda t WHERE (:nombre IS NULL OR :nombre = '' OR LOWER(u.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))) AND (:codigo IS NULL OR (:codigo = '' OR LOWER(t.codigo) LIKE LOWER(CONCAT('%', :codigo, '%')))) AND u.rol = 'ROLE_TIENDA'")
     public Page<Usuario> findAll(@Param("nombre") String nombre, @Param("codigo") String codigo, Pageable pageable);
 }
