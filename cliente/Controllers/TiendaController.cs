@@ -141,6 +141,15 @@ namespace GrpcClientAPI.Controllers
             return reply;
         }
 
+        [HttpPost()]
+        [Route("[action]")]
+        public async Task<CrudTiendaResponse> RecibirPedido(OrdenCompraId request)
+        {
+            var reply = await Client.RecibirPedidoAsync(request);
+
+            return reply;
+        }
+
         public class CrearOrdenCompraRequestDto
         {
             public long IdUsuario  { get; set; }

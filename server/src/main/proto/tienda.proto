@@ -17,6 +17,7 @@ service tienda{
      rpc CrearOrdenCompra(OrdenCompraRequest) returns (CrudTiendaResponse){}
      rpc TraerOrdenCompra(UsuuarioId) returns (OrdenCompraResponse){}
      rpc DetalleOrdenCompra(IdOrdenCompra) returns (DetalleOrdenCompraResponse){}
+     rpc RecibirPedido(OrdenCompraId) returns (CrudTiendaResponse){}
 }
 
 message TiendaId{
@@ -25,6 +26,10 @@ message TiendaId{
 
 message UsuuarioId{
     int64 idUsuario = 1;
+}
+
+message OrdenCompraId{
+    int64 idOrdenCompra = 1;
 }
 
 message TiendaRequest{

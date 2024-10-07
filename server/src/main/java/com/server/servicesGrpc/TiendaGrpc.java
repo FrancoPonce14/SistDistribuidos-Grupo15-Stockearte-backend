@@ -36,6 +36,7 @@ import com.server.grpc.ItemResponse;
 import com.server.grpc.ManejarProducto;
 import com.server.grpc.ManejarUsuario;
 import com.server.grpc.ModificarStockRequest;
+import com.server.grpc.OrdenCompraId;
 import com.server.grpc.OrdenCompraRequest;
 import com.server.grpc.OrdenCompraResponse;
 import com.server.grpc.OrdenCompras;
@@ -543,5 +544,11 @@ public class TiendaGrpc extends tiendaImplBase {
         OrdenCompraResponse response = responseBuilder.build();
         responseObserver.onNext(response);
         responseObserver.onCompleted(); 
+    }
+
+    @Override
+    public void recibirPedido(OrdenCompraId request, StreamObserver<CrudTiendaResponse> responseObserver) {
+        // TODO Auto-generated method stub
+        super.recibirPedido(request, responseObserver);
     }
 }
