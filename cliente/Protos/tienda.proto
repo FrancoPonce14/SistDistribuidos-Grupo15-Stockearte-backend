@@ -116,10 +116,11 @@ message DetalleOrdenCompraResponse{
 }
 
 message OrdenCompras{
-    string fechaSolicitud = 1;
-    string estado = 2;
-    string observaciones = 3;
-    string fechaRecepcion = 4;
+    int64 idOrdenCompra = 1;
+    string fechaSolicitud = 2;
+    string estado = 3;
+    string observaciones = 4;
+    string fechaRecepcion = 5;
 }
 
 message OrdenCompraResponse{

@@ -532,6 +532,7 @@ public class TiendaGrpc extends tiendaImplBase {
 
         for(OrdenCompra orden : ordenes){
             OrdenCompras ordenCompras = OrdenCompras.newBuilder()
+            .setIdOrdenCompra(orden.getId())
             .setFechaSolicitud(orden.getFechaSolicitud() != null ? fecha.format(orden.getFechaSolicitud()) : "")
             .setEstado(orden.getEstado() != null ? orden.getEstado() : "")
             .setObservaciones(orden.getObservaciones() != null ? orden.getObservaciones() : "")

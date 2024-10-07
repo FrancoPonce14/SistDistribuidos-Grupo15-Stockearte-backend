@@ -50,29 +50,29 @@ namespace GrpcClientAPI {
             "DWlkT3JkZW5Db21wcmEYASABKAMiTQoLRGV0YWxsZUl0ZW0SDgoGbm9tYnJl",
             "GAEgASgJEg0KBXRhbGxlGAIgASgJEg0KBWNvbG9yGAMgASgJEhAKCGNhbnRp",
             "ZGFkGAQgASgJIjkKGkRldGFsbGVPcmRlbkNvbXByYVJlc3BvbnNlEhsKBWl0",
-            "ZW1zGAEgAygLMgwuRGV0YWxsZUl0ZW0iZQoMT3JkZW5Db21wcmFzEhYKDmZl",
-            "Y2hhU29saWNpdHVkGAEgASgJEg4KBmVzdGFkbxgCIAEoCRIVCg1vYnNlcnZh",
-            "Y2lvbmVzGAMgASgJEhYKDmZlY2hhUmVjZXBjaW9uGAQgASgJIjUKE09yZGVu",
-            "Q29tcHJhUmVzcG9uc2USHgoHb3JkZW5lcxgBIAMoCzINLk9yZGVuQ29tcHJh",
-            "czKRBgoGdGllbmRhEjQKC0NyZWFyVGllbmRhEg4uVGllbmRhUmVxdWVzdBoT",
-            "LkNydWRUaWVuZGFSZXNwb25zZSIAEkEKD01vZGlmaWNhclRpZW5kYRIXLlRp",
-            "ZW5kYU1vZGlmaWNhclJlcXVlc3QaEy5DcnVkVGllbmRhUmVzcG9uc2UiABIy",
-            "Cg5FbGltaW5hclRpZW5kYRIJLlRpZW5kYUlkGhMuQ3J1ZFRpZW5kYVJlc3Bv",
-            "bnNlIgASLQoMVHJhZXJUaWVuZGFzEg4uRmlsdHJvc1RpZW5kYRoLLmdldFRp",
-            "ZW5kYXMiABI6CgdEZXRhbGxlEhUuRGV0YWxsZVRpZW5kYVJlcXVlc3QaFi5E",
-            "ZXRhbGxlVGllbmRhUmVzcG9uc2UiABI6Cg9Bc2lnbmFyUHJvZHVjdG8SEC5N",
-            "YW5lamFyUHJvZHVjdG8aEy5DcnVkVGllbmRhUmVzcG9uc2UiABI9ChJEZXNh",
-            "c2lnbmFyUHJvZHVjdG8SEC5NYW5lamFyUHJvZHVjdG8aEy5DcnVkVGllbmRh",
-            "UmVzcG9uc2UiABI4Cg5Bc2lnbmFyVXN1YXJpbxIPLk1hbmVqYXJVc3Vhcmlv",
-            "GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASOwoRRGVzYXNpZ25hclVzdWFyaW8S",
-            "Dy5NYW5lamFyVXN1YXJpbxoTLkNydWRUaWVuZGFSZXNwb25zZSIAEj8KDk1v",
-            "ZGlmaWNhclN0b2NrEhYuTW9kaWZpY2FyU3RvY2tSZXF1ZXN0GhMuQ3J1ZFRp",
-            "ZW5kYVJlc3BvbnNlIgASPgoQQ3JlYXJPcmRlbkNvbXByYRITLk9yZGVuQ29t",
-            "cHJhUmVxdWVzdBoTLkNydWRUaWVuZGFSZXNwb25zZSIAEjcKEFRyYWVyT3Jk",
-            "ZW5Db21wcmESCy5Vc3V1YXJpb0lkGhQuT3JkZW5Db21wcmFSZXNwb25zZSIA",
-            "EkMKEkRldGFsbGVPcmRlbkNvbXByYRIOLklkT3JkZW5Db21wcmEaGy5EZXRh",
-            "bGxlT3JkZW5Db21wcmFSZXNwb25zZSIAQhCqAg1HcnBjQ2xpZW50QVBJYgZw",
-            "cm90bzM="));
+            "ZW1zGAEgAygLMgwuRGV0YWxsZUl0ZW0ifAoMT3JkZW5Db21wcmFzEhUKDWlk",
+            "T3JkZW5Db21wcmEYASABKAMSFgoOZmVjaGFTb2xpY2l0dWQYAiABKAkSDgoG",
+            "ZXN0YWRvGAMgASgJEhUKDW9ic2VydmFjaW9uZXMYBCABKAkSFgoOZmVjaGFS",
+            "ZWNlcGNpb24YBSABKAkiNQoTT3JkZW5Db21wcmFSZXNwb25zZRIeCgdvcmRl",
+            "bmVzGAEgAygLMg0uT3JkZW5Db21wcmFzMpEGCgZ0aWVuZGESNAoLQ3JlYXJU",
+            "aWVuZGESDi5UaWVuZGFSZXF1ZXN0GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgAS",
+            "QQoPTW9kaWZpY2FyVGllbmRhEhcuVGllbmRhTW9kaWZpY2FyUmVxdWVzdBoT",
+            "LkNydWRUaWVuZGFSZXNwb25zZSIAEjIKDkVsaW1pbmFyVGllbmRhEgkuVGll",
+            "bmRhSWQaEy5DcnVkVGllbmRhUmVzcG9uc2UiABItCgxUcmFlclRpZW5kYXMS",
+            "Di5GaWx0cm9zVGllbmRhGgsuZ2V0VGllbmRhcyIAEjoKB0RldGFsbGUSFS5E",
+            "ZXRhbGxlVGllbmRhUmVxdWVzdBoWLkRldGFsbGVUaWVuZGFSZXNwb25zZSIA",
+            "EjoKD0FzaWduYXJQcm9kdWN0bxIQLk1hbmVqYXJQcm9kdWN0bxoTLkNydWRU",
+            "aWVuZGFSZXNwb25zZSIAEj0KEkRlc2FzaWduYXJQcm9kdWN0bxIQLk1hbmVq",
+            "YXJQcm9kdWN0bxoTLkNydWRUaWVuZGFSZXNwb25zZSIAEjgKDkFzaWduYXJV",
+            "c3VhcmlvEg8uTWFuZWphclVzdWFyaW8aEy5DcnVkVGllbmRhUmVzcG9uc2Ui",
+            "ABI7ChFEZXNhc2lnbmFyVXN1YXJpbxIPLk1hbmVqYXJVc3VhcmlvGhMuQ3J1",
+            "ZFRpZW5kYVJlc3BvbnNlIgASPwoOTW9kaWZpY2FyU3RvY2sSFi5Nb2RpZmlj",
+            "YXJTdG9ja1JlcXVlc3QaEy5DcnVkVGllbmRhUmVzcG9uc2UiABI+ChBDcmVh",
+            "ck9yZGVuQ29tcHJhEhMuT3JkZW5Db21wcmFSZXF1ZXN0GhMuQ3J1ZFRpZW5k",
+            "YVJlc3BvbnNlIgASNwoQVHJhZXJPcmRlbkNvbXByYRILLlVzdXVhcmlvSWQa",
+            "FC5PcmRlbkNvbXByYVJlc3BvbnNlIgASQwoSRGV0YWxsZU9yZGVuQ29tcHJh",
+            "Eg4uSWRPcmRlbkNvbXByYRobLkRldGFsbGVPcmRlbkNvbXByYVJlc3BvbnNl",
+            "IgBCEKoCDUdycGNDbGllbnRBUEliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -94,7 +94,7 @@ namespace GrpcClientAPI {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.IdOrdenCompra), global::GrpcClientAPI.IdOrdenCompra.Parser, new[]{ "IdOrdenCompra_" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleItem), global::GrpcClientAPI.DetalleItem.Parser, new[]{ "Nombre", "Talle", "Color", "Cantidad" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleOrdenCompraResponse), global::GrpcClientAPI.DetalleOrdenCompraResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompras), global::GrpcClientAPI.OrdenCompras.Parser, new[]{ "FechaSolicitud", "Estado", "Observaciones", "FechaRecepcion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompras), global::GrpcClientAPI.OrdenCompras.Parser, new[]{ "IdOrdenCompra", "FechaSolicitud", "Estado", "Observaciones", "FechaRecepcion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompraResponse), global::GrpcClientAPI.OrdenCompraResponse.Parser, new[]{ "Ordenes" }, null, null, null, null)
           }));
     }
@@ -4430,6 +4430,7 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public OrdenCompras(OrdenCompras other) : this() {
+      idOrdenCompra_ = other.idOrdenCompra_;
       fechaSolicitud_ = other.fechaSolicitud_;
       estado_ = other.estado_;
       observaciones_ = other.observaciones_;
@@ -4443,8 +4444,20 @@ namespace GrpcClientAPI {
       return new OrdenCompras(this);
     }
 
+    /// <summary>Field number for the "idOrdenCompra" field.</summary>
+    public const int IdOrdenCompraFieldNumber = 1;
+    private long idOrdenCompra_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long IdOrdenCompra {
+      get { return idOrdenCompra_; }
+      set {
+        idOrdenCompra_ = value;
+      }
+    }
+
     /// <summary>Field number for the "fechaSolicitud" field.</summary>
-    public const int FechaSolicitudFieldNumber = 1;
+    public const int FechaSolicitudFieldNumber = 2;
     private string fechaSolicitud_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4456,7 +4469,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "estado" field.</summary>
-    public const int EstadoFieldNumber = 2;
+    public const int EstadoFieldNumber = 3;
     private string estado_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4468,7 +4481,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "observaciones" field.</summary>
-    public const int ObservacionesFieldNumber = 3;
+    public const int ObservacionesFieldNumber = 4;
     private string observaciones_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4480,7 +4493,7 @@ namespace GrpcClientAPI {
     }
 
     /// <summary>Field number for the "fechaRecepcion" field.</summary>
-    public const int FechaRecepcionFieldNumber = 4;
+    public const int FechaRecepcionFieldNumber = 5;
     private string fechaRecepcion_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4506,6 +4519,7 @@ namespace GrpcClientAPI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (IdOrdenCompra != other.IdOrdenCompra) return false;
       if (FechaSolicitud != other.FechaSolicitud) return false;
       if (Estado != other.Estado) return false;
       if (Observaciones != other.Observaciones) return false;
@@ -4517,6 +4531,7 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (IdOrdenCompra != 0L) hash ^= IdOrdenCompra.GetHashCode();
       if (FechaSolicitud.Length != 0) hash ^= FechaSolicitud.GetHashCode();
       if (Estado.Length != 0) hash ^= Estado.GetHashCode();
       if (Observaciones.Length != 0) hash ^= Observaciones.GetHashCode();
@@ -4539,20 +4554,24 @@ namespace GrpcClientAPI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (IdOrdenCompra != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdOrdenCompra);
+      }
       if (FechaSolicitud.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(FechaSolicitud);
       }
       if (Estado.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Estado);
       }
       if (Observaciones.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Observaciones);
       }
       if (FechaRecepcion.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(FechaRecepcion);
       }
       if (_unknownFields != null) {
@@ -4565,20 +4584,24 @@ namespace GrpcClientAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IdOrdenCompra != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdOrdenCompra);
+      }
       if (FechaSolicitud.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(FechaSolicitud);
       }
       if (Estado.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Estado);
       }
       if (Observaciones.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Observaciones);
       }
       if (FechaRecepcion.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(FechaRecepcion);
       }
       if (_unknownFields != null) {
@@ -4591,6 +4614,9 @@ namespace GrpcClientAPI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (IdOrdenCompra != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdOrdenCompra);
+      }
       if (FechaSolicitud.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FechaSolicitud);
       }
@@ -4614,6 +4640,9 @@ namespace GrpcClientAPI {
     public void MergeFrom(OrdenCompras other) {
       if (other == null) {
         return;
+      }
+      if (other.IdOrdenCompra != 0L) {
+        IdOrdenCompra = other.IdOrdenCompra;
       }
       if (other.FechaSolicitud.Length != 0) {
         FechaSolicitud = other.FechaSolicitud;
@@ -4642,19 +4671,23 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            FechaSolicitud = input.ReadString();
+          case 8: {
+            IdOrdenCompra = input.ReadInt64();
             break;
           }
           case 18: {
-            Estado = input.ReadString();
+            FechaSolicitud = input.ReadString();
             break;
           }
           case 26: {
-            Observaciones = input.ReadString();
+            Estado = input.ReadString();
             break;
           }
           case 34: {
+            Observaciones = input.ReadString();
+            break;
+          }
+          case 42: {
             FechaRecepcion = input.ReadString();
             break;
           }
@@ -4673,19 +4706,23 @@ namespace GrpcClientAPI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            FechaSolicitud = input.ReadString();
+          case 8: {
+            IdOrdenCompra = input.ReadInt64();
             break;
           }
           case 18: {
-            Estado = input.ReadString();
+            FechaSolicitud = input.ReadString();
             break;
           }
           case 26: {
-            Observaciones = input.ReadString();
+            Estado = input.ReadString();
             break;
           }
           case 34: {
+            Observaciones = input.ReadString();
+            break;
+          }
+          case 42: {
             FechaRecepcion = input.ReadString();
             break;
           }

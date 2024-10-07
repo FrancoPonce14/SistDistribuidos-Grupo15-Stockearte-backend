@@ -3,20 +3,23 @@ obj/
 obj/Debug/
 obj/Debug/net6.0/
 .vs/
-GrpcClient/obj/
-GrpcClientAPI/obj/
+cliente/obj/
+cliente/obj/
 GrpcService/obj/
 SOAPService/obj/
 
 SOAPService/obj/Debug/
 
-GrpcClientAPI/bin/Debug/net6.0/GrpcClientAPI.dll
-GrpcClientAPI/bin/Debug/net6.0/GrpcClientAPI.pdb
-GrpcService/bin/Debug/net6.0/GrpcService.dll
-GrpcService/bin/Debug/net6.0/GrpcService.pdb
+cliente/bin/Debug/net6.0/GrpcClientAPI.dll
+cliente/bin/Debug/net6.0/GrpcClientAPI.pdb
+cliente/bin/Debug/net6.0/GrpcService.dll
+cliente/bin/Debug/net6.0/GrpcService.pdb
 SOAPService/bin/Debug/net6.0/SOAPService.dll
 SOAPService/bin/Debug/net6.0/SOAPService.pdb
 
-GrpcClientAPI/bin/Debug/net6.0/
+cliente/bin/Debug/net6.0/
 SOAPService/obj/Debug/SOAPService.csproj.CoreCompileInputs.cache
 SOAPService/obj/Debug/SOAPService.csproj.FileListAbsolute.txt
+
+cliente/bin/Debug/net6.0/GrpcClientAPI.dll
+cliente/bin/Debug/net6.0/GrpcClientAPI.dll
