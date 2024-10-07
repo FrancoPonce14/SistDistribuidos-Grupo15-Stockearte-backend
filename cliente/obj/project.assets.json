@@ -5254,27 +5254,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nemesis\\.nuget\\packages\\": {}
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nemesis\\Desktop\\proyectos franco\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\GrpcClientAPI.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\OneDrive\\Escritorio\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\GrpcClientAPI.csproj",
       "projectName": "GrpcClientAPI",
-      "projectPath": "C:\\Users\\Nemesis\\Desktop\\proyectos franco\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\GrpcClientAPI.csproj",
-      "packagesPath": "C:\\Users\\Nemesis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nemesis\\Desktop\\proyectos franco\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\obj\\",
+      "projectPath": "C:\\Users\\franc\\OneDrive\\Escritorio\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\GrpcClientAPI.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\OneDrive\\Escritorio\\SistDistribuidos-Grupo15-Stockearte-backend\\cliente\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nemesis\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5287,11 +5284,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5372,7 +5364,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.425\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -64,7 +64,7 @@ message ManejarUsuario{
 
 message ModificarStockRequest{
     string codigoTienda = 1;
-    string codigoProducto = 2;
+    int64 idProducto = 2;
     int32 cantidad = 3;
 }
 
@@ -97,7 +97,7 @@ message OrdenCompraRequest{
 }
 
 message ItemResponse{
-    string codigoProducto = 1;
+    int64 idProducto = 1;
     int32 cantidad = 2;
 }
 

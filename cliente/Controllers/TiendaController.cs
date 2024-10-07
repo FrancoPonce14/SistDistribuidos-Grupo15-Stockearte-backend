@@ -116,7 +116,7 @@ namespace GrpcClientAPI.Controllers
 
             foreach (var item in request.Items)
             {
-                grpcRequest.Items.Add(new ItemResponse{CodigoProducto = item.CodigoProducto, Cantidad = item.Cantidad});
+                grpcRequest.Items.Add(new ItemResponse{IdProducto = item.IdProducto, Cantidad = item.Cantidad});
             }
 
             var reply = await Client.CrearOrdenCompraAsync(grpcRequest);
@@ -149,7 +149,7 @@ namespace GrpcClientAPI.Controllers
 
         public class ItemRequestDto
         {
-            public string CodigoProducto { get; set; }
+            public long IdProducto { get; set; }
             public int Cantidad { get; set; }
         }
     }

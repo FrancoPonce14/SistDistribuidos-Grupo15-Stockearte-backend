@@ -373,7 +373,7 @@ public class TiendaGrpc extends tiendaImplBase {
             Tienda tienda = tiendaRepository.findByCodigo(request.getCodigoTienda())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
 
-            Producto producto = productoRepository.findByCodigo(request.getCodigoProducto())
+            Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
             Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
@@ -420,7 +420,7 @@ public class TiendaGrpc extends tiendaImplBase {
             List<Item> items = new ArrayList<>();
 
             for (ItemResponse item : request.getItemsList()) {
-                Producto producto = productoRepository.findByCodigo(item.getCodigoProducto())
+                Producto producto = productoRepository.findById(item.getIdProducto())
                         .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
                 Item itemOrdenCompra = Item.builder()
