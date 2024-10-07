@@ -558,7 +558,44 @@ public class TiendaGrpc extends tiendaImplBase {
 
     @Override
     public void recibirPedido(OrdenCompraId request, StreamObserver<CrudTiendaResponse> responseObserver) {
-        // TODO Auto-generated method stub
-        super.recibirPedido(request, responseObserver);
+        OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
+                .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
+
+        Date fechaRecepcion = new Date();
+        ordenCompra.setFechaRecepcion(fechaRecepcion);
+
+        Map<String, Object> mensajeRecepcionmap = new HashMap<>();
+        mensajeRecepcionmap.put("idOrdenCompra", request.getIdOrdenCompra());
+        mensajeRecepcionmap.put("fechaRecepcion", fechaRecepcion);
+
+        String mensajeRecepcion;
+        try {
+            mensajeRecepcion = objectMapper.writeValueAsString(mensajeRecepcionmap);
+        } catch (JsonProcessingException e) {
+            throw new ServerException("Error al procesar el mensaje de recepción", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        kafkaTemplate.send("recepcion", mensajeRecepcion);
+
+        List<Item> items = ordenCompra.getItems();
+
+        for (Item item : items) {
+            ModificarStockRequest modificarStockRequest = ModificarStockRequest.newBuilder()
+                    .setIdProducto(item.getProducto().getId())
+                    .setCantidad(item.getCantidad())
+                    .build();
+
+            modificarStock(modificarStockRequest, responseObserver);
+        }
+
+        ordenCompraRepository.save(ordenCompra);
+
+        CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
+                .setMensaje("Orden de compra recibida y stock actualizado correctamente.")
+                .setEstado(true)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 }

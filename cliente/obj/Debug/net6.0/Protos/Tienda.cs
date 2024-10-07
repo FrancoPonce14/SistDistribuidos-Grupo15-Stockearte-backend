@@ -51,30 +51,31 @@ namespace GrpcClientAPI {
             "ZGVuQ29tcHJhGAEgASgDIk0KC0RldGFsbGVJdGVtEg4KBm5vbWJyZRgBIAEo",
             "CRINCgV0YWxsZRgCIAEoCRINCgVjb2xvchgDIAEoCRIQCghjYW50aWRhZBgE",
             "IAEoCSI5ChpEZXRhbGxlT3JkZW5Db21wcmFSZXNwb25zZRIbCgVpdGVtcxgB",
-            "IAMoCzIMLkRldGFsbGVJdGVtInwKDE9yZGVuQ29tcHJhcxIVCg1pZE9yZGVu",
-            "Q29tcHJhGAEgASgDEhYKDmZlY2hhU29saWNpdHVkGAIgASgJEg4KBmVzdGFk",
-            "bxgDIAEoCRIVCg1vYnNlcnZhY2lvbmVzGAQgASgJEhYKDmZlY2hhUmVjZXBj",
-            "aW9uGAUgASgJIjUKE09yZGVuQ29tcHJhUmVzcG9uc2USHgoHb3JkZW5lcxgB",
-            "IAMoCzINLk9yZGVuQ29tcHJhczLJBgoGdGllbmRhEjQKC0NyZWFyVGllbmRh",
-            "Eg4uVGllbmRhUmVxdWVzdBoTLkNydWRUaWVuZGFSZXNwb25zZSIAEkEKD01v",
-            "ZGlmaWNhclRpZW5kYRIXLlRpZW5kYU1vZGlmaWNhclJlcXVlc3QaEy5DcnVk",
-            "VGllbmRhUmVzcG9uc2UiABIyCg5FbGltaW5hclRpZW5kYRIJLlRpZW5kYUlk",
-            "GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASLQoMVHJhZXJUaWVuZGFzEg4uRmls",
-            "dHJvc1RpZW5kYRoLLmdldFRpZW5kYXMiABI6CgdEZXRhbGxlEhUuRGV0YWxs",
-            "ZVRpZW5kYVJlcXVlc3QaFi5EZXRhbGxlVGllbmRhUmVzcG9uc2UiABI6Cg9B",
-            "c2lnbmFyUHJvZHVjdG8SEC5NYW5lamFyUHJvZHVjdG8aEy5DcnVkVGllbmRh",
-            "UmVzcG9uc2UiABI9ChJEZXNhc2lnbmFyUHJvZHVjdG8SEC5NYW5lamFyUHJv",
-            "ZHVjdG8aEy5DcnVkVGllbmRhUmVzcG9uc2UiABI4Cg5Bc2lnbmFyVXN1YXJp",
-            "bxIPLk1hbmVqYXJVc3VhcmlvGhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASOwoR",
-            "RGVzYXNpZ25hclVzdWFyaW8SDy5NYW5lamFyVXN1YXJpbxoTLkNydWRUaWVu",
-            "ZGFSZXNwb25zZSIAEj8KDk1vZGlmaWNhclN0b2NrEhYuTW9kaWZpY2FyU3Rv",
-            "Y2tSZXF1ZXN0GhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgASPgoQQ3JlYXJPcmRl",
-            "bkNvbXByYRITLk9yZGVuQ29tcHJhUmVxdWVzdBoTLkNydWRUaWVuZGFSZXNw",
-            "b25zZSIAEjcKEFRyYWVyT3JkZW5Db21wcmESCy5Vc3V1YXJpb0lkGhQuT3Jk",
-            "ZW5Db21wcmFSZXNwb25zZSIAEkMKEkRldGFsbGVPcmRlbkNvbXByYRIOLklk",
-            "T3JkZW5Db21wcmEaGy5EZXRhbGxlT3JkZW5Db21wcmFSZXNwb25zZSIAEjYK",
-            "DVJlY2liaXJQZWRpZG8SDi5PcmRlbkNvbXByYUlkGhMuQ3J1ZFRpZW5kYVJl",
-            "c3BvbnNlIgBCEKoCDUdycGNDbGllbnRBUEliBnByb3RvMw=="));
+            "IAMoCzIMLkRldGFsbGVJdGVtIpABCgxPcmRlbkNvbXByYXMSFQoNaWRPcmRl",
+            "bkNvbXByYRgBIAEoAxIWCg5mZWNoYVNvbGljaXR1ZBgCIAEoCRIOCgZlc3Rh",
+            "ZG8YAyABKAkSFQoNb2JzZXJ2YWNpb25lcxgEIAEoCRIWCg5mZWNoYVJlY2Vw",
+            "Y2lvbhgFIAEoCRISCgpkZXNwYWNoYWRhGAYgASgIIjUKE09yZGVuQ29tcHJh",
+            "UmVzcG9uc2USHgoHb3JkZW5lcxgBIAMoCzINLk9yZGVuQ29tcHJhczLJBgoG",
+            "dGllbmRhEjQKC0NyZWFyVGllbmRhEg4uVGllbmRhUmVxdWVzdBoTLkNydWRU",
+            "aWVuZGFSZXNwb25zZSIAEkEKD01vZGlmaWNhclRpZW5kYRIXLlRpZW5kYU1v",
+            "ZGlmaWNhclJlcXVlc3QaEy5DcnVkVGllbmRhUmVzcG9uc2UiABIyCg5FbGlt",
+            "aW5hclRpZW5kYRIJLlRpZW5kYUlkGhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgAS",
+            "LQoMVHJhZXJUaWVuZGFzEg4uRmlsdHJvc1RpZW5kYRoLLmdldFRpZW5kYXMi",
+            "ABI6CgdEZXRhbGxlEhUuRGV0YWxsZVRpZW5kYVJlcXVlc3QaFi5EZXRhbGxl",
+            "VGllbmRhUmVzcG9uc2UiABI6Cg9Bc2lnbmFyUHJvZHVjdG8SEC5NYW5lamFy",
+            "UHJvZHVjdG8aEy5DcnVkVGllbmRhUmVzcG9uc2UiABI9ChJEZXNhc2lnbmFy",
+            "UHJvZHVjdG8SEC5NYW5lamFyUHJvZHVjdG8aEy5DcnVkVGllbmRhUmVzcG9u",
+            "c2UiABI4Cg5Bc2lnbmFyVXN1YXJpbxIPLk1hbmVqYXJVc3VhcmlvGhMuQ3J1",
+            "ZFRpZW5kYVJlc3BvbnNlIgASOwoRRGVzYXNpZ25hclVzdWFyaW8SDy5NYW5l",
+            "amFyVXN1YXJpbxoTLkNydWRUaWVuZGFSZXNwb25zZSIAEj8KDk1vZGlmaWNh",
+            "clN0b2NrEhYuTW9kaWZpY2FyU3RvY2tSZXF1ZXN0GhMuQ3J1ZFRpZW5kYVJl",
+            "c3BvbnNlIgASPgoQQ3JlYXJPcmRlbkNvbXByYRITLk9yZGVuQ29tcHJhUmVx",
+            "dWVzdBoTLkNydWRUaWVuZGFSZXNwb25zZSIAEjcKEFRyYWVyT3JkZW5Db21w",
+            "cmESCy5Vc3V1YXJpb0lkGhQuT3JkZW5Db21wcmFSZXNwb25zZSIAEkMKEkRl",
+            "dGFsbGVPcmRlbkNvbXByYRIOLklkT3JkZW5Db21wcmEaGy5EZXRhbGxlT3Jk",
+            "ZW5Db21wcmFSZXNwb25zZSIAEjYKDVJlY2liaXJQZWRpZG8SDi5PcmRlbkNv",
+            "bXByYUlkGhMuQ3J1ZFRpZW5kYVJlc3BvbnNlIgBCEKoCDUdycGNDbGllbnRB",
+            "UEliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -97,7 +98,7 @@ namespace GrpcClientAPI {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.IdOrdenCompra), global::GrpcClientAPI.IdOrdenCompra.Parser, new[]{ "IdOrdenCompra_" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleItem), global::GrpcClientAPI.DetalleItem.Parser, new[]{ "Nombre", "Talle", "Color", "Cantidad" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.DetalleOrdenCompraResponse), global::GrpcClientAPI.DetalleOrdenCompraResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompras), global::GrpcClientAPI.OrdenCompras.Parser, new[]{ "IdOrdenCompra", "FechaSolicitud", "Estado", "Observaciones", "FechaRecepcion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompras), global::GrpcClientAPI.OrdenCompras.Parser, new[]{ "IdOrdenCompra", "FechaSolicitud", "Estado", "Observaciones", "FechaRecepcion", "Despachada" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClientAPI.OrdenCompraResponse), global::GrpcClientAPI.OrdenCompraResponse.Parser, new[]{ "Ordenes" }, null, null, null, null)
           }));
     }
@@ -4627,6 +4628,7 @@ namespace GrpcClientAPI {
       estado_ = other.estado_;
       observaciones_ = other.observaciones_;
       fechaRecepcion_ = other.fechaRecepcion_;
+      despachada_ = other.despachada_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4696,6 +4698,18 @@ namespace GrpcClientAPI {
       }
     }
 
+    /// <summary>Field number for the "despachada" field.</summary>
+    public const int DespachadaFieldNumber = 6;
+    private bool despachada_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Despachada {
+      get { return despachada_; }
+      set {
+        despachada_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4716,6 +4730,7 @@ namespace GrpcClientAPI {
       if (Estado != other.Estado) return false;
       if (Observaciones != other.Observaciones) return false;
       if (FechaRecepcion != other.FechaRecepcion) return false;
+      if (Despachada != other.Despachada) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4728,6 +4743,7 @@ namespace GrpcClientAPI {
       if (Estado.Length != 0) hash ^= Estado.GetHashCode();
       if (Observaciones.Length != 0) hash ^= Observaciones.GetHashCode();
       if (FechaRecepcion.Length != 0) hash ^= FechaRecepcion.GetHashCode();
+      if (Despachada != false) hash ^= Despachada.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4766,6 +4782,10 @@ namespace GrpcClientAPI {
         output.WriteRawTag(42);
         output.WriteString(FechaRecepcion);
       }
+      if (Despachada != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(Despachada);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4796,6 +4816,10 @@ namespace GrpcClientAPI {
         output.WriteRawTag(42);
         output.WriteString(FechaRecepcion);
       }
+      if (Despachada != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(Despachada);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4820,6 +4844,9 @@ namespace GrpcClientAPI {
       }
       if (FechaRecepcion.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FechaRecepcion);
+      }
+      if (Despachada != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4847,6 +4874,9 @@ namespace GrpcClientAPI {
       }
       if (other.FechaRecepcion.Length != 0) {
         FechaRecepcion = other.FechaRecepcion;
+      }
+      if (other.Despachada != false) {
+        Despachada = other.Despachada;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4883,6 +4913,10 @@ namespace GrpcClientAPI {
             FechaRecepcion = input.ReadString();
             break;
           }
+          case 48: {
+            Despachada = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -4916,6 +4950,10 @@ namespace GrpcClientAPI {
           }
           case 42: {
             FechaRecepcion = input.ReadString();
+            break;
+          }
+          case 48: {
+            Despachada = input.ReadBool();
             break;
           }
         }
