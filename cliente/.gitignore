@@ -1,5 +1,7 @@
 bin/
 obj/
+obj/Debug/
+obj/Debug/net6.0/
 .vs/
 GrpcClient/obj/
 GrpcClientAPI/obj/
