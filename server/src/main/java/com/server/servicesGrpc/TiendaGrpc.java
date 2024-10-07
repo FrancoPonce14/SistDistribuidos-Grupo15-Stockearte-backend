@@ -556,6 +556,7 @@ public class TiendaGrpc extends tiendaImplBase {
         responseObserver.onCompleted(); 
     }
 
+    @Transactional
     @Override
     public void recibirPedido(OrdenCompraId request, StreamObserver<CrudTiendaResponse> responseObserver) {
         OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
@@ -583,6 +584,7 @@ public class TiendaGrpc extends tiendaImplBase {
             ModificarStockRequest modificarStockRequest = ModificarStockRequest.newBuilder()
                     .setIdProducto(item.getProducto().getId())
                     .setCantidad(item.getCantidad())
+                    .setCodigoTienda(ordenCompra.getTienda().getCodigo())
                     .build();
 
             modificarStock(modificarStockRequest, responseObserver);
