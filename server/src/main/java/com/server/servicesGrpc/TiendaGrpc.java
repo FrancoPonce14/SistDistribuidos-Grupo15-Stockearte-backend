@@ -445,7 +445,7 @@ public class TiendaGrpc extends tiendaImplBase {
             List<Map<String, Object>> itemsList = new ArrayList<>();
             for (Item item : ordenCompra.getItems()) {
                 Map<String, Object> itemData = new HashMap<>();
-                Producto producto = productoRepository.findByCodigo(item.getProducto().getCodigo())
+                Producto producto = productoRepository.findById(item.getProducto().getId())
                         .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
                 itemData.put("codigoProducto", item.getProducto().getCodigo());
                 itemData.put("color", producto.getColor());
