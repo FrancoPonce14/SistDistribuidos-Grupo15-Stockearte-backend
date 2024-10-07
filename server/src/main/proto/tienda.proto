@@ -127,6 +127,7 @@ message OrdenCompras{
     string estado = 3;
     string observaciones = 4;
     string fechaRecepcion = 5;
+    bool despachada = 6;
 }
 
 message OrdenCompraResponse{

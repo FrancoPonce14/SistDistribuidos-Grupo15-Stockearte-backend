@@ -66,7 +66,7 @@ public class Consumer {
         }
     }
 
-    @KafkaListener(topics = "recepcion")
+    @KafkaListener(topics = "despacho")
     public void traerRecepcion(String mensaje) {
         try {
             JsonNode jsonNode = objectMapper.readTree(mensaje);

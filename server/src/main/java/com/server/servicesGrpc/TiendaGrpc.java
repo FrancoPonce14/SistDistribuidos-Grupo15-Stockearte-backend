@@ -531,16 +531,26 @@ public class TiendaGrpc extends tiendaImplBase {
         OrdenCompraResponse.Builder responseBuilder = OrdenCompraResponse.newBuilder();
         SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
 
+        Date fechaActual = new Date();
+
         for(OrdenCompra orden : ordenes){
+
             OrdenCompras ordenCompras = OrdenCompras.newBuilder()
             .setIdOrdenCompra(orden.getId())
             .setFechaSolicitud(orden.getFechaSolicitud() != null ? fecha.format(orden.getFechaSolicitud()) : "")
             .setEstado(orden.getEstado() != null ? orden.getEstado() : "")
             .setObservaciones(orden.getObservaciones() != null ? orden.getObservaciones() : "")
             .setFechaRecepcion(orden.getFechaRecepcion() != null ? fecha.format(orden.getFechaRecepcion()) : "")
+            .setDespachada(orden.getOrdenDespacho() != null
+                ? orden.getOrdenDespacho().getFechaEnvioEstimado() != null
+                    ? orden.getOrdenDespacho().getFechaEnvioEstimado().equals(fechaActual) || orden.getOrdenDespacho().getFechaEnvioEstimado().before(fechaActual)
+                    : false
+                : false
+            )
             .build();
             responseBuilder.addOrdenes(ordenCompras);
         }
+
         OrdenCompraResponse response = responseBuilder.build();
         responseObserver.onNext(response);
         responseObserver.onCompleted(); 
