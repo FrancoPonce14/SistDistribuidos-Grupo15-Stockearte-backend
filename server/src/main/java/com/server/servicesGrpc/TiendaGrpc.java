@@ -564,6 +564,7 @@ public class TiendaGrpc extends tiendaImplBase {
     
         Date fechaRecepcion = new Date();
         ordenCompra.setFechaRecepcion(fechaRecepcion);
+        ordenCompra.setEstado("RECIBIDA");
     
         Map<String, Object> mensajeRecepcionmap = new HashMap<>();
         mensajeRecepcionmap.put("idOrdenCompra", request.getIdOrdenCompra());
