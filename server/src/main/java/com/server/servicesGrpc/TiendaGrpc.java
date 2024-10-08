@@ -235,10 +235,8 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
-            if (stock != null) {
-                throw new ServerException("El producto ya está asignado a esta tienda", HttpStatus.BAD_REQUEST);
-            }
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
+                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
 
             stock = Stock.builder()
                     .producto(producto)
@@ -275,10 +273,8 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
-            if (stock == null) {
-                throw new ServerException("El producto no está asignado a esta tienda", HttpStatus.BAD_REQUEST);
-            }
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
+                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
 
             stockRepository.delete(stock);
 
@@ -377,10 +373,8 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
-            if (stock == null) {
-                throw new ServerException("El producto no está asignado a esta tienda", HttpStatus.BAD_REQUEST);
-            }
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
+                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
 
             stock.setCantidad(request.getCantidad());
             stockRepository.save(stock);
@@ -587,12 +581,10 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(item.getProducto().getId())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
     
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
-            if (stock == null) {
-                throw new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST);
-            }
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
+                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
     
-            stock.setCantidad(item.getCantidad());
+            stock.setCantidad(stock.getCantidad() + item.getCantidad());
             stockRepository.save(stock);
         }
     
