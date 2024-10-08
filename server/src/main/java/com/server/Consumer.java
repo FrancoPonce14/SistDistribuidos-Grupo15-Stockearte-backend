@@ -1,15 +1,15 @@
 package com.server;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -55,12 +55,15 @@ public class Consumer {
             String estado = jsonNode.get("estado").asText();
 
             OrdenCompra ordenCompra = ordenCompraRepository.findById(idOrdenCompra)
-                    .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
+                    .orElse(null);
 
-            ordenCompra.setObservaciones(observaciones);
-            ordenCompra.setEstado(estado);
-
-            ordenCompraRepository.save(ordenCompra);
+            if (ordenCompra != null) {
+                ordenCompra.setObservaciones(observaciones);
+                ordenCompra.setEstado(estado);
+                ordenCompraRepository.save(ordenCompra);
+            } else {
+                log.warn("Orden de compra no encontrada para id: {}", idOrdenCompra);
+            }
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
         }
@@ -76,7 +79,7 @@ public class Consumer {
             String fechaEstimadaEnvioStr = jsonNode.get("fechaEstimadaEnvio").asText();
 
             OrdenCompra ordenCompra = ordenCompraRepository.findById(idOrdenCompra)
-                    .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
+                    .orElse(null);
 
             SimpleDateFormat formateo = new SimpleDateFormat("yyyy-MM-dd");
             Date fechaEstimadaEnvio;
@@ -93,8 +96,8 @@ public class Consumer {
 
             ordenDespachoRepository.save(ordenDespacho);
         } catch (JsonProcessingException e) {
-            log.error(e.getMessage());
-        }
+            log.error("Error al procesar el mensaje");
+        } 
     }
 
 }

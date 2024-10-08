@@ -561,43 +561,49 @@ public class TiendaGrpc extends tiendaImplBase {
     public void recibirPedido(OrdenCompraId request, StreamObserver<CrudTiendaResponse> responseObserver) {
         OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
                 .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
-
+    
         Date fechaRecepcion = new Date();
         ordenCompra.setFechaRecepcion(fechaRecepcion);
-
+    
         Map<String, Object> mensajeRecepcionmap = new HashMap<>();
         mensajeRecepcionmap.put("idOrdenCompra", request.getIdOrdenCompra());
         mensajeRecepcionmap.put("fechaRecepcion", fechaRecepcion);
-
+    
         String mensajeRecepcion;
         try {
             mensajeRecepcion = objectMapper.writeValueAsString(mensajeRecepcionmap);
         } catch (JsonProcessingException e) {
-            throw new ServerException("Error al procesar el mensaje de recepción", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new ServerException("Error al procesar recepción", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
+    
         kafkaTemplate.send("recepcion", mensajeRecepcion);
-
+    
         List<Item> items = ordenCompra.getItems();
-
         for (Item item : items) {
-            ModificarStockRequest modificarStockRequest = ModificarStockRequest.newBuilder()
-                    .setIdProducto(item.getProducto().getId())
-                    .setCantidad(item.getCantidad())
-                    .setCodigoTienda(ordenCompra.getTienda().getCodigo())
-                    .build();
-
-            modificarStock(modificarStockRequest, responseObserver);
+            Tienda tienda = tiendaRepository.findByCodigo(ordenCompra.getTienda().getCodigo())
+                    .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
+    
+            Producto producto = productoRepository.findById(item.getProducto().getId())
+                    .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
+    
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
+            if (stock == null) {
+                throw new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST);
+            }
+    
+            stock.setCantidad(item.getCantidad());
+            stockRepository.save(stock);
         }
-
+    
         ordenCompraRepository.save(ordenCompra);
-
+    
         CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
-                .setMensaje("Orden de compra recibida y stock actualizado correctamente.")
+                .setMensaje("Orden de compra recibida y stock actualizado.")
                 .setEstado(true)
                 .build();
-
+    
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+    
 }
