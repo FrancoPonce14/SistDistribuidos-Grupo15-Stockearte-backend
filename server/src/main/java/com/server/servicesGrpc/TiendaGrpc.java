@@ -79,13 +79,13 @@ public class TiendaGrpc extends tiendaImplBase {
 
     @Autowired
     private IItemRepository itemRepository;
-    
+
     @Autowired
     private ObjectMapper objectMapper;
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
-    
+
     @Override
     public void crearTienda(TiendaRequest request, StreamObserver<CrudTiendaResponse> responseObserver) {
         try {
@@ -122,7 +122,7 @@ public class TiendaGrpc extends tiendaImplBase {
         try {
             Tienda tienda = tiendaRepository.findById(request.getIdTienda())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.BAD_REQUEST));
-                    
+
             tienda.setDireccion(request.getDireccion());
             tienda.setCiudad(request.getCiudad());
             tienda.setProvincia(request.getProvincia());
@@ -177,29 +177,30 @@ public class TiendaGrpc extends tiendaImplBase {
     @Transactional
     @Override
     public void traerTiendas(FiltrosTienda request, StreamObserver<getTiendas> responseObserver) {
-            int page = 1; int size = 9999;
-            PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
+        int page = 1;
+        int size = 9999;
+        PageRequest pageable = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.ASC, "id"));
 
-            String codigo = request.getCodigo();
-            boolean habilitado = request.getHabilitado();
-        
-            codigo = codigo.isEmpty() ? null : codigo;
+        String codigo = request.getCodigo();
+        boolean habilitado = request.getHabilitado();
 
-            Page<Tienda> tiendasPage = tiendaRepository.findAll(codigo, habilitado, pageable);
+        codigo = codigo.isEmpty() ? null : codigo;
 
-            getTiendas.Builder tiendas = getTiendas.newBuilder();
-            for (Tienda t : tiendasPage) {
-                TiendaResponse tiendaResponse = TiendaResponse.newBuilder()
-                        .setCodigo(t.getCodigo())
-                        .setHabilitado(t.isHabilitado())
-                        .build();
-                tiendas.addTiendas(tiendaResponse);
-            }
+        Page<Tienda> tiendasPage = tiendaRepository.findAll(codigo, habilitado, pageable);
 
-            getTiendas response = tiendas.build();
+        getTiendas.Builder tiendas = getTiendas.newBuilder();
+        for (Tienda t : tiendasPage) {
+            TiendaResponse tiendaResponse = TiendaResponse.newBuilder()
+                    .setCodigo(t.getCodigo())
+                    .setHabilitado(t.isHabilitado())
+                    .build();
+            tiendas.addTiendas(tiendaResponse);
+        }
 
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
+        getTiendas response = tiendas.build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -235,8 +236,10 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
-                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
+            if (stock != null) {
+                throw new ServerException("El producto ya está asignado a esta tienda", HttpStatus.BAD_REQUEST);
+            }
 
             stock = Stock.builder()
                     .producto(producto)
@@ -273,8 +276,10 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
-                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
+            if (stock == null) {
+                throw new ServerException("El producto no está asignado a esta tienda", HttpStatus.BAD_REQUEST);
+            }
 
             stockRepository.delete(stock);
 
@@ -373,8 +378,10 @@ public class TiendaGrpc extends tiendaImplBase {
             Producto producto = productoRepository.findById(request.getIdProducto())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
 
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
-                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
+            if (stock == null) {
+                throw new ServerException("El producto no está asignado a esta tienda", HttpStatus.BAD_REQUEST);
+            }
 
             stock.setCantidad(request.getCantidad());
             stockRepository.save(stock);
@@ -483,11 +490,11 @@ public class TiendaGrpc extends tiendaImplBase {
         try {
             OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
                     .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
-    
+
             List<Item> items = itemRepository.findByOrdenCompraId(ordenCompra.getId());
-    
+
             DetalleOrdenCompraResponse.Builder responseBuilder = DetalleOrdenCompraResponse.newBuilder();
-    
+
             for (Item item : items) {
                 Producto producto = item.getProducto();
                 DetalleItem detalleItem = DetalleItem.newBuilder()
@@ -498,9 +505,9 @@ public class TiendaGrpc extends tiendaImplBase {
                         .build();
                 responseBuilder.addItems(detalleItem);
             }
-    
+
             DetalleOrdenCompraResponse response = responseBuilder.build();
-            
+
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         } catch (ServerException e) {
@@ -514,12 +521,12 @@ public class TiendaGrpc extends tiendaImplBase {
     @Override
     public void traerOrdenCompra(UsuuarioId request, StreamObserver<OrdenCompraResponse> responseObserver) {
         Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
-            .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
-    
+                .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.NOT_FOUND));
+
         if (usuario.getTienda() == null) {
             throw new ServerException("Usuario sin tienda asignada", HttpStatus.BAD_REQUEST);
         }
-    
+
         List<OrdenCompra> ordenes = ordenCompraRepository.findByTiendaId(usuario.getTienda().getId());
 
         OrdenCompraResponse.Builder responseBuilder = OrdenCompraResponse.newBuilder();
@@ -527,27 +534,27 @@ public class TiendaGrpc extends tiendaImplBase {
 
         Date fechaActual = new Date();
 
-        for(OrdenCompra orden : ordenes){
+        for (OrdenCompra orden : ordenes) {
 
             OrdenCompras ordenCompras = OrdenCompras.newBuilder()
-            .setIdOrdenCompra(orden.getId())
-            .setFechaSolicitud(orden.getFechaSolicitud() != null ? fecha.format(orden.getFechaSolicitud()) : "")
-            .setEstado(orden.getEstado() != null ? orden.getEstado() : "")
-            .setObservaciones(orden.getObservaciones() != null ? orden.getObservaciones() : "")
-            .setFechaRecepcion(orden.getFechaRecepcion() != null ? fecha.format(orden.getFechaRecepcion()) : "")
-            .setDespachada(orden.getOrdenDespacho() != null
-                ? orden.getOrdenDespacho().getFechaEnvioEstimado() != null
-                    ? orden.getOrdenDespacho().getFechaEnvioEstimado().equals(fechaActual) || orden.getOrdenDespacho().getFechaEnvioEstimado().before(fechaActual)
-                    : false
-                : false
-            )
-            .build();
+                    .setIdOrdenCompra(orden.getId())
+                    .setFechaSolicitud(orden.getFechaSolicitud() != null ? fecha.format(orden.getFechaSolicitud()) : "")
+                    .setEstado(orden.getEstado() != null ? orden.getEstado() : "")
+                    .setObservaciones(orden.getObservaciones() != null ? orden.getObservaciones() : "")
+                    .setFechaRecepcion(orden.getFechaRecepcion() != null ? fecha.format(orden.getFechaRecepcion()) : "")
+                    .setDespachada(orden.getOrdenDespacho() != null
+                            ? orden.getOrdenDespacho().getFechaEnvioEstimado() != null
+                                    ? orden.getOrdenDespacho().getFechaEnvioEstimado().equals(fechaActual)
+                                            || orden.getOrdenDespacho().getFechaEnvioEstimado().before(fechaActual)
+                                    : false
+                            : false)
+                    .build();
             responseBuilder.addOrdenes(ordenCompras);
         }
 
         OrdenCompraResponse response = responseBuilder.build();
         responseObserver.onNext(response);
-        responseObserver.onCompleted(); 
+        responseObserver.onCompleted();
     }
 
     @Transactional
@@ -555,48 +562,50 @@ public class TiendaGrpc extends tiendaImplBase {
     public void recibirPedido(OrdenCompraId request, StreamObserver<CrudTiendaResponse> responseObserver) {
         OrdenCompra ordenCompra = ordenCompraRepository.findById(request.getIdOrdenCompra())
                 .orElseThrow(() -> new ServerException("Orden de compra no encontrada", HttpStatus.NOT_FOUND));
-    
+
         Date fechaRecepcion = new Date();
         ordenCompra.setFechaRecepcion(fechaRecepcion);
         ordenCompra.setEstado("RECIBIDA");
-    
+
         Map<String, Object> mensajeRecepcionmap = new HashMap<>();
         mensajeRecepcionmap.put("idOrdenCompra", request.getIdOrdenCompra());
         mensajeRecepcionmap.put("fechaRecepcion", fechaRecepcion);
-    
+
         String mensajeRecepcion;
         try {
             mensajeRecepcion = objectMapper.writeValueAsString(mensajeRecepcionmap);
         } catch (JsonProcessingException e) {
             throw new ServerException("Error al procesar recepción", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    
+
         kafkaTemplate.send("recepcion", mensajeRecepcion);
-    
+
         List<Item> items = ordenCompra.getItems();
         for (Item item : items) {
             Tienda tienda = tiendaRepository.findByCodigo(ordenCompra.getTienda().getCodigo())
                     .orElseThrow(() -> new ServerException("Tienda no encontrada", HttpStatus.NOT_FOUND));
-    
+
             Producto producto = productoRepository.findById(item.getProducto().getId())
                     .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.NOT_FOUND));
-    
-            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto)
-                    .orElseThrow(() -> new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST));
-    
+
+            Stock stock = stockRepository.findByTiendaAndProducto(tienda, producto);
+            if (stock == null) {
+                throw new ServerException("El producto no esta asignado a esta tienda", HttpStatus.BAD_REQUEST);
+            }
+
             stock.setCantidad(stock.getCantidad() + item.getCantidad());
             stockRepository.save(stock);
         }
-    
+
         ordenCompraRepository.save(ordenCompra);
-    
+
         CrudTiendaResponse response = CrudTiendaResponse.newBuilder()
                 .setMensaje("Orden de compra recibida y stock actualizado.")
                 .setEstado(true)
                 .build();
-    
+
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
-    
+
 }
