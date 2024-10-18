@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.10.18 a las 08:07:00 PM ART 
+
+  -->
+      
+    <bindings xmlns:tns="http://www.server.com/usuario" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.cliente_soap.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:CargaMasivaUsuariosRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.CargaMasivaUsuariosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CargaMasivaUsuariosResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.CargaMasivaUsuariosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:usuarioSoap">
+                  
+            <class ref="com.cliente_soap.wsdl.UsuarioSoap"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>
