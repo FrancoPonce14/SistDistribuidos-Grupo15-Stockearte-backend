@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.server.com/usuario"
+           targetNamespace="http://www.server.com/usuario" elementFormDefault="qualified">
+
+    <!-- Definición de la solicitud para la carga masiva de usuarios -->
+    <xs:element name="CargaMasivaUsuariosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="clave" type="xs:string"/>
+                            <xs:element name="nombre" type="xs:string"/>
+                            <xs:element name="apellido" type="xs:string"/>
+                            <xs:element name="codigoTienda" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definición de la respuesta para la carga masiva de usuarios -->
+    <xs:element name="CargaMasivaUsuariosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resultado" type="xs:string"/> <!-- Mensaje de éxito o error -->
+                <xs:element name="errores" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="linea" type="xs:int"/> <!-- Número de línea del error -->
+                            <xs:element name="mensajeError" type="xs:string"/> <!-- Descripción del error -->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="usuarioSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="clave" type="xs:string"/>
+            <xs:element name="habilitado" type="xs:boolean"/>
+            <xs:element name="rol" type="xs:string"/>
+            <xs:element name="codigoTienda" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

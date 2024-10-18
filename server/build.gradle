@@ -30,14 +30,42 @@ sourceSets {
             srcDirs 'build/generated/source/proto/main/grpc'
             srcDirs 'build/generated/source/proto/main/java'
             srcDir 'src/main/java'
+            srcDir 'build/generated-sources/jaxb'
         }
     }
+}
+
+task genJaxb {
+    ext.sourcesDir = "build/generated-sources/jaxb"   // Directorio de salida
+    ext.schemaDir = "src/main/resources/xsd"          // Directorio donde están tus XSD
+    ext.schema = "Usuario.xsd"                        // Nombre del archivo XSD
+
+    outputs.dir sourcesDir
+
+    doLast() {
+        ant {
+            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask", 
+                    classpath: configurations.jaxb.asPath
+            mkdir(dir: sourcesDir)
+
+            xjc(destdir: sourcesDir, schema: "${schemaDir}/${schema}") {
+                produces(dir: sourcesDir, includes: "**/*.java")
+            }
+        }
+    }
+}
+
+compileJava.dependsOn genJaxb
+
+configurations {
+    jaxb
 }
 
 bootJar {
     archiveBaseName = 'gs-producing-web-service'
     archiveVersion = '0.1.0'
 }
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -60,8 +88,12 @@ dependencies {
     testImplementation 'org.projectlombok:lombok:1.18.30'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
     implementation 'com.google.protobuf:protobuf-java:3.21.12'
-    
     implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+
+    //implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+    //implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
+   	implementation 'wsdl4j:wsdl4j'
+	jaxb("org.glassfish.jaxb:jaxb-xjc")
 }
 
 protobuf {
