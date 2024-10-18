@@ -1,6 +1,6 @@
 package com.server;
 
-import java.text.ParseException;
+/*import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,13 +20,13 @@ import com.server.exceptions.ServerException;
 import com.server.repositories.IOrdenCompraRepository;
 import com.server.repositories.IOrdenDespachoRepository;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;*/
 
-@Slf4j
-@Service
+//@Slf4j
+//@Service
 public class Consumer {
 
-    private List<String> novedadesT = new ArrayList<>();
+    /*private List<String> novedadesT = new ArrayList<>();
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -98,6 +98,6 @@ public class Consumer {
         } catch (JsonProcessingException e) {
             log.error("Error al procesar el mensaje");
         } 
-    }
+    }*/
 
 }

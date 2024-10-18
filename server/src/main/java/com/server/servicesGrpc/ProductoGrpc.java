@@ -1,6 +1,5 @@
 package com.server.servicesGrpc;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,8 +12,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
-import com.google.protobuf.util.JsonFormat;
-import com.server.Consumer;
 import com.server.entities.Producto;
 import com.server.entities.Stock;
 import com.server.entities.Tienda;
@@ -29,7 +26,6 @@ import com.server.grpc.Empty;
 import com.server.grpc.FiltrosProducto;
 import com.server.grpc.ProductoId;
 import com.server.grpc.ProductoModificarRequest;
-import com.server.grpc.ProductoNovedades;
 import com.server.grpc.ProductoRequest;
 import com.server.grpc.ProductoResponse;
 import com.server.grpc.ProductoResponse2;
@@ -47,7 +43,6 @@ import com.server.repositories.ITiendaRepository;
 import com.server.repositories.IUsuarioRepository;
 import com.server.util.Utility;
 
-import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -63,8 +58,8 @@ public class ProductoGrpc extends productoImplBase {
     @Autowired
     private ITiendaRepository tiendaRepository;
 
-    @Autowired
-    private Consumer consumer;
+    //@Autowired
+    //private Consumer consumer;
 
     @Override
     public void crearProducto(ProductoRequest request, StreamObserver<CrudProductoResponse> responseObserver) {
@@ -324,7 +319,7 @@ public void traerProductos(FiltrosProducto request, StreamObserver<getProductos>
 
     @Override
     public void traerNovedades(Empty request, StreamObserver<getNovedades> responseObserver) {
-        List<String> novedadesKafka = consumer.getNovedades();
+        /*List<String> novedadesKafka = consumer.getNovedades();
         List<ProductoNovedades> productos = new ArrayList<>();
     
         for (String mensaje : novedadesKafka) {
@@ -342,7 +337,7 @@ public void traerProductos(FiltrosProducto request, StreamObserver<getProductos>
     
         getNovedades.Builder novedadesResponse = getNovedades.newBuilder().addAllNovedades(productos);
         responseObserver.onNext(novedadesResponse.build());
-        responseObserver.onCompleted();
+        responseObserver.onCompleted();*/
     }
 
     @Override

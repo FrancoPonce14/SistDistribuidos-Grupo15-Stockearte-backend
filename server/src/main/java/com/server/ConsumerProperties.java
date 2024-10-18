@@ -1,6 +1,6 @@
 package com.server;
 
-import org.apache.kafka.common.serialization.StringDeserializer;
+/*import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @EnableKafka
-@Configuration
+@Configuration*/
 public class ConsumerProperties {
-    @Value("${spring.kafka.bootstrap-servers}")
+    /*@Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Bean
@@ -51,5 +51,5 @@ public class ConsumerProperties {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
-    }
+    }*/
 }
