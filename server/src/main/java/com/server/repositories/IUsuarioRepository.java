@@ -13,6 +13,7 @@ import com.server.entities.Usuario;
 
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     
+    public boolean existsByEmail(String email);
     public Optional<Usuario> findByEmail(String email);
     public List<Usuario> findByTiendaIsNull();
     public List<Usuario> findByTiendaId(Long tiendaId);
