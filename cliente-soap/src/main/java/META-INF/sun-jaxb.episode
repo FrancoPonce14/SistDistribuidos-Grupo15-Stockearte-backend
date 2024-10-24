@@ -6,7 +6,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2024.10.18 a las 08:07:00 PM ART 
+Generado el: 2024.10.24 a las 08:05:38 PM ART 
 
   -->
       
@@ -33,6 +33,142 @@ Generado el: 2024.10.18 a las 08:07:00 PM ART
         <bindings if-exists="true" scd="~tns:usuarioSoap">
                   
             <class ref="com.cliente_soap.wsdl.UsuarioSoap"/>
+                
+        </bindings>
+          
+    </bindings>
+      
+    <bindings xmlns:tns="http://www.server.com/catalogo" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.cliente_soap.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:TraerProductosAsignadosResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerProductosAsignadosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerProductosNoAsignadosResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerProductosNoAsignadosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerCatalogosResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerCatalogosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:catalogoSoap">
+                  
+            <class ref="com.cliente_soap.wsdl.CatalogoSoap"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearCatalogoRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.CrearCatalogoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearCatalogoResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.CrearCatalogoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EditarCatalogoRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.EditarCatalogoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EditarCatalogoResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.EditarCatalogoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerProductosAsignadosRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerProductosAsignadosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerProductosNoAsignadosRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerProductosNoAsignadosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:AsignarProductoRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.AsignarProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:AsignarProductoResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.AsignarProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:DesasignarProductoRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.DesasignarProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:DesasignarProductoResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.DesasignarProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerCatalogosRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerCatalogosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:DetalleCatalogoRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.DetalleCatalogoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:DetalleCatalogoResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.DetalleCatalogoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ExportarCatalogoAPDFRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.ExportarCatalogoAPDFRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ExportarCatalogoAPDFResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.ExportarCatalogoAPDFResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:productoSoap">
+                  
+            <class ref="com.cliente_soap.wsdl.ProductoSoap"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tiendaSoap">
+                  
+            <class ref="com.cliente_soap.wsdl.TiendaSoap"/>
                 
         </bindings>
           

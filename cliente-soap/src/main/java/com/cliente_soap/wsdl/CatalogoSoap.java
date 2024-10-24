@@ -13,28 +13,28 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Clase Java para catalogoSoap complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="catalogoSoap"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="resultado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="errores" maxOccurs="unbounded" minOccurs="0"&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="tienda" type="{http://www.server.com/catalogo}tiendaSoap"/&gt;
+ *         &lt;element name="productos" maxOccurs="unbounded" minOccurs="0"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="linea" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *                   &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="producto" type="{http://www.server.com/catalogo}productoSoap"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -49,69 +49,112 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "resultado",
-    "errores"
+@XmlType(name = "catalogoSoap", propOrder = {
+    "id",
+    "titulo",
+    "tienda",
+    "productos"
 })
-@XmlRootElement(name = "CargaMasivaUsuariosResponse", namespace = "http://www.server.com/usuario")
-public class CargaMasivaUsuariosResponse {
+public class CatalogoSoap {
 
-    @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-    protected String resultado;
-    @XmlElement(namespace = "http://www.server.com/usuario")
-    protected List<CargaMasivaUsuariosResponse.Errores> errores;
+    protected long id;
+    @XmlElement(required = true)
+    protected String titulo;
+    @XmlElement(required = true)
+    protected TiendaSoap tienda;
+    protected List<CatalogoSoap.Productos> productos;
 
     /**
-     * Obtiene el valor de la propiedad resultado.
+     * Obtiene el valor de la propiedad id.
+     * 
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Define el valor de la propiedad id.
+     * 
+     */
+    public void setId(long value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad titulo.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getResultado() {
-        return resultado;
+    public String getTitulo() {
+        return titulo;
     }
 
     /**
-     * Define el valor de la propiedad resultado.
+     * Define el valor de la propiedad titulo.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setResultado(String value) {
-        this.resultado = value;
+    public void setTitulo(String value) {
+        this.titulo = value;
     }
 
     /**
-     * Gets the value of the errores property.
+     * Obtiene el valor de la propiedad tienda.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TiendaSoap }
+     *     
+     */
+    public TiendaSoap getTienda() {
+        return tienda;
+    }
+
+    /**
+     * Define el valor de la propiedad tienda.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TiendaSoap }
+     *     
+     */
+    public void setTienda(TiendaSoap value) {
+        this.tienda = value;
+    }
+
+    /**
+     * Gets the value of the productos property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the errores property.
+     * This is why there is not a <CODE>set</CODE> method for the productos property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getErrores().add(newItem);
+     *    getProductos().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CargaMasivaUsuariosResponse.Errores }
+     * {@link CatalogoSoap.Productos }
      * 
      * 
      */
-    public List<CargaMasivaUsuariosResponse.Errores> getErrores() {
-        if (errores == null) {
-            errores = new ArrayList<CargaMasivaUsuariosResponse.Errores>();
+    public List<CatalogoSoap.Productos> getProductos() {
+        if (productos == null) {
+            productos = new ArrayList<CatalogoSoap.Productos>();
         }
-        return this.errores;
+        return this.productos;
     }
 
 
@@ -125,8 +168,7 @@ public class CargaMasivaUsuariosResponse {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="linea" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
-     *         &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="producto" type="{http://www.server.com/catalogo}productoSoap"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -137,54 +179,35 @@ public class CargaMasivaUsuariosResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "linea",
-        "mensajeError"
+        "producto"
     })
-    public static class Errores {
+    public static class Productos {
 
-        @XmlElement(namespace = "http://www.server.com/usuario")
-        protected int linea;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String mensajeError;
+        @XmlElement(required = true)
+        protected ProductoSoap producto;
 
         /**
-         * Obtiene el valor de la propiedad linea.
-         * 
-         */
-        public int getLinea() {
-            return linea;
-        }
-
-        /**
-         * Define el valor de la propiedad linea.
-         * 
-         */
-        public void setLinea(int value) {
-            this.linea = value;
-        }
-
-        /**
-         * Obtiene el valor de la propiedad mensajeError.
+         * Obtiene el valor de la propiedad producto.
          * 
          * @return
          *     possible object is
-         *     {@link String }
+         *     {@link ProductoSoap }
          *     
          */
-        public String getMensajeError() {
-            return mensajeError;
+        public ProductoSoap getProducto() {
+            return producto;
         }
 
         /**
-         * Define el valor de la propiedad mensajeError.
+         * Define el valor de la propiedad producto.
          * 
          * @param value
          *     allowed object is
-         *     {@link String }
+         *     {@link ProductoSoap }
          *     
          */
-        public void setMensajeError(String value) {
-            this.mensajeError = value;
+        public void setProducto(ProductoSoap value) {
+            this.producto = value;
         }
 
     }

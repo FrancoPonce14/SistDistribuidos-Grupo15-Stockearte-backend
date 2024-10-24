@@ -41,7 +41,6 @@ public class CargaMasiva {
             }
         }
         return new JAXBElement<>(new QName(NAMESPACE_URI, "CargaMasivaUsuariosResponse"),
-                CargaMasivaUsuariosResponse.class,
-                response);
+                CargaMasivaUsuariosResponse.class, response);
     }
 }

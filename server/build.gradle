@@ -91,6 +91,7 @@ dependencies {
     testImplementation 'org.springframework.kafka:spring-kafka-test'
     implementation 'com.google.protobuf:protobuf-java:3.21.12'
     implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'com.github.librepdf:openpdf:2.0.3'
 
     //implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
     //implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
