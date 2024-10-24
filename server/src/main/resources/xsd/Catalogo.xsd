@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.server.com/catalogo"
+           targetNamespace="http://www.server.com/catalogo" elementFormDefault="qualified">
+
+    <xs:element name="CrearCatalogoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="titulo" type="xs:string"/>
+                <xs:element name="idUsuario" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CrearCatalogoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EditarCatalogoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="titulo" type="xs:string"/>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EditarCatalogoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerProductosAsignadosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerProductosAsignadosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idProducto" type="xs:long"/>
+                            <xs:element name="nombre" type="xs:string"/>
+                            <xs:element name="talle" type="xs:string"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="imagen" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerProductosNoAsignadosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerProductosNoAsignadosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idProducto" type="xs:long"/>
+                            <xs:element name="nombre" type="xs:string"/>
+                            <xs:element name="talle" type="xs:string"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="imagen" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AsignarProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idProducto" type="xs:long"/>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AsignarProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DesasignarProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idProducto" type="xs:long"/>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DesasignarProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerCatalogosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuario" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerCatalogosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="catalogo" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idCatalogo" type="xs:long"/>
+                            <xs:element name="titulo" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DetalleCatalogoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DetalleCatalogoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="titulo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ExportarCatalogoAPDFRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ExportarCatalogoAPDFResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+                <xs:element name="url" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="catalogoSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="tienda" type="tns:tiendaSoap"/>
+            <xs:element name="productos" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="producto" type="tns:productoSoap"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="productoSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="talle" type="xs:string"/>
+            <xs:element name="color" type="xs:string"/>
+            <xs:element name="imagen" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tiendaSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nombre" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

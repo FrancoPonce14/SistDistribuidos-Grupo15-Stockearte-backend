@@ -25,9 +25,8 @@ public class WebServiceConfig extends WsConfigurerAdapter{
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
-    
     @Bean(name = "usuarios")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema usuarioSchema) {
+    public DefaultWsdl11Definition defaultWsdl11DefinitionUsuario(XsdSchema usuarioSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("usuarioPort");
         wsdl11Definition.setLocationUri("/ws");
@@ -39,6 +38,21 @@ public class WebServiceConfig extends WsConfigurerAdapter{
     @Bean
     public XsdSchema usuarioSchema() {
         return new SimpleXsdSchema(new ClassPathResource("xsd/Usuario.xsd"));
+    }
+
+    @Bean(name = "catalogos")
+    public DefaultWsdl11Definition defaultWsdl11DefinitionCatalogo(XsdSchema catalogoSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("catalogoPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://www.server.com/catalogo");
+        wsdl11Definition.setSchema(catalogoSchema);
+        return wsdl11Definition;
+    }
+    
+    @Bean
+    public XsdSchema catalogoSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("xsd/Catalogo.xsd"));
     }
     
 }

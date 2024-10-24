@@ -27,16 +27,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" maxOccurs="unbounded"&gt;
+ *         &lt;element name="producto" maxOccurs="unbounded"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="clave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="idProducto" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *                   &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="codigoTienda" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="talle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="color" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -52,41 +52,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario"
+    "producto"
 })
-@XmlRootElement(name = "CargaMasivaUsuariosRequest", namespace = "http://www.server.com/usuario")
-public class CargaMasivaUsuariosRequest {
+@XmlRootElement(name = "TraerProductosNoAsignadosResponse")
+public class TraerProductosNoAsignadosResponse {
 
-    @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-    protected List<CargaMasivaUsuariosRequest.Usuario> usuario;
+    @XmlElement(required = true)
+    protected List<TraerProductosNoAsignadosResponse.Producto> producto;
 
     /**
-     * Gets the value of the usuario property.
+     * Gets the value of the producto property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the usuario property.
+     * This is why there is not a <CODE>set</CODE> method for the producto property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUsuario().add(newItem);
+     *    getProducto().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CargaMasivaUsuariosRequest.Usuario }
+     * {@link TraerProductosNoAsignadosResponse.Producto }
      * 
      * 
      */
-    public List<CargaMasivaUsuariosRequest.Usuario> getUsuario() {
-        if (usuario == null) {
-            usuario = new ArrayList<CargaMasivaUsuariosRequest.Usuario>();
+    public List<TraerProductosNoAsignadosResponse.Producto> getProducto() {
+        if (producto == null) {
+            producto = new ArrayList<TraerProductosNoAsignadosResponse.Producto>();
         }
-        return this.usuario;
+        return this.producto;
     }
 
 
@@ -100,11 +100,11 @@ public class CargaMasivaUsuariosRequest {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="clave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="idProducto" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
      *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="codigoTienda" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="talle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="color" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -115,71 +115,38 @@ public class CargaMasivaUsuariosRequest {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "email",
-        "clave",
+        "idProducto",
         "nombre",
-        "apellido",
-        "codigoTienda"
+        "talle",
+        "color",
+        "imagen"
     })
-    public static class Usuario {
+    public static class Producto {
 
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String email;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String clave;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
+        protected long idProducto;
+        @XmlElement(required = true)
         protected String nombre;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String apellido;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String codigoTienda;
+        @XmlElement(required = true)
+        protected String talle;
+        @XmlElement(required = true)
+        protected String color;
+        @XmlElement(required = true)
+        protected String imagen;
 
         /**
-         * Obtiene el valor de la propiedad email.
+         * Obtiene el valor de la propiedad idProducto.
          * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
          */
-        public String getEmail() {
-            return email;
+        public long getIdProducto() {
+            return idProducto;
         }
 
         /**
-         * Define el valor de la propiedad email.
+         * Define el valor de la propiedad idProducto.
          * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
          */
-        public void setEmail(String value) {
-            this.email = value;
-        }
-
-        /**
-         * Obtiene el valor de la propiedad clave.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getClave() {
-            return clave;
-        }
-
-        /**
-         * Define el valor de la propiedad clave.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setClave(String value) {
-            this.clave = value;
+        public void setIdProducto(long value) {
+            this.idProducto = value;
         }
 
         /**
@@ -207,51 +174,75 @@ public class CargaMasivaUsuariosRequest {
         }
 
         /**
-         * Obtiene el valor de la propiedad apellido.
+         * Obtiene el valor de la propiedad talle.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getApellido() {
-            return apellido;
+        public String getTalle() {
+            return talle;
         }
 
         /**
-         * Define el valor de la propiedad apellido.
+         * Define el valor de la propiedad talle.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setApellido(String value) {
-            this.apellido = value;
+        public void setTalle(String value) {
+            this.talle = value;
         }
 
         /**
-         * Obtiene el valor de la propiedad codigoTienda.
+         * Obtiene el valor de la propiedad color.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getCodigoTienda() {
-            return codigoTienda;
+        public String getColor() {
+            return color;
         }
 
         /**
-         * Define el valor de la propiedad codigoTienda.
+         * Define el valor de la propiedad color.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setCodigoTienda(String value) {
-            this.codigoTienda = value;
+        public void setColor(String value) {
+            this.color = value;
+        }
+
+        /**
+         * Obtiene el valor de la propiedad imagen.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getImagen() {
+            return imagen;
+        }
+
+        /**
+         * Define el valor de la propiedad imagen.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setImagen(String value) {
+            this.imagen = value;
         }
 
     }

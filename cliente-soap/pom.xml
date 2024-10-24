@@ -52,6 +52,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
+        </dependency>
+
 	</dependencies>
 
 	<build>
@@ -79,6 +85,9 @@
                         <schema>
                             <url>http://localhost:8000/ws/usuarios.wsdl</url>
                         </schema>
+						<schema>
+							<url>http://localhost:8000/ws/catalogos.wsdl</url>
+						</schema>
                     </schemas>
 				</configuration>
 			</plugin>

@@ -27,14 +27,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="resultado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="errores" maxOccurs="unbounded" minOccurs="0"&gt;
+ *         &lt;element name="catalogo" maxOccurs="unbounded"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="linea" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *                   &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="idCatalogo" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *                   &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -50,68 +49,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "resultado",
-    "errores"
+    "catalogo"
 })
-@XmlRootElement(name = "CargaMasivaUsuariosResponse", namespace = "http://www.server.com/usuario")
-public class CargaMasivaUsuariosResponse {
+@XmlRootElement(name = "TraerCatalogosResponse")
+public class TraerCatalogosResponse {
 
-    @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-    protected String resultado;
-    @XmlElement(namespace = "http://www.server.com/usuario")
-    protected List<CargaMasivaUsuariosResponse.Errores> errores;
+    @XmlElement(required = true)
+    protected List<TraerCatalogosResponse.Catalogo> catalogo;
 
     /**
-     * Obtiene el valor de la propiedad resultado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getResultado() {
-        return resultado;
-    }
-
-    /**
-     * Define el valor de la propiedad resultado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setResultado(String value) {
-        this.resultado = value;
-    }
-
-    /**
-     * Gets the value of the errores property.
+     * Gets the value of the catalogo property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the errores property.
+     * This is why there is not a <CODE>set</CODE> method for the catalogo property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getErrores().add(newItem);
+     *    getCatalogo().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CargaMasivaUsuariosResponse.Errores }
+     * {@link TraerCatalogosResponse.Catalogo }
      * 
      * 
      */
-    public List<CargaMasivaUsuariosResponse.Errores> getErrores() {
-        if (errores == null) {
-            errores = new ArrayList<CargaMasivaUsuariosResponse.Errores>();
+    public List<TraerCatalogosResponse.Catalogo> getCatalogo() {
+        if (catalogo == null) {
+            catalogo = new ArrayList<TraerCatalogosResponse.Catalogo>();
         }
-        return this.errores;
+        return this.catalogo;
     }
 
 
@@ -125,8 +97,8 @@ public class CargaMasivaUsuariosResponse {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="linea" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
-     *         &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="idCatalogo" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+     *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -137,54 +109,53 @@ public class CargaMasivaUsuariosResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "linea",
-        "mensajeError"
+        "idCatalogo",
+        "titulo"
     })
-    public static class Errores {
+    public static class Catalogo {
 
-        @XmlElement(namespace = "http://www.server.com/usuario")
-        protected int linea;
-        @XmlElement(namespace = "http://www.server.com/usuario", required = true)
-        protected String mensajeError;
+        protected long idCatalogo;
+        @XmlElement(required = true)
+        protected String titulo;
 
         /**
-         * Obtiene el valor de la propiedad linea.
+         * Obtiene el valor de la propiedad idCatalogo.
          * 
          */
-        public int getLinea() {
-            return linea;
+        public long getIdCatalogo() {
+            return idCatalogo;
         }
 
         /**
-         * Define el valor de la propiedad linea.
+         * Define el valor de la propiedad idCatalogo.
          * 
          */
-        public void setLinea(int value) {
-            this.linea = value;
+        public void setIdCatalogo(long value) {
+            this.idCatalogo = value;
         }
 
         /**
-         * Obtiene el valor de la propiedad mensajeError.
+         * Obtiene el valor de la propiedad titulo.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getMensajeError() {
-            return mensajeError;
+        public String getTitulo() {
+            return titulo;
         }
 
         /**
-         * Define el valor de la propiedad mensajeError.
+         * Define el valor de la propiedad titulo.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setMensajeError(String value) {
-            this.mensajeError = value;
+        public void setTitulo(String value) {
+            this.titulo = value;
         }
 
     }

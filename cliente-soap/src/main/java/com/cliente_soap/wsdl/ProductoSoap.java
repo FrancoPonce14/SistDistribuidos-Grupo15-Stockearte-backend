@@ -15,22 +15,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para usuarioSoap complex type.
+ * <p>Clase Java para productoSoap complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="usuarioSoap"&gt;
+ * &lt;complexType name="productoSoap"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="clave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="habilitado" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
- *         &lt;element name="rol" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="codigoTienda" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="talle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="color" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,29 +38,24 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "usuarioSoap", namespace = "http://www.server.com/usuario", propOrder = {
+@XmlType(name = "productoSoap", propOrder = {
     "id",
     "nombre",
-    "email",
-    "clave",
-    "habilitado",
-    "rol",
-    "codigoTienda"
+    "talle",
+    "color",
+    "imagen"
 })
-public class UsuarioSoap {
+public class ProductoSoap {
 
     protected long id;
     @XmlElement(required = true)
     protected String nombre;
     @XmlElement(required = true)
-    protected String email;
+    protected String talle;
     @XmlElement(required = true)
-    protected String clave;
-    protected boolean habilitado;
+    protected String color;
     @XmlElement(required = true)
-    protected String rol;
-    @XmlElement(required = true)
-    protected String codigoTienda;
+    protected String imagen;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -105,115 +98,75 @@ public class UsuarioSoap {
     }
 
     /**
-     * Obtiene el valor de la propiedad email.
+     * Obtiene el valor de la propiedad talle.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getEmail() {
-        return email;
+    public String getTalle() {
+        return talle;
     }
 
     /**
-     * Define el valor de la propiedad email.
+     * Define el valor de la propiedad talle.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setEmail(String value) {
-        this.email = value;
+    public void setTalle(String value) {
+        this.talle = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad clave.
+     * Obtiene el valor de la propiedad color.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getClave() {
-        return clave;
+    public String getColor() {
+        return color;
     }
 
     /**
-     * Define el valor de la propiedad clave.
+     * Define el valor de la propiedad color.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setClave(String value) {
-        this.clave = value;
+    public void setColor(String value) {
+        this.color = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad habilitado.
-     * 
-     */
-    public boolean isHabilitado() {
-        return habilitado;
-    }
-
-    /**
-     * Define el valor de la propiedad habilitado.
-     * 
-     */
-    public void setHabilitado(boolean value) {
-        this.habilitado = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad rol.
+     * Obtiene el valor de la propiedad imagen.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRol() {
-        return rol;
+    public String getImagen() {
+        return imagen;
     }
 
     /**
-     * Define el valor de la propiedad rol.
+     * Define el valor de la propiedad imagen.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRol(String value) {
-        this.rol = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad codigoTienda.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCodigoTienda() {
-        return codigoTienda;
-    }
-
-    /**
-     * Define el valor de la propiedad codigoTienda.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCodigoTienda(String value) {
-        this.codigoTienda = value;
+    public void setImagen(String value) {
+        this.imagen = value;
     }
 
 }

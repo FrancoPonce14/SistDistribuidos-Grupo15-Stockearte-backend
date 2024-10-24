@@ -36,9 +36,9 @@ sourceSets {
 }
 
 task genJaxb {
-    ext.sourcesDir = "build/generated-sources/jaxb"   // Directorio de salida
-    ext.schemaDir = "src/main/resources/xsd"          // Directorio donde están tus XSD
-    ext.schema = "Usuario.xsd"                        // Nombre del archivo XSD
+    ext.sourcesDir = "build/generated-sources/jaxb" 
+    ext.schemaDir = "src/main/resources/xsd"         
+    ext.schemas = ["Usuario.xsd", "Catalogo.xsd"]
 
     outputs.dir sourcesDir
 
@@ -48,8 +48,10 @@ task genJaxb {
                     classpath: configurations.jaxb.asPath
             mkdir(dir: sourcesDir)
 
-            xjc(destdir: sourcesDir, schema: "${schemaDir}/${schema}") {
-                produces(dir: sourcesDir, includes: "**/*.java")
+            schemas.each { schema ->
+                xjc(destdir: sourcesDir, schema: "${schemaDir}/${schema}") {
+                    produces(dir: sourcesDir, includes: "*/.java")
+                }
             }
         }
     }
@@ -89,6 +91,7 @@ dependencies {
     testImplementation 'org.springframework.kafka:spring-kafka-test'
     implementation 'com.google.protobuf:protobuf-java:3.21.12'
     implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'com.github.librepdf:openpdf:2.0.3'
 
     //implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
     //implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'

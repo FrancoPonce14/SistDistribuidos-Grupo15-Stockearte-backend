@@ -24,5 +24,7 @@ public interface IProductoRepository extends JpaRepository<Producto, Long> {
     public Page<Producto> findByTienda(@Param("tiendaId") Long tiendaId, @Param("nombre") String nombre, @Param("codigo") String codigo, @Param("talle") String talle, @Param("color") String color, Pageable pageable);
     @Query(value = "SELECT p.* FROM producto p WHERE (p.nombre IS NULL OR p.nombre LIKE CONCAT(:nombre, '%')) AND (:codigo IS NULL OR p.codigo LIKE CONCAT('%', :codigo, '%')) AND (:talle IS NULL OR p.talle LIKE CONCAT('%', :talle, '%')) AND (:color IS NULL OR p.color LIKE CONCAT('%', :color, '%'))", nativeQuery = true)
     public Page<Producto> findAll(@Param("nombre") String nombre, @Param("codigo") String codigo, @Param("talle") String talle, @Param("color") String color, Pageable pageable);
+    @Query(value = "SELECT p.* FROM producto p WHERE p.id NOT IN (SELECT cp.producto_id FROM catalogo_producto cp WHERE cp.catalogo_id = :idCatalogo)", nativeQuery = true)
+    public List<Producto> findProductosNoAsignadosACatalogo(@Param("idCatalogo") Long idCatalogo);
     
 }
