@@ -174,7 +174,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="mensaje" type="xs:string"/>
-                <xs:element name="url" type="xs:string"/>
+                <xs:element name="archivoPdf" type="xs:base64Binary"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

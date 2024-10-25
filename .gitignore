@@ -20,3 +20,6 @@ SOAPService/bin/Debug/net6.0/SOAPService.pdb
 GrpcClientAPI/bin/Debug/net6.0/
 SOAPService/obj/Debug/SOAPService.csproj.CoreCompileInputs.cache
 SOAPService/obj/Debug/SOAPService.csproj.FileListAbsolute.txt
+
+### PDFs De Catalogos ###
+server/public/catalogos

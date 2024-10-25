@@ -1,6 +1,8 @@
 package com.server.soap.service;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,7 +55,8 @@ public class SPcatalogoService {
     public CrearCatalogoResponse crearCatalogo(CrearCatalogoRequest request) {
         Catalogo catalogo = new Catalogo();
         catalogo.setTitulo(request.getTitulo());
-        Usuario usuario = usuarioRepository.findById(request.getIdUsuario()).orElseThrow(() -> new ServerException("Tienda no encontrada para ese usuario", HttpStatus.BAD_REQUEST));
+        Usuario usuario = usuarioRepository.findById(request.getIdUsuario()).orElseThrow(
+                () -> new ServerException("Tienda no encontrada para ese usuario", HttpStatus.BAD_REQUEST));
         catalogo.setTienda(usuario.getTienda());
 
         catalogoRepository.save(catalogo);
@@ -66,7 +69,8 @@ public class SPcatalogoService {
     }
 
     public EditarCatalogoResponse editarCatalogo(EditarCatalogoRequest request) {
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
         catalogo.setTitulo(request.getTitulo());
         catalogoRepository.save(catalogo);
 
@@ -77,7 +81,8 @@ public class SPcatalogoService {
     }
 
     public TraerProductosAsignadosResponse traerProductosAsignados(TraerProductosAsignadosRequest request) {
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
 
         TraerProductosAsignadosResponse response = new TraerProductosAsignadosResponse();
         List<Producto> productos = catalogo.getProductos();
@@ -96,7 +101,8 @@ public class SPcatalogoService {
     }
 
     public TraerProductosNoAsignadosResponse traerProductosNoAsignados(TraerProductosNoAsignadosRequest request) {
-        List<Producto> productosNoAsignados = productoRepository.findProductosNoAsignadosACatalogo(request.getIdCatalogo());
+        List<Producto> productosNoAsignados = productoRepository
+                .findProductosNoAsignadosACatalogo(request.getIdCatalogo());
 
         TraerProductosNoAsignadosResponse response = new TraerProductosNoAsignadosResponse();
         for (Producto producto : productosNoAsignados) {
@@ -113,8 +119,10 @@ public class SPcatalogoService {
     }
 
     public AsignarProductoResponse asignarProducto(AsignarProductoRequest request) {
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
-        Producto producto = productoRepository.findById(request.getIdProducto()).orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.BAD_REQUEST));
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+        Producto producto = productoRepository.findById(request.getIdProducto())
+                .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.BAD_REQUEST));
 
         if (!catalogo.getProductos().contains(producto)) {
             catalogo.getProductos().add(producto);
@@ -128,8 +136,10 @@ public class SPcatalogoService {
     }
 
     public DesasignarProductoResponse desasignarProducto(DesasignarProductoRequest request) {
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
-        Producto producto = productoRepository.findById(request.getIdProducto()).orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.BAD_REQUEST));
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+        Producto producto = productoRepository.findById(request.getIdProducto())
+                .orElseThrow(() -> new ServerException("Producto no encontrado", HttpStatus.BAD_REQUEST));
 
         if (catalogo.getProductos().contains(producto)) {
             catalogo.getProductos().remove(producto);
@@ -143,7 +153,8 @@ public class SPcatalogoService {
     }
 
     public TraerCatalogosResponse traerCatalogos(TraerCatalogosRequest request) {
-        Usuario usuario = usuarioRepository.findById(request.getIdUsuario()).orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.BAD_REQUEST));
+        Usuario usuario = usuarioRepository.findById(request.getIdUsuario())
+                .orElseThrow(() -> new ServerException("Usuario no encontrado", HttpStatus.BAD_REQUEST));
 
         List<Catalogo> catalogos = catalogoRepository.findByTienda(usuario.getTienda());
 
@@ -159,7 +170,8 @@ public class SPcatalogoService {
     }
 
     public DetalleCatalogoResponse detalleCatalogo(DetalleCatalogoRequest request) {
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
 
         DetalleCatalogoResponse response = new DetalleCatalogoResponse();
         response.setTitulo(catalogo.getTitulo());
@@ -167,24 +179,37 @@ public class SPcatalogoService {
         return response;
     }
 
-    public ExportarCatalogoAPDFResponse exportarCatalogoAPDF(ExportarCatalogoAPDFRequest request) throws DocumentException, IOException {
-        
-        DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
-        String currentDateTime = dateFormatter.format(new Date());
-        String path = System.getProperty("user.dir");
-        String nombre = "catalogo_" + currentDateTime + ".pdf";
+    public ExportarCatalogoAPDFResponse exportarCatalogoAPDF(ExportarCatalogoAPDFRequest request)
+            throws DocumentException, IOException {
 
-        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
-        //List<Producto> productosCatalogo = catalogo.getProductos();
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+
+        String path = System.getProperty("user.dir") + File.separator + "public" + File.separator + "catalogos";
+        File directorio = new File(path);
+        if (!directorio.exists()) {
+            directorio.mkdirs();
+        }
+
+        DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        String nombre = "Catalogo_" + catalogo.getTitulo() + "_" + currentDateTime + ".pdf";
 
         CatalogoPDF pdf = new CatalogoPDF(catalogo);
-        pdf.export(path + "/" + nombre);
-        
-        ExportarCatalogoAPDFResponse response = new ExportarCatalogoAPDFResponse();
-        response.setMensaje("Catalogo exportado a PDF!");
-        response.setUrl(path + "/" + nombre);
+        pdf.export(path + File.separator + nombre);
 
-        return response;
+        File archivoPdf = new File(path + File.separator + nombre);
+        try {
+            byte[] contenidoPdf = Files.readAllBytes(archivoPdf.toPath());
+
+            ExportarCatalogoAPDFResponse response = new ExportarCatalogoAPDFResponse();
+            response.setMensaje("Catalogo exportado a PDF!");
+            response.setArchivoPdf(contenidoPdf);
+
+            return response;
+        } catch (IOException e) {
+            throw new ServerException("Error leyendo archivo PDF", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
