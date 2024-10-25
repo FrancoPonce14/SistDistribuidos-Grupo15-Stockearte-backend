@@ -2,7 +2,6 @@ package com.server.soap.endpoint;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 
@@ -107,8 +106,8 @@ public class Catalogo {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ExportarCatalogoAPDFRequest")
     @ResponsePayload
-    public JAXBElement<ExportarCatalogoAPDFResponse> exportarCatalogoAPDF(@RequestPayload JAXBElement<ExportarCatalogoAPDFRequest> request, HttpServletResponse responsePDF) throws DocumentException, IOException {
-        ExportarCatalogoAPDFResponse response = catalogoService.exportarCatalogoAPDF(request.getValue(), responsePDF);
+    public JAXBElement<ExportarCatalogoAPDFResponse> exportarCatalogoAPDF(@RequestPayload JAXBElement<ExportarCatalogoAPDFRequest> request) throws DocumentException, IOException {
+        ExportarCatalogoAPDFResponse response = catalogoService.exportarCatalogoAPDF(request.getValue());
         return new JAXBElement<>(new QName(NAMESPACE_URI, "ExportarCatalogoAPDFResponse"),
                 ExportarCatalogoAPDFResponse.class, response);
     }

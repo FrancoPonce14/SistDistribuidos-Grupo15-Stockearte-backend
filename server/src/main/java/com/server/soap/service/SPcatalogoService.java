@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -169,26 +167,22 @@ public class SPcatalogoService {
         return response;
     }
 
-    public ExportarCatalogoAPDFResponse exportarCatalogoAPDF(ExportarCatalogoAPDFRequest request, HttpServletResponse responsePDF) throws DocumentException, IOException {
+    public ExportarCatalogoAPDFResponse exportarCatalogoAPDF(ExportarCatalogoAPDFRequest request) throws DocumentException, IOException {
         
-        responsePDF.setContentType("application/pdf");
-
         DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
         String currentDateTime = dateFormatter.format(new Date());
-
-        String harderKey = "Content-Disposition";
-        String harderValue = "attachment; filename=catalogo_" + currentDateTime + ".pdf";
-
-        responsePDF.setHeader(harderKey, harderValue);
+        String path = System.getProperty("user.dir");
+        String nombre = "catalogo_" + currentDateTime + ".pdf";
 
         Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo()).orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
-        List<Producto> productosCatalogo = catalogo.getProductos();
+        //List<Producto> productosCatalogo = catalogo.getProductos();
 
-        CatalogoPDF pdf = new CatalogoPDF(productosCatalogo);
-        pdf.export(responsePDF);
+        CatalogoPDF pdf = new CatalogoPDF(catalogo);
+        pdf.export(path + "/" + nombre);
         
         ExportarCatalogoAPDFResponse response = new ExportarCatalogoAPDFResponse();
         response.setMensaje("Catalogo exportado a PDF!");
+        response.setUrl(path + "/" + nombre);
 
         return response;
     }
