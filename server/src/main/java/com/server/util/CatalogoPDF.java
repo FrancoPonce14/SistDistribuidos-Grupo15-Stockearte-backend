@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
 import java.io.FileOutputStream;
+import com.lowagie.text.Image;
+import java.net.URL;
 
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
@@ -41,7 +43,7 @@ public class CatalogoPDF {
         table.addCell(cell);
         cell.setPhrase(new Phrase("Color", font));
         table.addCell(cell);
-        cell.setPhrase(new Phrase("Imagen (URL)", font));
+        cell.setPhrase(new Phrase("Imagen", font));
         table.addCell(cell);
     }
 
@@ -53,7 +55,15 @@ public class CatalogoPDF {
             table.addCell(producto.getColor() != null ? producto.getColor() : "N/A");
             
             if (producto.getImagen() != null && !producto.getImagen().isEmpty()) {
-                table.addCell(producto.getImagen());
+                try {
+                Image imagen = Image.getInstance(new URL(producto.getImagen()));
+                imagen.scaleToFit(100, 100);
+                PdfPCell imageCell = new PdfPCell(imagen);
+                imageCell.setPadding(5);
+                table.addCell(imageCell);
+             } catch (Exception e) { 
+                table.addCell("N/I");
+                }
             } else {
                 table.addCell("Sin imagen");
             }
