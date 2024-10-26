@@ -88,6 +88,9 @@
 						<schema>
 							<url>http://localhost:8000/ws/catalogos.wsdl</url>
 						</schema>
+						<schema>
+							<url>http://localhost:8000/ws/informes.wsdl</url>
+						</schema>
                     </schemas>
 				</configuration>
 			</plugin>

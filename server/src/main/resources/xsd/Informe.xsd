@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.server.com/informe"
+           targetNamespace="http://www.server.com/informe" elementFormDefault="qualified">
+
+    <xs:element name="OrdenesCompraRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idProducto" type="xs:long"/>
+                <xs:element name="fechaDesde" type="xs:date"/>
+                <xs:element name="fechaHasta" type="xs:date"/>
+                <xs:element name="estado" type="xs:string"/>
+                <xs:element name="codigoTienda" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="OrdenesCompraResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orden" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombreProducto" type="xs:string"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="talle" type="xs:string"/>
+                            <xs:element name="codigoTienda" type="xs:string"/>
+                            <xs:element name="estado" type="xs:string"/>
+                            <xs:element name="cantidad" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="resultado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
