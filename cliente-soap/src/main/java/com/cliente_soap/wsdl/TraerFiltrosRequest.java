@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="idCatalogo" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="idUsuario" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,54 +36,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "mensaje",
-    "idCatalogo"
+    "idUsuario"
 })
-@XmlRootElement(name = "CrearCatalogoResponse")
-public class CrearCatalogoResponse {
+@XmlRootElement(name = "TraerFiltrosRequest", namespace = "http://www.server.com/filtro")
+public class TraerFiltrosRequest {
 
-    @XmlElement(required = true)
-    protected String mensaje;
-    protected long idCatalogo;
+    @XmlElement(namespace = "http://www.server.com/filtro")
+    protected long idUsuario;
 
     /**
-     * Obtiene el valor de la propiedad mensaje.
+     * Obtiene el valor de la propiedad idUsuario.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getMensaje() {
-        return mensaje;
+    public long getIdUsuario() {
+        return idUsuario;
     }
 
     /**
-     * Define el valor de la propiedad mensaje.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMensaje(String value) {
-        this.mensaje = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idCatalogo.
+     * Define el valor de la propiedad idUsuario.
      * 
      */
-    public long getIdCatalogo() {
-        return idCatalogo;
-    }
-
-    /**
-     * Define el valor de la propiedad idCatalogo.
-     * 
-     */
-    public void setIdCatalogo(long value) {
-        this.idCatalogo = value;
+    public void setIdUsuario(long value) {
+        this.idUsuario = value;
     }
 
 }

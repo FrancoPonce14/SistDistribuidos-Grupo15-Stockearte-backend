@@ -12,9 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -27,9 +25,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="idProducto" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
- *         &lt;element name="fechaDesde" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="fechaHasta" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *         &lt;element name="idFiltro" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="nombreFiltro" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="idProducto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="fechaDesde" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="fechaHasta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="codigoTienda" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
@@ -42,41 +42,93 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "idFiltro",
+    "nombreFiltro",
     "idProducto",
     "fechaDesde",
     "fechaHasta",
     "estado",
     "codigoTienda"
 })
-@XmlRootElement(name = "OrdenesCompraRequest", namespace = "http://www.server.com/informe")
-public class OrdenesCompraRequest {
+@XmlRootElement(name = "EditarFiltroRequest", namespace = "http://www.server.com/filtro")
+public class EditarFiltroRequest {
 
-    @XmlElement(namespace = "http://www.server.com/informe")
-    protected long idProducto;
-    @XmlElement(namespace = "http://www.server.com/informe", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fechaDesde;
-    @XmlElement(namespace = "http://www.server.com/informe", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fechaHasta;
-    @XmlElement(namespace = "http://www.server.com/informe", required = true)
+    @XmlElement(namespace = "http://www.server.com/filtro")
+    protected long idFiltro;
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
+    protected String nombreFiltro;
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
+    protected String idProducto;
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
+    protected String fechaDesde;
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
+    protected String fechaHasta;
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
     protected String estado;
-    @XmlElement(namespace = "http://www.server.com/informe", required = true)
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
     protected String codigoTienda;
+
+    /**
+     * Obtiene el valor de la propiedad idFiltro.
+     * 
+     */
+    public long getIdFiltro() {
+        return idFiltro;
+    }
+
+    /**
+     * Define el valor de la propiedad idFiltro.
+     * 
+     */
+    public void setIdFiltro(long value) {
+        this.idFiltro = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombreFiltro.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombreFiltro() {
+        return nombreFiltro;
+    }
+
+    /**
+     * Define el valor de la propiedad nombreFiltro.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombreFiltro(String value) {
+        this.nombreFiltro = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad idProducto.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getIdProducto() {
+    public String getIdProducto() {
         return idProducto;
     }
 
     /**
      * Define el valor de la propiedad idProducto.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdProducto(long value) {
+    public void setIdProducto(String value) {
         this.idProducto = value;
     }
 
@@ -85,10 +137,10 @@ public class OrdenesCompraRequest {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaDesde() {
+    public String getFechaDesde() {
         return fechaDesde;
     }
 
@@ -97,10 +149,10 @@ public class OrdenesCompraRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaDesde(XMLGregorianCalendar value) {
+    public void setFechaDesde(String value) {
         this.fechaDesde = value;
     }
 
@@ -109,10 +161,10 @@ public class OrdenesCompraRequest {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaHasta() {
+    public String getFechaHasta() {
         return fechaHasta;
     }
 
@@ -121,10 +173,10 @@ public class OrdenesCompraRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaHasta(XMLGregorianCalendar value) {
+    public void setFechaHasta(String value) {
         this.fechaHasta = value;
     }
 

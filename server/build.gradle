@@ -38,7 +38,7 @@ sourceSets {
 task genJaxb {
     ext.sourcesDir = "build/generated-sources/jaxb" 
     ext.schemaDir = "src/main/resources/xsd"         
-    ext.schemas = ["Usuario.xsd", "Catalogo.xsd", "Informe.xsd"]
+    ext.schemas = ["Usuario.xsd", "Catalogo.xsd", "Informe.xsd", "Filtro.xsd"]
 
     outputs.dir sourcesDir
 

@@ -6,7 +6,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2024.10.26 a las 07:19:24 PM ART 
+Generado el: 2024.10.27 a las 01:57:47 AM ART 
 
   -->
       
@@ -191,6 +191,52 @@ Generado el: 2024.10.26 a las 07:19:24 PM ART
         <bindings if-exists="true" scd="tns:OrdenesCompraRequest">
                   
             <class ref="com.cliente_soap.wsdl.OrdenesCompraRequest"/>
+                
+        </bindings>
+          
+    </bindings>
+      
+    <bindings xmlns:tns="http://www.server.com/filtro" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.cliente_soap.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:TraerFiltrosResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerFiltrosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearFiltroRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.CrearFiltroRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:CrearFiltroResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.CrearFiltroResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EditarFiltroRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.EditarFiltroRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EditarFiltroResponse">
+                  
+            <class ref="com.cliente_soap.wsdl.EditarFiltroResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:TraerFiltrosRequest">
+                  
+            <class ref="com.cliente_soap.wsdl.TraerFiltrosRequest"/>
                 
         </bindings>
           

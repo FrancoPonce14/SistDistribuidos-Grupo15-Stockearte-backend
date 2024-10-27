@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import com.cliente_soap.service.CatalogoService;
+import com.cliente_soap.service.FiltroService;
 import com.cliente_soap.service.InformeService;
 import com.cliente_soap.service.UsuarioService;
 
@@ -41,6 +42,16 @@ public class SoapConfig {
     @Bean
     public InformeService getSoapClientInforme(Jaxb2Marshaller marshaller){
         InformeService soapClient = new InformeService();
+        soapClient.setDefaultUri("http://localhost:8000/ws");
+        soapClient.setMarshaller(marshaller);
+        soapClient.setUnmarshaller(marshaller);
+
+        return soapClient;
+    }
+
+    @Bean
+    public FiltroService getSoapClientFiltro(Jaxb2Marshaller marshaller){
+        FiltroService soapClient = new FiltroService();
         soapClient.setDefaultUri("http://localhost:8000/ws");
         soapClient.setMarshaller(marshaller);
         soapClient.setUnmarshaller(marshaller);

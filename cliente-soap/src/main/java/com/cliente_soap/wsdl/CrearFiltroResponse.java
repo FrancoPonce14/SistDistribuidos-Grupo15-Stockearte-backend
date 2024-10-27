@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="idCatalogo" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,15 +36,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "mensaje",
-    "idCatalogo"
+    "mensaje"
 })
-@XmlRootElement(name = "CrearCatalogoResponse")
-public class CrearCatalogoResponse {
+@XmlRootElement(name = "CrearFiltroResponse", namespace = "http://www.server.com/filtro")
+public class CrearFiltroResponse {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.server.com/filtro", required = true)
     protected String mensaje;
-    protected long idCatalogo;
 
     /**
      * Obtiene el valor de la propiedad mensaje.
@@ -69,22 +66,6 @@ public class CrearCatalogoResponse {
      */
     public void setMensaje(String value) {
         this.mensaje = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idCatalogo.
-     * 
-     */
-    public long getIdCatalogo() {
-        return idCatalogo;
-    }
-
-    /**
-     * Define el valor de la propiedad idCatalogo.
-     * 
-     */
-    public void setIdCatalogo(long value) {
-        this.idCatalogo = value;
     }
 
 }

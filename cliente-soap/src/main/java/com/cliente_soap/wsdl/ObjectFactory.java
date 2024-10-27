@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2024.10.26 a las 07:19:24 PM ART 
+// Generado el: 2024.10.27 a las 01:57:47 AM ART 
 //
 
 
@@ -82,6 +82,14 @@ public class ObjectFactory {
      */
     public OrdenesCompraResponse createOrdenesCompraResponse() {
         return new OrdenesCompraResponse();
+    }
+
+    /**
+     * Create an instance of {@link TraerFiltrosResponse }
+     * 
+     */
+    public TraerFiltrosResponse createTraerFiltrosResponse() {
+        return new TraerFiltrosResponse();
     }
 
     /**
@@ -290,6 +298,54 @@ public class ObjectFactory {
      */
     public OrdenesCompraResponse.Orden createOrdenesCompraResponseOrden() {
         return new OrdenesCompraResponse.Orden();
+    }
+
+    /**
+     * Create an instance of {@link CrearFiltroRequest }
+     * 
+     */
+    public CrearFiltroRequest createCrearFiltroRequest() {
+        return new CrearFiltroRequest();
+    }
+
+    /**
+     * Create an instance of {@link CrearFiltroResponse }
+     * 
+     */
+    public CrearFiltroResponse createCrearFiltroResponse() {
+        return new CrearFiltroResponse();
+    }
+
+    /**
+     * Create an instance of {@link EditarFiltroRequest }
+     * 
+     */
+    public EditarFiltroRequest createEditarFiltroRequest() {
+        return new EditarFiltroRequest();
+    }
+
+    /**
+     * Create an instance of {@link EditarFiltroResponse }
+     * 
+     */
+    public EditarFiltroResponse createEditarFiltroResponse() {
+        return new EditarFiltroResponse();
+    }
+
+    /**
+     * Create an instance of {@link TraerFiltrosRequest }
+     * 
+     */
+    public TraerFiltrosRequest createTraerFiltrosRequest() {
+        return new TraerFiltrosRequest();
+    }
+
+    /**
+     * Create an instance of {@link TraerFiltrosResponse.Filtro }
+     * 
+     */
+    public TraerFiltrosResponse.Filtro createTraerFiltrosResponseFiltro() {
+        return new TraerFiltrosResponse.Filtro();
     }
 
     /**

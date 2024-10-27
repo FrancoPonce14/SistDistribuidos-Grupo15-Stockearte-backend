@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.server.com/filtro"
+           targetNamespace="http://www.server.com/filtro" elementFormDefault="qualified">
+
+    <xs:element name="CrearFiltroRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuario" type="xs:long"/>
+                <xs:element name="nombreFiltro" type="xs:string"/>
+                <xs:element name="idProducto" type="xs:string"/>
+                <xs:element name="fechaDesde" type="xs:string"/>
+                <xs:element name="fechaHasta" type="xs:string"/>
+                <xs:element name="estado" type="xs:string"/>
+                <xs:element name="codigoTienda" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CrearFiltroResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EditarFiltroRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idFiltro" type="xs:long"/>
+                <xs:element name="nombreFiltro" type="xs:string"/>
+                <xs:element name="idProducto" type="xs:string"/>
+                <xs:element name="fechaDesde" type="xs:string"/>
+                <xs:element name="fechaHasta" type="xs:string"/>
+                <xs:element name="estado" type="xs:string"/>
+                <xs:element name="codigoTienda" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EditarFiltroResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerFiltrosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuario" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TraerFiltrosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="filtro" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idFiltro" type="xs:long"/>
+                            <xs:element name="nombreFiltro" type="xs:string"/>
+                            <xs:element name="idProducto" type="xs:string"/>
+                            <xs:element name="fechaDesde" type="xs:string"/>
+                            <xs:element name="fechaHasta" type="xs:string"/>
+                            <xs:element name="estado" type="xs:string"/>
+                            <xs:element name="codigoTienda" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
