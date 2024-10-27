@@ -28,6 +28,8 @@ import com.cliente_soap.wsdl.TraerProductosAsignadosRequest;
 import com.cliente_soap.wsdl.TraerProductosAsignadosResponse;
 import com.cliente_soap.wsdl.TraerProductosNoAsignadosRequest;
 import com.cliente_soap.wsdl.TraerProductosNoAsignadosResponse;
+import com.cliente_soap.wsdl.EliminarCatalogoRequest;
+import com.cliente_soap.wsdl.EliminarCatalogoResponse;
 
 @RestController
 @RequestMapping("/api/catalogos")
@@ -40,6 +42,12 @@ public class CatalogoController {
     @PostMapping("/crear")
     public ResponseEntity<CrearCatalogoResponse> crearCatalogo(@RequestBody CrearCatalogoRequest request) {
         CrearCatalogoResponse response = catalogoService.crearCatalogo(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/eliminar")
+    public ResponseEntity<EliminarCatalogoResponse> eliminarCatalogo(@RequestBody EliminarCatalogoRequest request) {
+        EliminarCatalogoResponse response = catalogoService.eliminarCatalogo(request);
         return ResponseEntity.ok(response);
     }
 

@@ -22,6 +22,8 @@ import com.cliente_soap.wsdl.TraerProductosAsignadosRequest;
 import com.cliente_soap.wsdl.TraerProductosAsignadosResponse;
 import com.cliente_soap.wsdl.TraerProductosNoAsignadosRequest;
 import com.cliente_soap.wsdl.TraerProductosNoAsignadosResponse;
+import com.cliente_soap.wsdl.EliminarCatalogoRequest;
+import com.cliente_soap.wsdl.EliminarCatalogoResponse;
 
 public class CatalogoService extends WebServiceGatewaySupport {
 
@@ -30,6 +32,10 @@ public class CatalogoService extends WebServiceGatewaySupport {
 
     public CrearCatalogoResponse crearCatalogo(CrearCatalogoRequest request) {
         return (CrearCatalogoResponse) getWebServiceTemplate().marshalSendAndReceive(url, request, new SoapActionCallback("http://www.server.com/catalogo/CrearCatalogo"));
+    }
+
+    public EliminarCatalogoResponse eliminarCatalogo(EliminarCatalogoRequest request) {
+        return (EliminarCatalogoResponse) getWebServiceTemplate().marshalSendAndReceive(url, request, new SoapActionCallback("http://www.server.com/catalogo/EliminarCatalogo"));
     }
 
     public EditarCatalogoResponse editarCatalogo(EditarCatalogoRequest request) {

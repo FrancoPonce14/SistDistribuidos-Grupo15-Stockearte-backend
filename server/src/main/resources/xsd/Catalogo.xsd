@@ -211,4 +211,19 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:element name="EliminarCatalogoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCatalogo" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EliminarCatalogoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

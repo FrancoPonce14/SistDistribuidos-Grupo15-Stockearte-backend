@@ -30,6 +30,8 @@ import com.server.catalogo.TraerProductosAsignadosRequest;
 import com.server.catalogo.TraerProductosAsignadosResponse;
 import com.server.catalogo.TraerProductosNoAsignadosRequest;
 import com.server.catalogo.TraerProductosNoAsignadosResponse;
+import com.server.catalogo.EliminarCatalogoRequest;
+import com.server.catalogo.EliminarCatalogoResponse;
 import com.server.soap.service.SPcatalogoService;
 
 @Endpoint
@@ -46,6 +48,14 @@ public class Catalogo {
         CrearCatalogoResponse response = catalogoService.crearCatalogo(request.getValue());
         return new JAXBElement<>(new QName(NAMESPACE_URI, "CrearCatalogoResponse"),
                 CrearCatalogoResponse.class, response);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EliminarCatalogoRequest")
+    @ResponsePayload
+    public JAXBElement<EliminarCatalogoResponse> EliminarCatalogo(@RequestPayload JAXBElement<EliminarCatalogoRequest> request) {
+        EliminarCatalogoResponse response = catalogoService.eliminarCatalogo(request.getValue());
+        return new JAXBElement<>(new QName(NAMESPACE_URI, "EliminarCatalogoResponse"),
+                EliminarCatalogoResponse.class, response);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EditarCatalogoRequest")

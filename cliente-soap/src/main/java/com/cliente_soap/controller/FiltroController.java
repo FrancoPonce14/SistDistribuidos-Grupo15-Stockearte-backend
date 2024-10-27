@@ -16,6 +16,8 @@ import com.cliente_soap.wsdl.EditarFiltroRequest;
 import com.cliente_soap.wsdl.EditarFiltroResponse;
 import com.cliente_soap.wsdl.TraerFiltrosRequest;
 import com.cliente_soap.wsdl.TraerFiltrosResponse;
+import com.cliente_soap.wsdl.EliminarFiltroRequest;
+import com.cliente_soap.wsdl.EliminarFiltroResponse;
 
 @RestController
 @RequestMapping("/api/filtros")
@@ -28,6 +30,12 @@ public class FiltroController {
     @PostMapping("/crear")
     public ResponseEntity<CrearFiltroResponse> crearFiltro(@RequestBody CrearFiltroRequest request) {
         CrearFiltroResponse response = filtroService.crearFiltro(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/eliminar")
+    public ResponseEntity<EliminarFiltroResponse> eliminarFiltro(@RequestBody EliminarFiltroRequest request) {
+        EliminarFiltroResponse response = filtroService.eliminarFiltro(request);
         return ResponseEntity.ok(response);
     }
 

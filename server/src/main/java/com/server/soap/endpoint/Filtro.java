@@ -15,6 +15,8 @@ import com.server.filtro.EditarFiltroRequest;
 import com.server.filtro.EditarFiltroResponse;
 import com.server.filtro.TraerFiltrosRequest;
 import com.server.filtro.TraerFiltrosResponse;
+import com.server.filtro.EliminarFiltroResponse;
+import com.server.filtro.EliminarFiltroRequest;
 import com.server.soap.service.SPfiltroService;
 
 @Endpoint
@@ -31,6 +33,14 @@ public class Filtro {
         CrearFiltroResponse response = filtroService.crearFiltro(request.getValue());
         return new JAXBElement<>(new QName(NAMESPACE_URI, "CrearFiltroResponse"),
                 CrearFiltroResponse.class, response);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EliminarFiltroRequest")
+    @ResponsePayload
+    public JAXBElement<EliminarFiltroResponse> EliminarFiltro(@RequestPayload JAXBElement<EliminarFiltroRequest> request) {
+        EliminarFiltroResponse response = filtroService.eliminarFiltro(request.getValue());
+        return new JAXBElement<>(new QName(NAMESPACE_URI, "EliminarFiltroResponse"),
+                EliminarFiltroResponse.class, response);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EditarFiltroRequest")

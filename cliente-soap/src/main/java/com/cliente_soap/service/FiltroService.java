@@ -10,6 +10,8 @@ import com.cliente_soap.wsdl.EditarFiltroRequest;
 import com.cliente_soap.wsdl.EditarFiltroResponse;
 import com.cliente_soap.wsdl.TraerFiltrosRequest;
 import com.cliente_soap.wsdl.TraerFiltrosResponse;
+import com.cliente_soap.wsdl.EliminarFiltroResponse;
+import com.cliente_soap.wsdl.EliminarFiltroRequest;
 
 public class FiltroService extends WebServiceGatewaySupport {
 
@@ -18,6 +20,10 @@ public class FiltroService extends WebServiceGatewaySupport {
 
     public CrearFiltroResponse crearFiltro(CrearFiltroRequest request) {
         return (CrearFiltroResponse) getWebServiceTemplate().marshalSendAndReceive(url, request, new SoapActionCallback("http://www.server.com/filtro/CrearFiltro"));
+    }
+
+    public EliminarFiltroResponse eliminarFiltro(EliminarFiltroRequest request) {
+        return (EliminarFiltroResponse) getWebServiceTemplate().marshalSendAndReceive(url, request, new SoapActionCallback("http://www.server.com/filtro/EliminarFiltro"));
     }
 
     public EditarFiltroResponse editarFiltro(EditarFiltroRequest request) {

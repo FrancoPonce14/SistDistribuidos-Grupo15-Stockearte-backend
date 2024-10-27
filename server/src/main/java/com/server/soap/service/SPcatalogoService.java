@@ -31,6 +31,8 @@ import com.server.catalogo.TraerProductosAsignadosRequest;
 import com.server.catalogo.TraerProductosAsignadosResponse;
 import com.server.catalogo.TraerProductosNoAsignadosRequest;
 import com.server.catalogo.TraerProductosNoAsignadosResponse;
+import com.server.catalogo.EliminarCatalogoResponse;
+import com.server.catalogo.EliminarCatalogoRequest;
 import com.server.entities.Catalogo;
 import com.server.entities.Producto;
 import com.server.entities.Usuario;
@@ -64,6 +66,18 @@ public class SPcatalogoService {
         CrearCatalogoResponse response = new CrearCatalogoResponse();
         response.setMensaje("Catalogo creado!");
         response.setIdCatalogo(catalogo.getId());
+
+        return response;
+    }
+
+    public EliminarCatalogoResponse eliminarCatalogo(EliminarCatalogoRequest request){
+        Catalogo catalogo = catalogoRepository.findById(request.getIdCatalogo())
+                .orElseThrow(() -> new ServerException("Catalogo no encontrado", HttpStatus.BAD_REQUEST));
+
+        catalogoRepository.delete(catalogo);
+
+        EliminarCatalogoResponse response = new EliminarCatalogoResponse();
+        response.setMensaje("Catalogo eliminado!");
 
         return response;
     }

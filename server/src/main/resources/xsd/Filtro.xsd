@@ -73,4 +73,20 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="EliminarFiltroRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idFiltro" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EliminarFiltroResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

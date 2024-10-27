@@ -15,6 +15,8 @@ import com.server.filtro.EditarFiltroRequest;
 import com.server.filtro.EditarFiltroResponse;
 import com.server.filtro.TraerFiltrosRequest;
 import com.server.filtro.TraerFiltrosResponse;
+import com.server.filtro.EliminarFiltroResponse;
+import com.server.filtro.EliminarFiltroRequest;
 import com.server.repositories.IFiltroRepository;
 import com.server.repositories.IUsuarioRepository;
 
@@ -43,6 +45,18 @@ public class SPfiltroService {
 
         CrearFiltroResponse response = new CrearFiltroResponse();
         response.setMensaje("Filtro creado!");
+        return response;
+    }
+
+    public EliminarFiltroResponse eliminarFiltro(EliminarFiltroRequest request){
+        Filtro filtro = filtroRepository.findById(request.getIdFiltro())
+        .orElseThrow(() -> new ServerException("Filtro no encontrado", HttpStatus.BAD_REQUEST));
+
+        filtroRepository.delete(filtro);
+
+        EliminarFiltroResponse response = new EliminarFiltroResponse();
+        response.setMensaje("Filtro eliminado!");
+
         return response;
     }
 
