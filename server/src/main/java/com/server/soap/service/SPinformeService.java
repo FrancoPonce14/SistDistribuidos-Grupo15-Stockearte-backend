@@ -35,7 +35,7 @@ public class SPinformeService {
         String estado = request.getEstado().isEmpty() ? null : request.getEstado();
         String codigoTienda = request.getCodigoTienda().isEmpty() ? null : request.getCodigoTienda();
 
-        Page<OrdenCompra> ordenesCompra = ordenCompraRepository.findAll(idProducto, fechaDesde, fechaHasta, estado, codigoTienda, pageable);
+        Page<OrdenCompra> ordenesCompra = ordenCompraRepository.findAll((idProducto == 0) ? null : idProducto, fechaDesde, fechaHasta, estado, codigoTienda, pageable);
 
         OrdenesCompraResponse response = new OrdenesCompraResponse();
         List<OrdenesCompraResponse.Orden> ordenList = response.getOrden();
